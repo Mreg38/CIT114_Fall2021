@@ -9,14 +9,10 @@
 4. Bandwith for Video
 
 #### The Four Pillars of an IT Framework:
-1. Infrastructure
-    hardware and software that a network runs on
-2. Development
-    creation and maintanance of software applications
-3. Security
-    prevents unauthoraized access to assets either through hardware or software
-4. Data
-    information stored in various ways (ie video, word doc, web pages etc) can count as bothe hardware and software. software accesses data and hardware stores it.
+1. Infrastructure - hardware and software that a network runs on
+2. Development - creation and maintanance of software applications
+3. Security - prevents unauthoraized access to assets either through hardware or software
+4. Data - information stored in various ways (ie video, word doc, web pages etc) can count as bothe hardware and software. software accesses data and hardware stores it.
 
 #### Jobs Roles & Occupations
 - Computer and Information Research Scientists
@@ -30,11 +26,22 @@
 - Software Developers
 - Web Developers
 
-#### Computer Components
+#### Computer Components/Terminology
 - Motherboard
--	Central Processing Unit (CPU)
--	Random Access Memory (RAM)
--	Hard Drive
+- Central Processing Unit (CPU)
+- Random Access Memory (RAM)
+- Hard Drive
+- Expansion Cards:
+-- Graphic Cards (GPU)
+-- Audio Cards
+-- Networking Components
+- Cooling
+- Power Supply
+- Case
+- Input & Output Devices
+- Peripherals
+
+
 
 #### Motherboard form factors/sizes (Standard -> Smaller)
 - Standard-ATX
