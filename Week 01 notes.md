@@ -15,8 +15,8 @@
 4. Data
 
 #### Motherboard form factors/sizes (Normal to small
-•	Standard-ATX
-•	Micro-ATX
-•	Mini-ATX
-•	Nano-ATX
-•	Pico-ATX
+- Standard-ATX
+- Micro-ATX
+- Mini-ATX
+- Nano-ATX
+- Pico-ATX
