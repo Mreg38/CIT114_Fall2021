@@ -32,9 +32,9 @@
 - Random Access Memory (RAM)
 - Hard Drive
 - Expansion Cards:
-    -Graphic Cards (GPU)
-    -Audio Cards
-    -Networking Components
+    - Graphic Cards (GPU)
+    - Audio Cards
+    - Networking Components
 - Cooling
 - Power Supply
 - Case
