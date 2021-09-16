@@ -3,10 +3,10 @@
 ### Introduction to Information Technology
 
 #### Current and Future needs for IT specialist:
-1. Data overload
-2. Mobile and Wireless Usage
-3. Could Services
-4. Bandwith for Video
+1. Data overload - Being able to process large amounts of data
+2. Mobile and Wireless Usage - Working with smartphones, tablets and laptops using hotspots and other roaming ability devices
+3. Cloud Services - Many businesses no longer operate their own "server farms" and use third-party hosting platforms to maintain data
+4. Bandwith for Video - Video conferencing has become more popular so more network bandwidth is needed to support them
 
 #### The Four Pillars of an IT Framework:
 1. Infrastructure - hardware and software that a network runs on
@@ -30,20 +30,29 @@
 - Motherboard
 - Central Processing Unit (CPU)
 - Random Access Memory (RAM)
-- Hard Drive
+- Storage:
+    - Hard Disk Drive (HDD)
+    - Solid State Drive (SSD)
 - Expansion Cards:
     - Graphic Cards (GPU)
     - Audio Cards
     - Networking Components
-- Cooling
+    - TV Tuners
+    - USB Cards
+    - Video Capture
+- Cooling:
+    - Fan
+    - Heat Sink
+    - Liquid Cooling
 - Power Supply
 - Case
 - Input & Output Devices
-- Peripherals
+    - Keyboard
+    - Mouse
+    - Monitor
+    - Printer
 
-
-
-#### Motherboard form factors/sizes (Standard -> Smaller)
+#### Motherboard form factors/sizes
 - Standard-ATX
 - Micro-ATX
 - Mini-ATX
