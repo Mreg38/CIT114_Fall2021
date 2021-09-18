@@ -26,10 +26,13 @@
 - Software Developers - create the applications or systems that run on a computer or another device.
 - Web Developers - design and create websites.
 
+IT Professional - important to understand all aspects of computer components.
+Cloud computing - important to understand the components specifically related to the CPU, RAM, Storage, and Expansion Cards like Graphic Cards (GPU).
+
 #### Computer Components/Terminology
-- Motherboard
-- Central Processing Unit (CPU)
-- Random Access Memory (RAM)
+- Motherboard - main circuit board and is what connects other parts of the computer through integrated circuitry
+- Central Processing Unit (CPU) - primary componet of a computer that processes instructions. Runs OS and applications, constantly receiving input from the user or active program
+- Random Access Memory (RAM) - when a program is opened it gets loaded from the hard drive into the RAM. Reading from RAM is faster than reading from the drive allowing them to function without lag time. Can be more helpful to add RAM than upgrading CPU.
 - Storage:
     - Hard Disk Drive (HDD)
     - Solid State Drive (SSD)
