@@ -26,8 +26,8 @@
 - Software Developers - create the applications or systems that run on a computer or another device.
 - Web Developers - design and create websites.
 
-IT Professional - important to understand all aspects of computer components.
-Cloud computing - important to understand the components specifically related to the CPU, RAM, Storage, and Expansion Cards like Graphic Cards (GPU).
+- IT Professional - important to understand all aspects of computer components.
+- Cloud computing - important to understand the components specifically related to the CPU, RAM, Storage, and Expansion Cards like Graphic Cards (GPU).
 
 #### Computer Components/Terminology
 - Motherboard - main circuit board and is what connects other parts of the computer through integrated circuitry
