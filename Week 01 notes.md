@@ -2,6 +2,11 @@
 ## Here are some important thinkgs I learned in Week 1
 ### Introduction to Information Technology
 
+#### 3 primary pillars of responsibility for an IT department:
+1. IT governance: The combination of policies and processes that ensure IT systems are effectively run and in alignment with the organization’s needs.
+2. IT operations: The daily work of an IT department. This includes providing tech support, network maintenance, security testing and device management duties.
+3. Hardware and infrastructure: The physical components of IT infrastructure. This pillar of IT includes the setup and maintenance of equipment like routers, servers, phone systems and individual devices like laptops.
+
 #### Current and Future needs for IT specialist:
 1. Data overload - Being able to process large amounts of data
 2. Mobile and Wireless Usage - Working with smartphones, tablets and laptops using hotspots and other roaming ability devices
@@ -26,8 +31,19 @@
 - Software Developers - create the applications or systems that run on a computer or another device.
 - Web Developers - design and create websites.
 
+#### Important Skills and Knowledge:
 - IT Professional - important to understand all aspects of computer components.
 - Cloud computing - important to understand the components specifically related to the CPU, RAM, Storage, and Expansion Cards like Graphic Cards (GPU).
+
+- Candidates who are best suited for IT work are those who have strong communication skills.**
+- Have a level of empathy that allows them to see exactly what a client or co-worker is dealing with and calmly help them achieve their goal or solve a problem.
+- Able to break down a large problem or an end goal into multiple steps.
+- Positive attitude and passion for technology.
+
+#### Hardware vs. software
+- Hardware includes all the physical parts of a computer system.
+- Software encompasses all the data, application and programs stored electronically, like an operating system.
+How to find limitations, pros/cons of what should be upgraded with best cost to efficiency ratio?
 
 #### Computer Components/Terminology
 - Motherboard - main circuit board and is what connects other parts of the computer through integrated circuitry
