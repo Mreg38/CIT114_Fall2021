@@ -71,7 +71,7 @@
     - Monitor
     - Printer
 
-- BIOS - Basic Input/Output System - program pre-ihstalled on Windows-based computers to start up. CPU accesses the BIOS before OS is loaded. BIOS then checks hardware connections and locates all device. If everything is OK, BIOS loads the OS into the computer's memory and finishes the boot-up process.
+- BIOS (Basic Input/Output System) - program pre-ihstalled on Windows-based computers to start up. CPU accesses the BIOS before OS is loaded. BIOS then checks hardware connections and locates all device. If everything is OK, BIOS loads the OS into the computer's memory and finishes the boot-up process.
 
 #### Motherboard form factors/sizes:
 - Standard-ATX
