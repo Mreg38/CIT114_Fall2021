@@ -31,19 +31,19 @@
 - Software Developers - create the applications or systems that run on a computer or another device.
 - Web Developers - design and create websites.
 
-#### Important Skills and Knowledge:
+#### ***Important Skills and Knowledge:***
 - IT Professional - important to understand all aspects of computer components.
 - Cloud computing - important to understand the components specifically related to the CPU, RAM, Storage, and Expansion Cards like Graphic Cards (GPU).
 
-- Candidates who are best suited for IT work are those who have strong communication skills.**
+- Candidates who are best suited for IT work are those who have strong communication skills.
 - Have a level of empathy that allows them to see exactly what a client or co-worker is dealing with and calmly help them achieve their goal or solve a problem.
-- Able to break down a large problem or an end goal into multiple steps.
-- Positive attitude and passion for technology.
+- **Able to break down a large problem or an end goal into multiple steps.
+- Positive attitude and passion for technology.**
 
 #### Hardware vs. software:
 - Hardware includes all the physical parts of a computer system.
 - Software encompasses all the data, application and programs stored electronically, like an operating system.
-How to find limitations, pros/cons of what should be upgraded with best cost to efficiency ratio?
+**How to find limitations, pros/cons of what should be upgraded with best cost to efficiency ratio?**
 
 #### Computer Components/Terminology:
 - Motherboard - main circuit board and is what connects other parts of the computer through integrated circuitry
