@@ -31,12 +31,12 @@
 - Software Developers - create the applications or systems that run on a computer or another device.
 - Web Developers - design and create websites.
 
-### ***Important Skills and Knowledge:***
+#### ***Important Skills and Knowledge:***
 - IT Professional - important to understand all aspects of computer components.
 - Cloud computing - important to understand the components specifically related to the CPU, RAM, Storage, and Expansion Cards like Graphic Cards (GPU).
 - Candidates who are best suited for IT work are those who have:
     - Strong communication skills.
-    - Have a level of empathy that allows them to see exactly what a client or co-worker is dealing with and calmly help them achieve their goal or solve a problem.
+    - A level of empathy that allows them to see exactly what someone is dealing with and calmly help them achieve their goal or solve a problem.
     - **Able to break down a large problem or an end goal into multiple steps.**
     - **Positive attitude and passion for technology.**
 
