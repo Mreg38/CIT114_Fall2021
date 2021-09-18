@@ -46,9 +46,9 @@
 **How to find limitations, pros/cons of what should be upgraded with best cost to efficiency ratio?**
 
 #### Computer Components/Terminology:
-- Motherboard - main circuit board and is what connects other parts of the computer through integrated circuitry
-- Central Processing Unit (CPU) - primary componet of a computer that processes instructions. Runs OS and applications, constantly receiving input from the user or active program
-- Random Access Memory (RAM) - when a program is opened it gets loaded from the hard drive into the RAM. Reading from RAM is faster than reading from the drive allowing them to function without lag time. Can be more helpful to add RAM than upgrading CPU.
+- Motherboard - Main circuit board and is what connects other parts of the computer through integrated circuitry.
+- Central Processing Unit (CPU) - Primary componet of a computer that processes instructions. Runs OS and applications, constantly receiving input from the user or active program.
+- Random Access Memory (RAM) - When a program is opened it gets loaded from the hard drive into the RAM. Reading from RAM is faster than reading from the drive allowing them to function without lag time. Can be more helpful to add RAM than upgrading CPU.
 - Storage:
     - Hard Disk Drive (HDD)
     - Solid State Drive (SSD)
