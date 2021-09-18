@@ -40,12 +40,12 @@
 - Able to break down a large problem or an end goal into multiple steps.
 - Positive attitude and passion for technology.
 
-#### Hardware vs. software
+#### Hardware vs. software:
 - Hardware includes all the physical parts of a computer system.
 - Software encompasses all the data, application and programs stored electronically, like an operating system.
 How to find limitations, pros/cons of what should be upgraded with best cost to efficiency ratio?
 
-#### Computer Components/Terminology
+#### Computer Components/Terminology:
 - Motherboard - main circuit board and is what connects other parts of the computer through integrated circuitry
 - Central Processing Unit (CPU) - primary componet of a computer that processes instructions. Runs OS and applications, constantly receiving input from the user or active program
 - Random Access Memory (RAM) - when a program is opened it gets loaded from the hard drive into the RAM. Reading from RAM is faster than reading from the drive allowing them to function without lag time. Can be more helpful to add RAM than upgrading CPU.
@@ -73,7 +73,7 @@ How to find limitations, pros/cons of what should be upgraded with best cost to 
 
 - BIOS - Basic Input/Output System - program pre-ihstalled on Windows-based computers to start up. CPU accesses the BIOS before OS is loaded. BIOS then checks hardware connections and locates all device. If everything is OK, BIOS loads the OS into the computer's memory and finishes the boot-up process.
 
-#### Motherboard form factors/sizes
+#### Motherboard form factors/sizes:
 - Standard-ATX
 - Micro-ATX
 - Mini-ATX
