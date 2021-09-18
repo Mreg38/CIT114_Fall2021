@@ -15,16 +15,17 @@
 4. Data - information stored in various ways (ie video, word doc, web pages etc) can count as bothe hardware and software. software accesses data and hardware stores it.
 
 #### Jobs Roles & Occupations
-- Computer and Information Research Scientists
-- Computer Network Architects
-- Computer Programmers
-- Computer Support Specialists
-- Computer Systems Analysts
-- Database Administrators
-- Information Security Analysts
-- Network and Computer Systems Administrators
-- Software Developers
-- Web Developers
+- Computer and Information Research Scientists - Computer and information research scientists invent and design new approaches to computing technology and find innovative uses for existing technology.
+- Computer Network Architects - Computer and information research scientists invent and design new approaches to computing technology and find innovative uses for existing technology.
+Computer network architects design and build data communication networks, including local area networks (LANs), wide area networks (WANs), and Intranets.
+- Computer Programmers - Computer programmers write and test code that allows computer applications and software programs to function properly.
+- Computer Support Specialists - Computer support specialists provide help and advice to computer users and organizations.
+- Computer Systems Analysts - Computer systems analysts study an organization’s current computer systems and find a solution that is more efficient and effective.
+- Database Administrators - Database administrators (DBAs) use specialized software to store and organize data.
+- Information Security Analysts - Information security analysts plan and carry out security measures to protect an organization’s computer networks and systems.
+- Network and Computer Systems Administrators - Network and computer systems administrators are responsible for the day-to-day operation of computer networks.
+- Software Developers - Software developers create the applications or systems that run on a computer or another device.
+- Web Developers - Web developers design and create websites.
 
 #### Computer Components/Terminology
 - Motherboard
@@ -52,9 +53,12 @@
     - Monitor
     - Printer
 
+- BIOS - Basic Input/Output System - program pre-ihstalled on Windows-based computers to start up. CPU accesses the BIOS before OS is loaded. BIOS then checks hardware connections and locates all device. If everything is OK, BIOS loads the OS into the computer's memory and finishes the boot-up process.
+
 #### Motherboard form factors/sizes
 - Standard-ATX
 - Micro-ATX
 - Mini-ATX
 - Nano-ATX
 - Pico-ATX
+
