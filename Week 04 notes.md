@@ -12,6 +12,7 @@
 2. Storage
 3. Outbound data transfer
 
+How to deal with those cost drivers:
 - Start early with cost optimization
 - Maximize the power of flexiblity
 - Use the right pricing model for the job
