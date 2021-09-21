@@ -25,6 +25,7 @@
 
 #### Free Tier of Service
 |Resource|Description|
+|:---|:---|
 |AWS Credits|$25 in credits for your normal AWS account, if requested|
 |AWS Educate|$100 in credits for a starter account and access to classrooms with additional credits|
 |AWS Training|Access to AWS Technical Essentials Training Course and free access to labs|
