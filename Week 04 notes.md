@@ -8,9 +8,9 @@
 
 #### Key Principles of Pricing
 3 Fundamental drivers of cost with AWS:
-   - Compute
-   - Storage
-   - Outbound data transfer
+  - Compute
+  - Storage
+  - Outbound data transfer
 - Start early with cost optimization
 - Maximize the power of flexiblity
 - Use the right pricing model for the job
