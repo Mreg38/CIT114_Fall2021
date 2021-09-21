@@ -40,7 +40,7 @@
 - Automatic Scalling 
 - AWS OpsWorks
 
-####IT Infrastructure
+#### IT Infrastructure
 - Components of IT infrastructure
   - Hardware
   - Software
