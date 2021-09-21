@@ -63,6 +63,17 @@ A formula that assess direct and indirect costs and benefits related to the purc
   - Value of agility (including time-to-market)
   - Value of avoiding future capital expenditures
   - Cost of risk around compliance issues
+- Components of Total Cost for Technology
+  - Hardware acquisition
+  - Software acquisition
+  - Infrastructure
+  - Downtime
+  - Installation
+  - Maintenance
+  - Training
+  - Support
+  - Space
+  - Electricity
 
 
 
