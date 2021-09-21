@@ -1,5 +1,5 @@
 # CIT 114 Week 4
-## Here are some important thinkgs I learned in Week 4
+## Here are some important things I learned in Week 4
 ### Cloud Economics, Billing & Support
 
 #### Amazon Web Services (AWS)
@@ -55,3 +55,14 @@ A formula that assess direct and indirect costs and benefits related to the purc
   - TCO is domain- or enterprise-dependent
   - Real benefit is ability to react to changing business needs
   - We have to consider our existing investments!
+- Defining our own TCO model
+  - Existing infrastructure
+  - Existiing skills and humans
+  - Difference in costs, pre-cloud to post-cloud
+  - Cost of cloud services whein in operations
+  - Value of agility (including time-to-market)
+  - Value of avoiding future capital expenditures
+  - Cost of risk around compliance issues
+
+
+
