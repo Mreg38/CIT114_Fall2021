@@ -14,9 +14,9 @@
 
 
 
-- Start early with cost optimization
-- Maximize the power of flexiblity
-- Use the right pricing model for the job
+-- Start early with cost optimization
+-- Maximize the power of flexiblity
+-- Use the right pricing model for the job
 
 #### The right pricing model for the job
 - On Demand: pay for tcompute or database capacity with no long-term commitments or upfront payments
