@@ -91,4 +91,27 @@ A formula that assess direct and indirect costs and benefits related to the purc
 3. Create service control policies
 4. Test restrictions
 
+#### Support Plan Features & Prices
+4 levels of support plans
+1. Basic Support Plan
+The Basic plan costs nothing and provides limited support.
+- 24/7 access to customer service, documentation, white papers and white papers and support forums.
+- Access to six core Trusted Advisor checks.
+- Access to the Personal Health Dashboard.
+2. Developer Support Plan
+Offers resources for customers testing or doing early development on AWS, as well as any customers who:
+- Want access to guidance and technical support.
+- Are exploring how to quickly put AWS to work.
+- Who use AWS for non-production workloads or applications.
+3. Business Support Plan
+Offers resources for customers running production workloads on AWS as well as any customers who:
+- Run one or more applications in production environments.
+- Have multiple services activated, or use key services extensively.
+- Depend on their business solutions to be available, scalable and secure.
+4. Enterprise Support Plan
+Offers resources for customers running business and mission-critical workloads on AWS, as well as customers who want to:
+- Focus on proactive management to increase efficiency and availability.
+- Build and operate workloads following AWS best practices.
+- Leverage AWS expertise to support launches and migrations.
+- Use a Technical Account Manager to provide technical expertise for the full range of AWS services and obtain a detailed understanding of your use case and technology architecture. The Technical Account Manager is the primary point of contact for ongoing needs.
 
