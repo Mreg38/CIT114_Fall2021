@@ -12,6 +12,7 @@
 - Storage
 - Outbound data transfer
 
+
 - Start early with cost optimization
 - Maximize the power of flexiblity
 - Use the right pricing model for the job
