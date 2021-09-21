@@ -75,5 +75,20 @@ A formula that assess direct and indirect costs and benefits related to the purc
   - Space
   - Electricity
 
+#### AWS Organizations: Terminology
+- Organization: Entity created to consolidate AWS accounts.
+- Root: Parent container for all the accounts for your organization.
+- Organization unit (OU): A container for accounts within a root. Can containother OUs, enabing you to create a hierarchy that looks like an upside-down tree.
+- Accounts: A standard AWS account that contains your AWS resources. You can attach a policy to an account to apply control  ton only that one account.
+  - Master account: Account that creates the organization.
+  - Member account: The rest of the accounts that belong to an organization. Can only be a member of one organization at a time.
+- Invitation: Process of asking another account to join your organization. Can only be issued by the organization's master account.
+- Handshake: Multi-step process of exchanging information between two parties.
+
+#### Steps to Create an Organization
+1. Create organization
+2. Create organizational units
+3. Create service control policies
+4. Test restrictions
 
 
