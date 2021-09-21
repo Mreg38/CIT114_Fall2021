@@ -29,8 +29,8 @@
 |AWS Credits|$25 in credits for your normal AWS account, if requested|
 |AWS Educate|$100 in credits for a starter account and access to classrooms with additional credits|
 |AWS Training|Access to AWS Technical Essentials Training Course and free access to labs|
-|Content|- Ability to select personalized learning pathway with 30+ hours of content per path - Earn digital badges that showcase cloud skills - Free access to AWS content for homework, labs or self-study|
-|Collaboration|- Student Portal access - Student Portfolio to store developed projects in one place - Access to the AWS Job Board and job postings|
+|Content|Ability to select personalized learning pathway with 30+ hours of content per path | | Earn digital badges that showcase cloud skills | | Free access to AWS content for homework, labs or self-study|
+|Collaboration|Student Portal access | | Student Portfolio to store developed projects in one place | | Access to the AWS Job Board and job postings|
 
 #### AWS Services with no charge
 - Amazon Virtual Private Cloud (Amazon VPC) AWS Identify and Access Management (IAM)
