@@ -11,11 +11,13 @@
 - Compute
 - Storage
 - Outbound data transfer
-```
+
+
+
 - Start early with cost optimization
 - Maximize the power of flexiblity
 - Use the right pricing model for the job
-```
+
 #### The right pricing model for the job
 - On Demand: pay for tcompute or database capacity with no long-term commitments or upfront payments
 - Dedicated Instances (available with Amazon [Elastic Compute Cloud](https://aws.amazon.com/ec2/?ec2-whats-new.sort-by=item.additionalFields.postDateTime&ec2-whats-new.sort-order=desc)): (Amazon EC2) run in a virtual private cloud (VPC) on hardware that's dedicated to a single customer.
