@@ -59,6 +59,8 @@ Common measurable beneﬁts to cloud consumers include:
 
 Increased Scalability
 
+By providing pools of IT resources, along with tools and technologies designed to leverage them collectively, clouds can instantly and dynamically allocate IT resources to cloud consumers, on-demand or via the cloud consumer's direct conﬁguration.
+
 Increased Availability and Reliability
 
 A hallmark of the typical cloud environment is its intrinsic ability to provide extensive support for increasing the availability of a cloud-based IT resource to minimize or even eliminate outages, and for increasing its reliability so as to minimize the impact of runtime failure conditions.
@@ -66,7 +68,14 @@ Specifically:
   * An IT resource with increased availability is accessible for longer periods of time (for example, 22 hours out of a 24 hour day). Cloud providers generally offer "resilient" IT resources for which they are able to guarantee high levels of availability.
   * An IT resource with increased reliability is able to better avoid and recover from exception conditions. The modular architecture of cloud environments provides extensive failover support that increases reliability.
 
+#### From Google's Perspective
 
+1. Cloud computing is user-centric
+2. Cloud computing is task-centric
+3. Cloud computing is powerful
+4. Cloud computing is accessible
+5. Cloud computing is intelligent
+6. Cloud computing is programmable
 
 
 
