@@ -84,5 +84,62 @@ How IAM Determines Permissions
    *	If yes, the request is allowed and the request continues to the service
    *	If no, the request receives an implicit deny and the process ends
 
+Features of IAM:
+  * Shared access to your AWS account - You can grant other people permission to administer and use resources in your AWS account without having to share your password or access key
+  * Granular permissions - You can grant different permissions to different people for different resources
+  * Secure access to AWS resources for applications that run on Amazon EC2 - You can use IAM features to securely provide credentials for applications that run on EC2 instances. These credentials provide permissions for your application to access other AWS resources
+  *	Multi-factor authentication (MFA) - You can add two-factor authentication to your account and to individual users for extra security
+  *	Identity federation - You can allow users who already have passwords elsewhere—for example, in your corporate network or with an internet identity provider—to get temporary access to your AWS account
+  *	Identity information for assurance - If you use AWS CloudTrail  (Links to an external site.), you receive log records that include information about those who made requests for resources in your account
+  *	PCI DSS Compliance - IAM supports the processing, storage, and transmission of credit card data by a merchant or service provider, and has been validated as being compliant with Payment Card Industry (PCI) Data Security Standard (DSS)
+  *	Integrated with many AWS services
+  *	Eventually Consistent - IAM, like many other AWS services, is eventually consistent  (Links to an external site.). IAM achieves high availability by replicating data across multiple servers within Amazon's data centers around the world. If a request to change some data is successful, the change is committed and safely stored
+  *	Free to use - AWS Identity and Access Management (IAM) and AWS Security Token Service (AWS STS) are features of your AWS account offered at no additional charge. You are charged only when you access other AWS services using your IAM users or AWS STS temporary security credentials
 
+#### Essential Elements of IAM
+
+IAM User
+
+An IAM user can be assigned either:
+  * Programmatic access via the AWS Command Line Interface (CLI) or AWS Software Development Kit (SDK) 
+  * AWS Management Console access via IAM were a 12 digit Account ID, IAM Username, and IAM Password are assigned with optional multi-factor authentication (MFA).
+
+IAM Group
+
+Some important characteristics of IAM groups include:
+  * A group can contain many users, and a user can belong to multiple groups.
+  * Groups cannot be nested. A group can contain only users, and a group cannot contain other groups.
+  * There is no default group that automatically includes all users in the AWS account. If you want to have a group with all account users in it, you need to create the group and add each new user to it.
+
+IAM Policy - a document that defines permissions to determine what users can do in the AWS account. A policy typically grants access to specific resources and specifies what the user can do with those resources. Policies can also explicitly deny access
+
+IAM Role - a tool for granting temporary access to specific AWS resources in an AWS account. An IAM role is similar to an IAM user because it is also an AWS identity that you can attach permissions policies to, and those permissions determine what the identity can and cannot do in AWS
+
+#### Four Ways to use IAM
+
+You can work with AWS Identity and Access Management in any of the following ways
+
+AWS Management Console:
+
+The console is a browser-based interface to manage IAM and AWS resources. For more information about accessing IAM through the console
+
+AWS Command Line Tools:
+
+You can use the AWS command line tools to issue commands at your system's command line to perform IAM and AWS tasks. Using the command line can be faster and more convenient than the console. The command line tools are also useful if you want to build scripts that perform AWS tasks. AWS provides two sets of command line tools: the AWS Command Line Interface (AWS CLI) and the AWS Tools for Windows PowerShell
+
+AWS SDKs:
+
+AWS provides SDKs (software development kits) that consist of libraries and sample code for various programming languages and platforms (Java, Python, Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to IAM and AWS
+
+IAM HTTPS API:
+
+You can access IAM and AWS programmatically by using the IAM HTTPS API, which lets you issue HTTPS requests directly to the service. When you use the HTTPS API, you must include code to digitally sign requests using your credentials
+
+#### Security Services
+
+  * AWS Service Catalog - allows organizations to create and manage catalogs of IT services that are approved for use on AWS. These IT services can include everything from virtual machine images, servers, software, and databases to complete multi-tier application architectures.
+  * AWS Web Application Firewall (WAF) - helps protect your web applications or APIs against common web exploits that may affect availability, compromise security, or consume excessive resources. This differs from AWS Shield in that it operates on application layer (Layer 7) of the OSI model and protects against attacks such as SQL injection or cross-site scripting.
+  * Amazon Macie - is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. It can help you proactively identify and protect personally identifiable information (PII) and know when it moves.
+  * Amazon Inspector - is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices. It can help you validate you are adhering to standards.
+  * Amazon GuardDuty - is an intelligent threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads.
 
