@@ -38,9 +38,37 @@ IT resource - a physical or virtual IT-related artifact that can be either softw
 On-Premise - a way of stating "on the premises of a controlled IT environment that is not cloud-based." This term is used to qualify an IT resource as an alternative to "cloud-based." An IT resource that is on-premise cannot be cloud-based, and vice-versa.
 
 Scaling - the ability of the IT resource to handle increased or decreased usage demands.
+
 The following are types of scaling:
-  * Horizontal Scaling - scaling out and scaling in
-  * Vertical Scaling - scaling up and scaling down
+  * Horizontal Scaling - scaling out and scaling in (allocating or releasing of IT resources that are of the same type is referred to as horizontal scaling)
+  * Vertical Scaling - scaling up and scaling down (existing IT resource is replaced by another with higher or lower capacity, vertical scaling)
+
+Cloud Service - is any IT resource that is made remotely accessible via a cloud. Unlike other IT fields that fall under the service technology umbrella - such as service-oriented architecture - the term "service" within the context of cloud computing is especially broad
+
+Cloud service consumer - a temporary runtime role assumed by a software program when it accesses a cloud service.
+
+#### Goals and Benefits
+
+Reduced Investments and Proportional Costs
+
+Common measurable beneﬁts to cloud consumers include:
+  * On-demand access to pay-as-you-go computing resources on a short-term basis (such as processors by the hour), and the ability to release these computing resources when they are no longer needed.
+  * The perception of having unlimited computing resources that are available on demand, thereby reducing the need to prepare for provisioning.
+  * The ability to add or remove IT resources at a ﬁne-grained level, such as modifying available storage disk space by single gigabyte increments.
+  * Abstraction of the infrastructure so applications are not locked into devices or locations and can be easily moved if needed.
+
+Increased Scalability
+
+Increased Availability and Reliability
+
+A hallmark of the typical cloud environment is its intrinsic ability to provide extensive support for increasing the availability of a cloud-based IT resource to minimize or even eliminate outages, and for increasing its reliability so as to minimize the impact of runtime failure conditions.
+Specifically:
+  * An IT resource with increased availability is accessible for longer periods of time (for example, 22 hours out of a 24 hour day). Cloud providers generally offer "resilient" IT resources for which they are able to guarantee high levels of availability.
+  * An IT resource with increased reliability is able to better avoid and recover from exception conditions. The modular architecture of cloud environments provides extensive failover support that increases reliability.
+
+
+
+
 
 
 
