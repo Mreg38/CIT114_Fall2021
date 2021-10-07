@@ -78,11 +78,11 @@ How IAM Determines Permissions
 
 1.	A request is made to IAM to access a service.
 2.	IAM checks if permission to the service is explicitly denied. 
-   1.	If yes, the request is denied and process ends
-   2.	If no, the request moves to the next check
+   *	If yes, the request is denied and process ends
+   *	If no, the request moves to the next check
 3.	IAM then checks if permission is explicitly allowed. 
-   1.	If yes, the request is allowed and the request continues to the service
-   2.	If no, the request receives an implicit deny and the process ends
+   *	If yes, the request is allowed and the request continues to the service
+   *	If no, the request receives an implicit deny and the process ends
 
 
 
