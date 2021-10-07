@@ -20,6 +20,7 @@ Terms to better understand the risks:
 their intentions are sometimes benign and motivated by curiosity, their actions are typically in violation of the intended use of the systems they are exploiting
   * Malicious code – Malicious code (also called malware) is unwanted files or programs that can cause harm to a computer or compromise data stored on a 
 computer. Various classifications of malicious code include viruses, worms, and Trojan horses
+      Malicious code may have the following characteristics:
       * It might require you to actually do something before it infects your computer. This action could be opening an email attachment or going to a particular webpage.
       * Some forms of malware propagate without user intervention and typically start by exploiting a software vulnerability. Once the victim computer has been infected, 
       the malware will attempt to find and infect other computers. This malware can also propagate via email, websites, or network-based software.
