@@ -9,7 +9,8 @@ If computers of the kind I have advocated become the computers of the future, th
 system is a public utility... The computer utility could become the basis of a new and important industry.
 
 #### Business Drivers
-Capacity planning - the process of determining and fulfilling future demands of an organization's IT resources, products, and services.
+Capacity planning:
+The process of determining and fulfilling future demands of an organization's IT resources, products, and services.
 
 Different capacity planning strategies exist:
   * Lead Strategy - adding capacity to an IT resource in anticipation of demand
@@ -25,5 +26,23 @@ Common forms of infrastructure-related operating overhead include the following:
   * utility bills and capital expense investments for power and cooling
   * security and access control measures that need to be maintained and enforced to protect infrastructure resources
   * administrative and accounts staff that may be required to keep track of licenses and support arrangements
+
+Organizational Agility:
+The measure of an organization's responsiveness to change.
+
+#### Concepts and Terminology
+Cloud - refers to a distinct IT environment that is designed for the purpose of remotely provisioning scalable and measured IT resources
+
+IT resource - a physical or virtual IT-related artifact that can be either software based, such as a virtual server or a custom software program, or hardware-based, such as a physical server or a network device
+
+On-Premise - a way of stating "on the premises of a controlled IT environment that is not cloud-based." This term is used to qualify an IT resource as an alternative to "cloud-based." An IT resource that is on-premise cannot be cloud-based, and vice-versa.
+
+Scaling - the ability of the IT resource to handle increased or decreased usage demands.
+The following are types of scaling:
+  * Horizontal Scaling - scaling out and scaling in
+  * Vertical Scaling - scaling up and scaling down
+
+
+
 
 
