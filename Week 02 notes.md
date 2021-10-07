@@ -77,8 +77,110 @@ Specifically:
 5. Cloud computing is intelligent
 6. Cloud computing is programmable
 
+#### Infrastructure as a Service (IaaS)
 
+Infrastructure as a service (IaaS) is an instant computing infrastructure, provisioned and managed over the Internet. Quickly scale up and down with demand, and pay only for what you use.
 
+Common Scenarios:
+  * Test and development
+  * Website hosting
+  * Storage, backup, and recovery
+  * Web apps
+  * High-performance computing
+  * Big data analysis
+
+Advantages of IAAS:
+  * Eliminates capital expense and reduces ongoing cost
+  * Improves business continuity and disaster recovery
+  * Innovate rapidly
+  * Respond quicker to shifting business conditions
+  * Focus on your core business
+  * Increase stability, reliability, and supportability
+  * Better security
+  * Gets new apps to users faster
+
+Infrastructure as a Service (IaaS) contains the basic building blocks for cloud IT and typically provides access to networking features, computers (virtual or on dedicated hardware), and data storage space. IaaS provides you with the highest level of flexibility and management control over your IT resources and is most similar to existing IT resources that many IT departments and developers are familiar with today.
+
+IaaS User/Enterprise Maintained:
+  * Application
+  * Data
+  * Runtime
+  * Middleware
+  * Operating System
+
+IaaS Provider Maintained:
+  * Virtualization
+  * Networking
+  * Storage
+  * Servers
+
+#### Platform as a Service (PaaS)
+
+Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications
+
+Common Scenarios:
+  * Development framework
+  * Analytics or business intelligence
+  * Additional services
+
+Advantages of PaaS:
+
+By delivering infrastructure as a service, PaaS offers the same advantages as IaaS. But its additional features—middleware, development tools, and other business tools—give you more advantages:
+  * Cut coding time
+  * Add development capabilities without adding staff
+  * Develop for multiple platforms—including mobile—more easily
+  * Use sophisticated tools affordably
+  * Support geographically distributed development teams
+  * Efficiently manage the application lifecycle
+
+Platform as a Service (PaaS) removes the need for your organization to manage the underlying infrastructure (usually hardware and operating systems) and allows you to focus on the deployment and management of your applications. This helps you be more efficient as you don’t need to worry about resource procurement, capacity planning, software maintenance, patching, or any of the other undifferentiated heavy lifting involved in running your application.
+
+PaaS User/Enterprise Maintained:
+  * Application
+  * Data
+PaaS Provider Maintained:
+  * Runtime
+  * Middleware
+  * Operating System
+  * Virtualization
+  * Networking
+  * Storage
+  * Servers
+
+#### Software as a Service (SaaS)
+
+Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365).
+
+Common Scenarios:
+Web-based email service such as Outlook, Hotmail, or Yahoo! Mail. With these services, you log into your account over the Internet, often from a web browser. The email software is located on the service provider’s network, and your messages are stored there as well. You can access your email and stored messages from a web browser on any computer or Internet-connected device.
+
+Advantages of SaaS:
+  * Gain access to sophisticated applications
+  * Pay only for what you use
+  * Use free client software
+  * Mobilize your workforce easily
+  * Access app data from anywhere
+
+Software as a Service (SaaS) provides you with a completed product that is run and managed by the service provider. In most cases, people referring to Software as a Service are referring to end-user applications. With a SaaS offering you do not have to think about how the service is maintained or how the underlying infrastructure is managed; you only need to think about how you will use that particular piece of software. A common example of a SaaS application is web-based email which you can use to send and receive email without having to manage feature additions to the email product or maintain the servers and operating systems that the email program is running on.
+
+SaaS Provider Maintained:
+  * Application
+  * Data
+  * Runtime
+  * Middleware
+  * Operating System
+  * Virtualization
+  * Networking
+  * Storage
+  * Servers
+
+#### Cloud Computing Deployment Models
+
+Cloud - A cloud-based application is fully deployed in the cloud and all parts of the application run in the cloud. Applications in the cloud have either been created in the cloud or have been migrated from an existing infrastructure to take advantage of the benefits of cloud computing.
+
+Hybrid - A hybrid deployment is a way to connect infrastructure and applications between cloud-based resources and existing resources that are not located in the cloud. The most common method of hybrid deployment is between the cloud and existing on-premises infrastructure to extend, and grow, an organization's infrastructure into the cloud while connecting cloud resources to the internal system.
+
+On-premises - The deployment of resources on-premises, using virtualization and resource management tools, is sometimes called the “private cloud.” On-premises deployment doesn’t provide many of the benefits of cloud computing but is sometimes sought for its ability to provide dedicated resources.
 
 
 
