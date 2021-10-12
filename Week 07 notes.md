@@ -1,6 +1,6 @@
-# CIT 114 Week 7 (Notes 05: Networking & Content Delivery)
-## Here are some important thinkgs I learned in Week 6
-### Cloud Security
+# CIT 114 Week 7
+## Here are some important thinkgs I learned in Week 7
+### Notes 05: Networking & Content Delivery
 
 #### What is a Network?
 
