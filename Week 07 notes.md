@@ -56,6 +56,7 @@ The CIDR address is expressed as follows:
    * Finally, a number that tells you how many bits of the routing prefix must be fixed or allocated for the network identifier
 
 ex: 192.0.2.0/24
+
 The last number (24) tells you that the first 24 bits must be fixed. The last 8 bits are flexible, which means that 28 (or 256) IP addresses are available for the network, which range from 192.0.2.0 to 192.0.2.255. The fourth decimal digit is allowed to change from 0 to 255.
 
 There are two special cases:
@@ -95,3 +96,57 @@ ARP is used by the Data Link Layer to identify the MAC address of the Receiverâ€
 
 RARP (Reverse Address Resolution Protocol) - provides the IP address of the device given a physical address as input. But RARP has
 become obsolete since the time DHCP has come into the picture.
+
+#### Understanding TCP/IP addressing and subnetting basics
+
+IP addresses: Networks and hosts
+
+IP address - is a 32-bit number that uniquely identifies a host (computer or other device, such as a printer or router) on a TCP/IP network.
+
+TCP/IP (Transmission Control Protocol/Internet Protocol) - a suite of communication protocols used to interconnect network devices on the internet. TCP/IP is also used as a communications protocol in a private computer network (an intranet or extranet).
+
+Subnet mask - used by the TCP/IP protocol to determine whether a host is on the local subnet or on a remote network.
+
+Network classes
+
+Internet addresses are allocated by the InterNIC, the organization that administers the Internet. These IP addresses are divided into classes. The most common of these are classes A, B, and C. Classes D and E exist, but are not generally used by end users. Each of the address classes has a different default subnet mask. You can identify the class of an IP address by looking at its first octet. Following are the ranges of Class A, B, and C Internet addresses, each with an example address:
+
+   * Class A networks use a default subnet mask of 255.0.0.0 and have 0-127 as their first octet. The address 10.52.36.11 is a class A address. Its first octet is 10, which is between 1 and 126, inclusive.
+   * Class B networks use a default subnet mask of 255.255.0.0 and have 128-191 as their first octet. The address 172.16.52.63 is a class B address. Its first octet is 172, which is between 128 and 191, inclusive.
+   * Class C networks use a default subnet mask of 255.255.255.0 and have 192-223 as their first octet. The address 192.168.123.132 is a class C address. Its first octet is 192, which is between 192 and 223, inclusive.
+
+Subnetting - the further dividing of a network (ex: A Class A, B, or C TCP/IP network)
+
+Glossary:
+   * Broadcast address -- An IP address with a host portion that is all ones.
+   * Host -- A computer or other device on a TCP/IP network.
+   * Internet -- The global collection of networks that are connected together and share a common range of IP addresses.
+   * InterNIC -- The organization responsible for administration of IP addresses on the Internet.
+   * IP -- The network protocol used for sending network packets over a TCP/IP network or the Internet.
+   * IP Address -- A unique 32-bit address for a host on a TCP/IP network or internetwork.
+   * Network -- There are two uses of the term network in this article. One is a group of computers on a single physical network segment; the other is an IP network address range that is allocated by a system administrator.
+   * Network address -- An IP address with a host portion that is all zeros.
+   * Octet -- An 8-bit number, 4 of which comprise a 32-bit IP address. They have a range of 00000000-11111111 that correspond to the decimal values 0- 255.
+   * Packet -- A unit of data passed over a TCP/IP network or wide area network.
+   * RFC (Request for Comment) -- A document used to define standards on the Internet.
+   * Router -- A device that passes network traffic between different IP networks.
+   * Subnet Mask -- A 32-bit number used to distinguish the network and host portions of an IP address.
+   * Subnet or Subnetwork -- A smaller network created by dividing a larger network into equal parts.
+   * TCP/IP -- Used broadly, the set of protocols, standards and utilities commonly used on the Internet and large networks.
+   * Wide area network (WAN) -- A large network that is a collection of smaller networks separated by routers. The Internet is an example of a very large WAN.
+
+IPv4 and IPv6 characteristics and restrictions 
+|IPv4|IPv6|
+|---|---|
+|The format is 32-bit, 4 groups of up to 3 decimal digits.|The format is 128-bit, 8 groups of 4 hexadecimal digits.|
+|Default and required for all VPCs; cannot be removed. |Opt-in only.|
+|The VPC CIDR block size can be from /16 to /28.	|The VPC CIDR block size is fixed at /56.|
+|The subnet CIDR block size can be from /16 to /28.	|The subnet CIDR block size is fixed at /64.|
+|You can choose the private IPv4 CIDR block for your VPC.	|We choose the IPv6 CIDR block for your VPC from Amazon's pool of IPv6 addresses. You cannot select your own range.|
+|There is a distinction between private and public IP addresses. To enable communication with the Internet, a public IPv4 address is mapped to the primary private IPv4 address through network address translation (NAT). |No distinction between public and private IP addresses. IPv6 addresses are public.|
+|Supported on all instance types.	|Supported on all current generation instance types and the C3, R3, and I2 previous generation instance types. For more information, see Instance types.|
+|Supported in EC2-Classic, and EC2-Classic connections with a VPC via ClassicLink. |Not supported in EC2-Classic, and not supported for EC2-Classic connections with a VPC via ClassicLink.|
+|Supported on all AMIs. |Automatically supported on AMIs that are configured for DHCPv6. Amazon Linux versions 2016.09.0 and later and Windows Server 2008 R2 and later are configured for DHCPv6. For other AMIs, you must manually configure your instance to recognize any assigned IPv6 addresses.|
+|An instance receives an Amazon-provided private DNS hostname that corresponds to its private IPv4 address, and if applicable, a public DNS hostname that corresponds to its public IPv4 or Elastic IP address. |Amazon-provided DNS hostnames are not supported.|
+|Elastic IPv4 addresses are supported. |Elastic IPv6 addresses are not supported.|
+|Supported for AWS Site-to-Site VPN connections and customer gateways, NAT devices, and VPC endpoints. |Not supported for AWS Site-to-Site VPN connections and customer gateways, NAT devices, and VPC endpoints.|
