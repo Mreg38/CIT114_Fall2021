@@ -31,3 +31,29 @@ The network layer provides the functional and procedural means of transferring v
 The data link layer provides node-to-node data transfer—a link between two directly connected nodes
    * Layer 1 - Physical
 Responsible for the transmission and reception of unstructured raw data between a device and a physical transmission medium.
+
+Protocol - the set of rules or algorithms which define the way how two entities can communicate across the network and there exists different protocol defined at each layer of OSI model. Few of such protocols are TCP, IP, UDP, ARP, DHCP, FTP and so on.
+
+Unique Identifiers of Network
+
+Host name - a unique device name used to differniate each device on a network
+
+Type “hostname” in the command prompt and press ‘Enter’, this displays the hostname of your machine.
+______________________________
+IP Address (Internet Protocol address) - also know as Logical Address, is the network address of the system across the network.
+
+To identify each device in the world-wide-web, Internet Assigned Numbers Authority (IANA) assigns IPv4 (Version 4) address as a unique identifier for each device on the Internet. However there is also an IPv6 (Version 6) scheme available that has more addresses available.
+
+Length of the IPv4 address is 32-bits. (Hence we have 2^32 IP addresses available.)
+
+Type “ipconfig” in the command prompt and press ‘Enter’, this gives us the IP address of the device.
+_____________________________
+
+
+
+
+
+
+
+
+
