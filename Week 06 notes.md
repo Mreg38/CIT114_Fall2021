@@ -1,6 +1,6 @@
-# CIT 114 Week 6 (Notes 04: Cloud Security)
+# CIT 114 Week 6
 ## Here are some important thinkgs I learned in Week 6
-### Cloud Security
+### Notes 04: Cloud Security
 
 #### What is Cyber Security?
 
