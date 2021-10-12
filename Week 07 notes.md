@@ -135,6 +135,20 @@ Glossary:
    * TCP/IP -- Used broadly, the set of protocols, standards and utilities commonly used on the Internet and large networks.
    * Wide area network (WAN) -- A large network that is a collection of smaller networks separated by routers. The Internet is an example of a very large WAN.
 
+Virtual Private Cloud (VPC) - is a public cloud offering that lets a group establish its own private cloud-like computing environment on shared public cloud infrastructure.
+
+#### IP Addressing in your VPC
+
+IP addresses enable resources in your VPC to communicate with each other, and with resources over the Internet. 
+
+By default, Amazon EC2 and Amazon VPC use the IPv4 addressing protocol. When you create a VPC, you must assign it an IPv4 CIDR block (a range of private IPv4 addresses). Private IPv4 addresses are not reachable over the Internet. To connect to your instance over the Internet, or to enable communication between your instances and other AWS services that have public endpoints, you can assign a globally-unique public IPv4 address to your instance.
+
+You can optionally associate an IPv6 CIDR block with your VPC and subnets, and assign IPv6 addresses from that block to the resources in your VPC. IPv6 addresses are public and reachable over the Internet.
+
+To ensure that your instances can communicate with the Internet, you must also attach an Internet gateway to your VPC. For more information, see Internet gateways.
+
+VPC can operate in dual-stack mode: your resources can communicate over IPv4, or IPv6, or both. IPv4 and IPv6 addresses are independent of each other; you must configure routing and security in your VPC separately for IPv4 and IPv6.
+
 IPv4 and IPv6 characteristics and restrictions 
 |IPv4|IPv6|
 |---|---|
@@ -150,3 +164,5 @@ IPv4 and IPv6 characteristics and restrictions
 |An instance receives an Amazon-provided private DNS hostname that corresponds to its private IPv4 address, and if applicable, a public DNS hostname that corresponds to its public IPv4 or Elastic IP address. |Amazon-provided DNS hostnames are not supported.|
 |Elastic IPv4 addresses are supported. |Elastic IPv6 addresses are not supported.|
 |Supported for AWS Site-to-Site VPN connections and customer gateways, NAT devices, and VPC endpoints. |Not supported for AWS Site-to-Site VPN connections and customer gateways, NAT devices, and VPC endpoints.|
+
+
