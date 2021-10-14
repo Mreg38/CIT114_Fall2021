@@ -14,7 +14,7 @@ Modern operating systems use a graphical user interface, or GUI (pronounced gooe
 
 Microsoft created the Windows operating system in the mid-1980s. There have been many different versions of Windows, but the most recent ones are Windows 10 (released in 2015), Windows 8 (2012), Windows 7 (2009), and Windows Vista (2007). Windows comes pre-loaded on most new PCs, which helps to make it the most popular operating system in the world.
 
-Linux (pronounced LINN-ux) is a family of open-source operating systems, which means they can be modified and distributed by anyone around the world. This is different from proprietary software like Windows, which can only be modified by the company that owns it. The advantages of Linux are that it is free, and there are many different distributions—or versions—you can choose from.
+Linux (pronounced LINN-ux) is a family of open-source operating systems, which means they can be modified and distributed by anyone around the world. This is different from proprietary software like Windows, which can only be modified by the company that owns it. The advantages of Linux are that it is free, and there are many different distributions (or versions) you can choose from.
 
 #### AWS Compute Services
 
@@ -31,7 +31,6 @@ Serverless is a category of compute where you write and deploy code, but do not 
   * Platform as a Service
 Platform as a service - allows a company to focus on building code and applications rather than manage infrastructure. AWS Elastic Beanstalk provides a platform as a service (PaaS). It facilitates the quick deployment of applications that you create by providing all the application services that you need. AWS manages the OS, the application server, and the other infrastructure components so that you can focus on developing your application code.
 For IT professionals, it is a fast and easy service to get started, however, you loose the ability to control the underlying infrastructure.
-
 -------------------
 Summary of AWS Compute Services
   * Amazon Elastic Compute Cloud (Amazon EC2) provides resizable virtual machines.
@@ -79,7 +78,6 @@ Some of the most popular reasons people run virtual machines include:
   * Testing - Oftentimes software developers want to be able to test their applications in different environments. They can use virtual machines to run their applications in various OSes on one computer. This is simpler and more cost-effective than having to test on several different physical machines.
   * Running software designed for other OSes - Although certain software applications are only available for a single platform, a VM can run software designed for a different OS. For example, a Mac user who wants to run software designed for Windows can run a Windows VM on their Mac host.
   * Running outdated software - Some pieces of older software can’t be run in modern OSes. Users who want to run these applications can run an old OS on a virtual machine
-
 -------------------
 How does cloud computing use virtual machines?
 
