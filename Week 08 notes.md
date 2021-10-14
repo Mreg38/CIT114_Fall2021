@@ -171,4 +171,17 @@ Accelerated computing instances - such as machine learning instances, use hardwa
 
 Storage optimized instances - are designed for workloads that require high, sequential read and write access to very large data sets on local storage as part of a distributed file system. They are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications.
 
+#### Amazon Machine Images (AMI)
+
+Amazon Machine Images (AMI) - are pre-configured virtual machines with an ever-growing list of operating systems. These can help you get started faster and launch multiple instances from a single AMI.
+
+An Amazon Machine Image (AMI) provides the information required to launch an instance. You must specify an AMI when you launch an instance. You can launch multiple instances from a single AMI when you need multiple instances with the same configuration. You can use different AMIs to launch instances when you need instances with different configurations.
+
+An AMI includes the following:
+  * One or more EBS snapshots, or, for instance-store-backed AMIs, a template for the root volume of the instance (for example, an operating system, an application server, and applications).
+  * Launch permissions that control which AWS accounts can use the AMI to launch instances.
+  * A block device mapping that specifies the volumes to attach to the instance when it's launched.
+
+
+
 
