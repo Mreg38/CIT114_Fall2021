@@ -182,6 +182,158 @@ An AMI includes the following:
   * Launch permissions that control which AWS accounts can use the AMI to launch instances.
   * A block device mapping that specifies the volumes to attach to the instance when it's launched.
 
+There are many different ways to use an AMI including:
+1.	Quick Start AMI with Linux or Windows pre-built images provided by AWS
+2.	My AMI that you created
+3.	AWS Marketplace AMI  templates created by approved third parties and checked by AWS
+4.	Community AMI created by individuals around the world. Use at your own risk as these have not been checked by AWS
+
+#### Four Pillars of Cost Optimization
+
+Regardless of your workload or architecture, there are four cost optimization pillars that apply across nearly all environments. The pillars of cost optimization are:
+-------------------
+Pillar 1. Right Size
+
+Choose the right balance of instance types and ensure that what you provision matches what you need. Remember, you provision for CPU, memory, storage, and network throughput. It is important to notice when servers can be either sized down or turned off, and still meet your performance requirements.
+
+For example, use Amazon CloudWatch metrics to deterine when compute resources are idle or can be downsized.
+-------------------
+Pillar 2. Increase elasticity
+
+Traditional IT costs and hardware requirements are tailored for peak usage and are rarely turned off. In the cloud, you can optimize cost to meet dynamic needs and turn resources off when they are not needed. Automatic scaling can be utilized to match needs based on usage, automatically or based on a scheduled time.
+
+For example, you can usually turn stop or hibernate non-production instances that are not actively in use.
+-------------------
+Pillar 3. Leverage the right pricing model
+
+AWS provides a range of pricing models that can be combined to optimize pricing based on current or forecasted capacity needs. Choose the right pricing model to optimize costs based on the nature of your workload and usage patterns. For example, use on-demand or spot instances for variable workloads while using reserved instances for predictable workloads.
+
+Customers are also encouraged to consider their application architecture. For example, does the functionality provided by your application need to run on an EC2 virtual machine? Perhaps by making use of the AWS Lambda service instead, you could significantly decrease your costs.
+-------------------
+AWS provides multiple storage tiers at prices designed to meet performance. Customers can also reduce storage costs through any combination of the following:
+   * By identifying the most appropriate destination for specific types of data, you can reduce Amazon Elastic Block Store (Amazon EBS) and Amazon Simple Storage Service (Amazon S3) while maintaining the required performance and availability.
+   * When you launch EC2 instances, different instance types offer different storage options. It is a best practice to try to reduce costs while also maintaining storage performance and availability. One way you can accomplish this is by resizing EBS volumes. For example, if you originally provisioned a 500-GB volume for an EC2 instance that will only need a maximum of 20 GB of storage space, you can reduce the size of the volume and save on costs.
+   * There are also a variety of EBS volume types. Choose the least expensive type that still meets your performance requirements. For example, Amazon EBS Throughput Optimized HDD (st1) storage typically costs half as much as the default General Purpose SSD (gp2) storage option. If an st1 drive will meet the needs of your workload, take advantage of the cost savings.
+   * Customers often use EBS snapshots to create data backups. However, some customers forget to delete snapshots that are no longer needed. Delete these unneeded snapshots to save on costs.
+
+Finally, try to identify the most appropriate destination for specific types of data. Does your application need the data it uses to reside on Amazon EBS? Would the application run equally as well if it used Amazon S3 for storage instead? Configuring data lifecycle policies can also reduce costs. For example, you might automate the migration of older infrequently accessed data to cheaper storage locations, such as Amazon Simple Storage Service Glacier.
+-------------------
+Measure, monitor, and improve
+
+To ensure that you extract the full economic potential of the AWS Cloud at any scale, you want to:
+   * Define and enforce cost allocation tagging. Tagging helps provide information about what resources are being used by whom and for what purpose. You can activate cost allocation tags in the Billing and Cost Management console, and AWS can generate a cost allocation report with usage and costs grouped by your active tags. Apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services.
+   * Define metrics, set targets, and review at a reasonable cadence. Encourage teams to architect for cost. AWS Cost Explorer is a free tool that you can use to view graphs of your costs. You can use Cost Explorer to see patterns in how much you spend on AWS resources over time, identify areas that need further inquiry, and see trends that you can use to understand your costs.
+   * Enable teams to architect for cost via training, visualization of progress goals, and a balance of incentives. Use AWS services such as AWS Trusted Advisor, which provides real-time guidance to help you provision resources that follow AWS best practices.
+   * Assign optimization responsibility to an individual or to a team. Cost-optimization efforts are typically more successful when the responsibility for cost optimization is assigned to an individual or to a team.
+-------------------
+#### What are Containers?
+
+A Container in cloud computing is an approach to operating system virtualization. By this, the user can work with a program and its dependencies using resource procedures that are isolated. The code of the application can be bundled with configurations and dependencies in a systematic manner.
+
+Container in cloud computing is used to build blocks, which help in producing operational efficiency, version control, developer productivity and environmental consistency. Because of this, the user is assured of reliability, consistency, and quickness regardless of the distributed platform. The infrastructure is enhanced since it provides more control over the granular activities on resources. The container usage in online services benefits storage with cloud computing information security, availability and elasticity.
+
+Benefits of Containerization
+
+As a method of operating system virtualization, some of the benefits include:
+   * Repeatable
+   * Self-contained execution environment
+   * Software runs the same in different environments (Development, Test, Production Servers)
+   * Faster to launch and stop/ terminate environment than in virtual machines
+
+Advantages of a Container in Cloud Computing
+
+These are the following things that have to be provided by CASB solution (Links to an external site.):
+   * The Consistency in Cloud Storage: The container enhances portability. It eliminates the organizational and technical frictions so that the program moves through the entire process cycle. It encapsulates the core files of an application and software server and dependencies like a building block. This can be distributed on any resource. The manual configuration of each server is thus completely avoided enabling the users to announce a new feature. 
+   * Application Version Control: Through container in cloud computing, the users can look on the current version of the application code as well as their dependencies. A manifest file is managed by the Docker containers. The users can easily hold and track the editions of container, look for differences between the container editions and roll-back to earlier versions if needed. 
+   * Efficiency in the Operational Activities: The users can achieve more resources through the container in cloud computing. By this, the users can also work at a time on several applications. The required memory, disk space and CPU consumed by the container have to be specified. Since each of the containers is a process of the operating system that works on an application and associated programs, the containers have a fast boot time. The users can quickly enter and exit the application and also measure it in up and down. The applications are separated from each other through the isolation procedure. This concept has no shared incompatibilities or dependencies. 
+   * Productivity of the Developers: The containers deduct the dependencies and conflicts between the cross-service and thus the productivity increases. The component of the program is segregated into different entities that run a separate micro-service. There is no worry about the libraries and dependencies that are being synced for each service because the containers are isolated from each other. Each service can be upgraded independently as they are not in touch with each other.
+
+#### What are Docker and Kubernetes?
+
+Docker
+
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+
+Container images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
+
+Docker containers that run on Docker Engine:
+   * Standard: Docker created the industry standard for containers, so they could be portable anywhere
+   * Lightweight: Containers share the machine’s OS system kernel and therefore do not require an OS per application, driving higher server efficiencies and reducing server and licensing costs
+   * Secure: Applications are safer in containers and Docker provides the strongest default isolation capabilities in the industry
+-------------------
+Kubernetes
+
+Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
+
+Kubernetes enables you to deploy and manage containerized applications at scale. With Kubernetes, you can run any type of containerized application by using the same toolset in both on-premises data centers and the cloud. Kubernetes manages a cluster of compute instances (called nodes). It runs containers on the cluster, which are based on where compute resources are available and the resource requirements of each container. Containers are run in logical groupings called pods. You can run and scale one or many containers together as a pod. Each pod is given an IP address and a single Domain Name System (DNS) name, which Kubernetes uses to connect your services with each other and external traffic.
+
+A key advantage of Kubernetes is that you can use it to run your containerized applications anywhere without needing to change your operational tooling. For example, applications can be moved from local on-premises development machines to production deployments in the cloud by using the same operational tooling.
+-------------------
+Docker vs Kubernetes
+
+A fundamental difference between Kubernetes and Docker is that Kubernetes is meant to run across a cluster while Docker runs on a single node. Kubernetes is more extensive than Docker Swarm and is meant to coordinate clusters of nodes at scale in production in an efficient manner. Kubernetes pods—scheduling units that can contain one or more containers in the Kubernetes ecosystem—are distributed among nodes to provide high availability.
+
+Here are the essential features of Docker:
+  * Isolated environments for managing your applications
+  * Easy Modeling
+  * Version control
+  * Placement/Affinity
+  * Application Agility
+  * Developer Productivity
+  * Operational Efficiencies
+
+Here are the essential features of Kubernetes:
+  * Offers automated scheduling
+  * Self-Healing capabilities
+  * Automated rollouts & rollback
+  * Horizontal Scaling & Load Balancing
+  * Provides a higher density of resource utilization
+  * Offers enterprise-ready features
+  * Application-centric management
+  * Auto-scalable infrastructure
+  * You can create predictable infrastructure
+  * Provides declarative configuration
+  * Deploy and update software at scale
+  * Offers environment consistency for development, testing, and production
+
+#### What is Serverless Computing?
+
+Serverless computing is a method of providing backend services on an as-used basis. Servers are still used, but a company that gets backend services from a serverless vendor is charged based on usage, not a fixed amount of bandwidth or number of servers.
+
+A Serverless architecture allows users to write and deploy code without the hassle of worrying about the underlying infrastructure. A company that gets backend services from a serverless vendor is charged based on their computation and do not have to reserve and pay for a fixed amount of bandwidth or number of servers, as the service is auto-scaling. Note that although called serverless, physical servers are still used but developers do not need to be aware of them.
+In the early days of the web, anyone who wanted to build a web application had to own the physical hardware required to run a server, which is a cumbersome and expensive undertaking.
+
+Then came the cloud, where fixed numbers of servers or amounts of server space could be rented remotely. Developers and companies who rent these fixed units of server space generally over-purchase to ensure that a spike in traffic or activity wouldn’t exceed their monthly limits and break their applications. This meant that much of the server space that was paid for usually went to waste. Cloud vendors have introduced auto-scaling models to address the issue, but even with auto-scaling an unwanted spike in activity, such as a DDoS Attack, could end up being very expensive.
+
+Cost Benefits of Serverless
+
+Serverless computing allows developers to purchase backend services on a flexible ‘pay-as-you-go’ basis, meaning that developers only have to pay for the services they use. This is like switching from a cell phone data plan with a monthly fixed limit, to one that only charges for each byte of data that actually gets used.
+
+The term ‘serverless’ is somewhat misleading, as there are still servers providing these backend services, but all of the server space and infrastructure concerns are handled by the vendor. Serverless means that the developers can do their work without having to worry about servers at all.
+
+What are backend services? What’s the difference between frontend and backend?
+
+Application development is generally split into two realms: the frontend and the backend. The frontend is the part of the application that users see and interact with, such as the visual layout. The backend is the part that the user doesn’t see; this includes the server where the application's files live and the database where user data and business logic is persisted.
+
+1.	Front End: Requests Website Data
+2.	Back End: Responds with Website Data
+3.	Front End: Displays website, forwards reqeusts for concert dates
+4.	Back End: Checks database, delivers list of available dates and tickets
+5.	Front End: Requests website data
+6.	Back End: Updates database of tickets, processes payment, sends confirmation info
+
+What kind of backend services can serverless computing provide?
+
+Most serverless providers offer database and storage services to their customers, and many also have Function-as-a-Service (FaaS) platforms, like Cloudflare Workers. These platforms can execute pieces of code on the edge without storing any data.
+
+What are the advantages of serverless computing?
+
+  * Lower costs - Serverless computing is generally very cost-effective, as traditional cloud providers of backend services (server allocation) often result in the user paying for unused space or idle CPU time.
+  * Simplified scalability - Developers using serverless architecture don’t have to worry about policies to scale up their code. The serverless vendor handles all of the scaling on demand.
+  * Simplified backend code - With FaaS, developers can create simple functions that independently perform a single purpose, like making an API call.
+  * Quicker turnaround - Serverless architecture can significantly cut time to market. Instead of needing a complicated deploy process to roll out bug fixes and new features, developers can add and modify code on a piecemeal basis.
+
+
 
 
 
