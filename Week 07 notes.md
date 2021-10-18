@@ -1,5 +1,5 @@
 # CIT 114 Week 7
-## Here are some important thinkgs I learned in Week 7
+## Here are some important things I learned in Week 7
 ### Notes 05: Networking & Content Delivery
 
 #### What is a Network?
@@ -164,5 +164,71 @@ IPv4 and IPv6 characteristics and restrictions
 |An instance receives an Amazon-provided private DNS hostname that corresponds to its private IPv4 address, and if applicable, a public DNS hostname that corresponds to its public IPv4 or Elastic IP address. |Amazon-provided DNS hostnames are not supported.|
 |Elastic IPv4 addresses are supported. |Elastic IPv6 addresses are not supported.|
 |Supported for AWS Site-to-Site VPN connections and customer gateways, NAT devices, and VPC endpoints. |Not supported for AWS Site-to-Site VPN connections and customer gateways, NAT devices, and VPC endpoints.|
+_____________________________
+Private IPv4 addresses (also referred to as private IP addresses in this topic) are not reachable over the Internet, and can be used for communication between the instances in your VPC. When you launch an instance into a VPC, a primary private IP address from the IPv4 address range of the subnet is assigned to the default network interface (eth0) of the instance. Each instance is also given a private (internal) DNS hostname that resolves to the private IP address of the instance. If you don't specify a primary private IP address, we select an available IP address in the subnet range for you.
+
+Public IPv4 address (also referred to as a public IP address) are given to all subnets that have an attribute that determines whether a network interface created in the subnet. Therefore, when you launch an instance into a subnet that has this attribute enabled, a public IP address is assigned to the primary network interface (eth0) that's created for the instance. A public IP address is mapped to the primary private IP address through network address translation (NAT).
+
+You can optionally associate an IPv6 CIDR block with your VPC and subnets. Your instance in a VPC receives an IPv6 address if an IPv6 CIDR block is associated with your VPC and your subnet, and if one of the following is true:
+   * Your subnet is configured to automatically assign an IPv6 address to the primary network interface of an instance during launch.
+   * You manually assign an IPv6 address to your instance during launch.
+   * You assign an IPv6 address to your instance after launch.
+   * You assign an IPv6 address to a network interface in the same subnet, and attach the network interface to your instance after launch.
+
+When you create a subnet, it requires its own CIDR block. For each CIDR block that you specify, AWS reserves five IP addresses within that block, and these addresses are not available for use. AWS reserves these IP addresses for:
+   * Network address
+   * VPC local router (internal communications)
+   * Domain Name System (DNS) resolution
+   * Future use
+   * Network broadcast address
+
+#### Elastic Network Interfaces
+
+An elastic network interface (referred to as a network interface in this documentation) is a virtual network interface that can include the following attributes:
+   * a primary private IPv4 address
+   * one or more secondary private IPv4 addresses
+   * one Elastic IP address per private IPv4 address
+   * one public IPv4 address, which can be auto-assigned to the network interface for eth0 when you launch an instance
+   * one or more IPv6 addresses
+   * one or more security groups
+   * a MAC address
+   * a source/destination check flag
+   * a description
+
+#### VPC Route Tables
+
+A route table contains a set of rules, called routes, that are used to determine where network traffic from your subnet or gateway is directed. Each route specifies a destination and a target. The destination is the destination CIDR block where you want traffic from your subnet to go. The target is the target that the destination traffic is sent through. By default, every route table that you create contains a local route for communication in the VPC. You can customize route tables by adding routes. You cannot delete the local route entry that is used for internal communications.
+
+The following are the key concepts for route tables.
+   * Main route table - The route table that automatically comes with your VPC. It controls the routing for all subnets that are not explicitly associated with any other route table.
+   * Custom route table - A route table that you create for your VPC.
+   * Edge association - A route table that you use to route inbound VPC traffic to an appliance. You associate a route table with the internet gateway or virtual private gateway, and specify the network interface of your appliance as the target for VPC traffic.
+   * Route table association - The association between a route table and a subnet, internet gateway, or virtual private gateway.
+   * Subnet route table - A route table that's associated with a subnet.
+   * Gateway route table - A route table that's associated with an internet gateway or virtual private gateway.
+   * Local gateway route table - A route table that's associated with an Outposts local gateway.
+   * Destination - The range of IP addresses where you want traffic to go (destination CIDR). For example, an external corporate network with a 172.16.0.0/12 CIDR.
+   * Propagation - Route propagation allows a virtual private gateway to automatically propagate routes to the route tables. This means that you don't need to manually enter VPN routes to your route tables. 
+   * Target - The gateway, network interface, or connection through which to send the destination traffic; for example, an internet gateway.
+   * Local route - A default route for communication within the VPC.
+
+#### Internet Gateway
+
+An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet. An internet gateway serves two purposes: to provide a target in your VPC route tables for internet-routable traffic, and to perform network address translation (NAT) for instances that have been assigned public IPv4 addresses. An internet gateway supports IPv4 and IPv6 traffic. It does not cause availability risks or bandwidth constraints on your network traffic.
+
+To enable access to or from the internet for instances in a subnet in a VPC, you must do the following:
+   * Attach an internet gateway to your VPC.
+   * Add a route to your subnet's route table that directs internet-bound traffic to the internet gateway. If a subnet is associated with a route table that has a route to an internet gateway, it's known as a public subnet. If a subnet is associated with a route table that does not have a route to an internet gateway, it's known as a private subnet.
+   * Ensure that instances in your subnet have a globally unique IP address (public IPv4 address, Elastic IP address, or IPv6 address).
+   * Ensure that your network access control lists and security group rules allow the relevant traffic to flow to and from your instance.
+
+#### Virtual Private Networks
+
+|VPN connectivity option|Description|
+|---|---|
+|AWS Site-to-Site VPN|You can create an IPsec VPN connection between your VPC and your remote network. On the AWS side of the Site-to-Site VPN connection, a virtual private gateway or transit gateway provides two VPN endpoints (tunnels) for automatic failover. You configure your customer gateway device on the remote side of the Site-to-Site VPN connection.|
+|AWS Client VPN|AWS Client VPN is a managed client-based VPN service that enables you to securely access your AWS resources or your on-premises network. With AWS Client VPN, you configure an endpoint to which your users can connect to establish a secure TLS VPN session. This enables clients to access resources in AWS or an on-premises from any location using an OpenVPN-based VPN client.|
+|AWS VPN CloudHub|If you have more than one remote network (for example, multiple branch offices), you can create multiple AWS Site-to-Site VPN connections via your virtual private gateway to enable communication between these networks.|
+|Third party software VPN appliance|You can create a VPN connection to your remote network by using an Amazon EC2 instance in your VPC that's running a third party software VPN appliance. AWS does not provide or maintain third party software VPN appliances; however, you can choose from a range of products provided by partners and open source communities.|
 
 
