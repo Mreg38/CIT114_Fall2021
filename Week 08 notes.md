@@ -218,6 +218,8 @@ Customers are also encouraged to consider their application architecture. For ex
 
 -------------------
 
+Pillar 4. Optimize storage
+
 AWS provides multiple storage tiers at prices designed to meet performance. Customers can also reduce storage costs through any combination of the following:
    * By identifying the most appropriate destination for specific types of data, you can reduce Amazon Elastic Block Store (Amazon EBS) and Amazon Simple Storage Service (Amazon S3) while maintaining the required performance and availability.
    * When you launch EC2 instances, different instance types offer different storage options. It is a best practice to try to reduce costs while also maintaining storage performance and availability. One way you can accomplish this is by resizing EBS volumes. For example, if you originally provisioned a 500-GB volume for an EC2 instance that will only need a maximum of 20 GB of storage space, you can reduce the size of the volume and save on costs.
