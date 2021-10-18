@@ -191,25 +191,33 @@ There are many different ways to use an AMI including:
 #### Four Pillars of Cost Optimization
 
 Regardless of your workload or architecture, there are four cost optimization pillars that apply across nearly all environments. The pillars of cost optimization are:
+
 -------------------
+
 Pillar 1. Right Size
 
 Choose the right balance of instance types and ensure that what you provision matches what you need. Remember, you provision for CPU, memory, storage, and network throughput. It is important to notice when servers can be either sized down or turned off, and still meet your performance requirements.
 
 For example, use Amazon CloudWatch metrics to deterine when compute resources are idle or can be downsized.
+
 -------------------
+
 Pillar 2. Increase elasticity
 
 Traditional IT costs and hardware requirements are tailored for peak usage and are rarely turned off. In the cloud, you can optimize cost to meet dynamic needs and turn resources off when they are not needed. Automatic scaling can be utilized to match needs based on usage, automatically or based on a scheduled time.
 
 For example, you can usually turn stop or hibernate non-production instances that are not actively in use.
+
 -------------------
+
 Pillar 3. Leverage the right pricing model
 
 AWS provides a range of pricing models that can be combined to optimize pricing based on current or forecasted capacity needs. Choose the right pricing model to optimize costs based on the nature of your workload and usage patterns. For example, use on-demand or spot instances for variable workloads while using reserved instances for predictable workloads.
 
 Customers are also encouraged to consider their application architecture. For example, does the functionality provided by your application need to run on an EC2 virtual machine? Perhaps by making use of the AWS Lambda service instead, you could significantly decrease your costs.
+
 -------------------
+
 AWS provides multiple storage tiers at prices designed to meet performance. Customers can also reduce storage costs through any combination of the following:
    * By identifying the most appropriate destination for specific types of data, you can reduce Amazon Elastic Block Store (Amazon EBS) and Amazon Simple Storage Service (Amazon S3) while maintaining the required performance and availability.
    * When you launch EC2 instances, different instance types offer different storage options. It is a best practice to try to reduce costs while also maintaining storage performance and availability. One way you can accomplish this is by resizing EBS volumes. For example, if you originally provisioned a 500-GB volume for an EC2 instance that will only need a maximum of 20 GB of storage space, you can reduce the size of the volume and save on costs.
@@ -217,7 +225,9 @@ AWS provides multiple storage tiers at prices designed to meet performance. Cust
    * Customers often use EBS snapshots to create data backups. However, some customers forget to delete snapshots that are no longer needed. Delete these unneeded snapshots to save on costs.
 
 Finally, try to identify the most appropriate destination for specific types of data. Does your application need the data it uses to reside on Amazon EBS? Would the application run equally as well if it used Amazon S3 for storage instead? Configuring data lifecycle policies can also reduce costs. For example, you might automate the migration of older infrequently accessed data to cheaper storage locations, such as Amazon Simple Storage Service Glacier.
+
 -------------------
+
 Measure, monitor, and improve
 
 To ensure that you extract the full economic potential of the AWS Cloud at any scale, you want to:
@@ -225,7 +235,9 @@ To ensure that you extract the full economic potential of the AWS Cloud at any s
    * Define metrics, set targets, and review at a reasonable cadence. Encourage teams to architect for cost. AWS Cost Explorer is a free tool that you can use to view graphs of your costs. You can use Cost Explorer to see patterns in how much you spend on AWS resources over time, identify areas that need further inquiry, and see trends that you can use to understand your costs.
    * Enable teams to architect for cost via training, visualization of progress goals, and a balance of incentives. Use AWS services such as AWS Trusted Advisor, which provides real-time guidance to help you provision resources that follow AWS best practices.
    * Assign optimization responsibility to an individual or to a team. Cost-optimization efforts are typically more successful when the responsibility for cost optimization is assigned to an individual or to a team.
+
 -------------------
+
 #### What are Containers?
 
 A Container in cloud computing is an approach to operating system virtualization. By this, the user can work with a program and its dependencies using resource procedures that are isolated. The code of the application can be bundled with configurations and dependencies in a systematic manner.
@@ -260,6 +272,7 @@ Docker containers that run on Docker Engine:
    * Standard: Docker created the industry standard for containers, so they could be portable anywhere
    * Lightweight: Containers share the machine’s OS system kernel and therefore do not require an OS per application, driving higher server efficiencies and reducing server and licensing costs
    * Secure: Applications are safer in containers and Docker provides the strongest default isolation capabilities in the industry
+
 -------------------
 Kubernetes
 
@@ -268,6 +281,7 @@ Kubernetes is a portable, extensible, open-source platform for managing containe
 Kubernetes enables you to deploy and manage containerized applications at scale. With Kubernetes, you can run any type of containerized application by using the same toolset in both on-premises data centers and the cloud. Kubernetes manages a cluster of compute instances (called nodes). It runs containers on the cluster, which are based on where compute resources are available and the resource requirements of each container. Containers are run in logical groupings called pods. You can run and scale one or many containers together as a pod. Each pod is given an IP address and a single Domain Name System (DNS) name, which Kubernetes uses to connect your services with each other and external traffic.
 
 A key advantage of Kubernetes is that you can use it to run your containerized applications anywhere without needing to change your operational tooling. For example, applications can be moved from local on-premises development machines to production deployments in the cloud by using the same operational tooling.
+
 -------------------
 Docker vs Kubernetes
 
