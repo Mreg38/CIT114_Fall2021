@@ -224,6 +224,10 @@ To enable access to or from the internet for instances in a subnet in a VPC, you
 
 #### Virtual Private Networks
 
+VPN stands for Virtual Private Network. This technology allows a user to connect one remote private network to a seperate remote private network through a secure virtual tunnel over the public internet. 
+
+There are multiple ways to create this kind of network connection. You can connect your Amazon VPC to remote networks and users using the following VPN connectivity options.
+
 |VPN connectivity option|Description|
 |---|---|
 |AWS Site-to-Site VPN|You can create an IPsec VPN connection between your VPC and your remote network. On the AWS side of the Site-to-Site VPN connection, a virtual private gateway or transit gateway provides two VPN endpoints (tunnels) for automatic failover. You configure your customer gateway device on the remote side of the Site-to-Site VPN connection.|
