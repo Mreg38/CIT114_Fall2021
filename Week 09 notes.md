@@ -41,4 +41,19 @@ A hard drive can be used to store any data, including pictures, music, videos, t
 |Heat|Because there are no moving parts and due to the nature of flash memory, the SSD generates less heat, helping to increase its lifespan and reliability.|With moving parts comes added heat which can slowly damage electronics over time, so the higher the heat, the greater the potential for wear and damage.|
 |Magnetism|SSD is not affected by magnetism.|Because a hard drive relies on magnetism to write information to the platter, the information could be erased from an HDD using strong magnets.|
 
+------
+
+Optical Drive
+
+Another common storage is optical storage, which uses lasers and lights as its method of reading and writing data. The three standards of optical media are CD (compact disk), DVD (digital versatile disk or digital video disk), and Blu-ray. All standards use the same size disc, but the data is read differently for each. Below is a table of data capacity for each standard.
+
+|CD|DVD|Blu-ray|
+|---|---|---|
+|700 MB|Single-sided, single-layer: 4.7 GB
+Single-sided, double-layer: 8.5-8.7 GB
+Double-sided, single-layer: 9.4 GB
+Double-sided, double-layer: 17.08 GB|Single-layer disc: 25 GB
+Dual-layer disc: 50 GB|
+
+------
 
