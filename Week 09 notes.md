@@ -49,7 +49,10 @@ Another common storage is optical storage, which uses lasers and lights as its m
 
 |CD|DVD|Blu-ray|
 |---|---|---|
-|700 MB|Single-sided, single-layer: 4.7 GB Single-sided, double-layer: 8.5-8.7 GB Double-sided, single-layer: 9.4 GB Double-sided, double-layer: 17.08 GB|Single-layer disc: 25 GB Dual-layer disc: 50 GB|
+|700 MB|Single-sided, single-layer: 4.7 GB 
+Single-sided, double-layer: 8.5-8.7 GB 
+Double-sided, single-layer: 9.4 GB 
+Double-sided, double-layer: 17.08 GB|Single-layer disc: 25 GB Dual-layer disc: 50 GB|
 
 ------
 
