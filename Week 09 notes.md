@@ -15,4 +15,5 @@ NV or Non-volatile - memory is a term used to describe any memory or storage tha
 Local Storage Types
 
 In computing, there is many forms of storage. Temporary storage, such as RAM, allows a computer to temporarily store information while the computer is in use, however when power is removed, the information stored in temporary storage is lost. Permanent storage is where you keep your operating system, applications, and other data files that you use on a computer system. The information will be saved even if there is no power to the system.
+
 ------
