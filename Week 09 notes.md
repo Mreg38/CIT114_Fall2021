@@ -249,6 +249,87 @@ To understand encryption, you must first understand that there are two types of 
 The Caesar Cipher is one of the most historically well-known ciphers this is known as a substitution cipher where one letter is substituted for another. In the case below, this is using a left shift of three characters where you take the original letter and shift it three letters to the left so, T becomes Q, H becomes E, E becomes B, and so on.
 
 Plaintext:  THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+
 Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
+
+This can easily be symmetrically decrypted, using pen and paper, by shifting each letter back three letters to the right. So, this classical cryptography method will not work for modern encryption to keep your information safe.
+
+That is where public-key cryptography or asymmetric cryptography comes into play. In public-key cryptography, two paired keys are used encrypt and decrypt messages. The public-key can be given to anyone for the purpose of encryption. The private-key is known only to the owner of the keys and is used for decryption.
+
+------
+
+Data at Rest
+
+Data at rest simply means that the information is being stored physically where it is inactive or in use but not in being actively transmitted over a network. This data is most at risk for being stolen via physical theft or unauthorized access to file storage.
+
+There are several ways to protect data at rest through file or disk level encryption in order to protect the information being stored on the device from theft or unauthorized access.
+
+Encryption on most modern operating systems can be done one of two ways, at the file level or disk level. The difference between the two is that in the file level, you choose which files are encrypted and which are not, while the disk level encrypts everything including the operating system.
+
+File level encryption allows you to specific files or folders on a device to encrypt. This can be done manually or automatically depending on the encryption software and will render the files unreadable without the decryption software and key.
+
+------
+
+Data in Transit
+
+Data encryption while files are in transit is different that encryption at rest. When a file is in transit, you have two or more computers involved. The sender is the original system who encrypts the information being sent while the receiver are the systems that decrypt the information upon receipt.
+  * Email is one of the most common forms of communication for businesses and was originally not designed to encrypt messages. Various forms of encryption were added over the years such as STARTTLS, a common transport-level encryption protocol, or S/MIME which allows for enhanced encryption. All major email providers and email servers support encryption, but it is important to know that the sender and receiver must both support the same level of encryption in order for a message to be read. Want to know how Gmail encrypts your email, find out about how you can determine if an email is being encrypted before it is sent.
+  * HTTPS, is probably the encryption technology you are most familiar with and by now you know to look for the https:// or the browser lock symbol in the browser address bar. HTTPS is the secure version of the HTTP protocol, so any information like logins or credit cards will be encrypted during the transmission.
+  * VPN stands for Virtual Private Network and it will create a secure connection between two systems extending a private network to a remote user. This is most often used by businesses where they need a secure connection between a remote employee and the private business network. All traffic between the two locations is authenticated and encrypted.
+  * Mobile applications are trickier to know if they are encrypting data in transit. In general, the same standards for Windows and Mac desktop computers can also apply to mobile devices for encrypting data at rest and in transit. Apple has entire documentation regarding how applications should handle data encryption in transit, however that does not mean it will be used incorrectly.
+
+------
+
+#### Data Backups
+
+Having redundant drives in a RAID is a good start to having your data backed up, however it is not a true backup strategy. Data can be lost, damaged, compromised, or stolen due to user error, equipment failure, malware or hacking.
+
+The data and information you can generate from it is valuable asset. Loss of data due to any of these can cause significant disruption in a business.
+
+Types of Backups:
+
+Backup software works by looking for an attribute of a file called the archive bit. When a file is created or modified, the archive bit is set to 1 indicating to the backup software that it needs to be backed up. Once a backup is made, the archive bit is reset to 0 indicating that the backup software has archived the file and cleared the flag. Depending on the software, it may or may not clear the archive bit.
+
+  * Full or Normal: Backs up every selected files or folders in full then clears the archival bit. This backup takes the longest and most space but is faster to restore.
+  * Copy: Makes a copy and backups up selected files or folders regardless of modification date or archive bit status. Does not clear the archive bit.
+  * Incremental: After completing a full backup, it backs up changes made to selected files that modified since the last backup then clears the archival bit.
+  * Differential: After completing a full backup, it backs up changes made to selected files that were modified since the last full backup and does not clear the archival bit.
+  * Daily: Backs up files that were created or modified today. It ignores the archive bit, looking at the modification date only. 
+
+------
+
+#### Backup Locations
+
+Disasters happen. Maybe you have warning, maybe you do not. What would happen if all you had was backups inside your business location and the unimaginable happened, a fire burned down your business (there is a real story about this at the end of the section).
+
+The location of your backups should be kept into consideration as a part of your business continuity plan. Your backup strategy should include both local backups (on-site) as well as cloud or remote backups (off-site).
+
+------
+
+Stored Locally
+
+Backups that are stored locally generally use an external hard drive, RAID, network attached storage (NAS), USB drive or even a DVD, where the backup is in the same physical location (on-site) as the business.
+
+Backups stored locally will be faster to backup and restore. The shorter data transfer distance will decrease the amount of time it takes to restore files and get a business back up and running. However, they are at greater risk if the entire business is destroyed including all the backups. A flood or power surge can easily destroy all electronics if not properly protected leaving you with no backups.
+
+------
+
+Cloud Storage
+
+Cloud storage allows for a business to move the backup to cloud storage infrastructure outside of the business location. Saving important data to cloud storage such as Google Drive, Dropbox, or Box.com can help move data outside away from the local business. This is great for easy always on access where you can modify files directly in those solutions. However, companies like Amazon, Google and Microsoft have also have storage solutions available to put critical backups
+
+There is also now an entire class of backup software, where for a subscription, your data is transmitted over the internet and stored remotely in the cloud. This software is typically very easy to setup and use. It also has built in security to ensure your data is encrypted prior to leaving your computer for the cloud. This will prevent hackers from being able to easily recover or restore your remote data.
+
+Companies like CrashPlan, Backblaze, and Carbonite are some of the leading business and consumer cloud backup services.
+
+------
+
+On-site vs Off-site
+
+An on-site backup is the kind that is physically kept at the business site, generally local storage. They can be a secondary hard drive, a USB drive, CD/DVD or some kind of RAID device. The keyword is that they are local and as a result will be the fastest to backup and the fastest to restore should something happen. The problem with on-site is that they can easily be stolen as well as destroyed with the rest of your business in the event of that disaster.
+
+An off-site backup is exactly as it sounds, it is stored physically away from the business. This type of backup is becoming more popular with cloud-based backup solutions. Companies like Backblaze, IDrive, and Carbonite make it easy for anyone to back up a computer system. The benefit for off-site is that they are away from your business. Should your business burn down entirely, melting your computers and on-site backup in the fire, then you still have your backups that are stored off-site. The downside to off-site is that it is slower to restore that data as it will only download as fast as your Internet connection will allow.
+
+
 
 
