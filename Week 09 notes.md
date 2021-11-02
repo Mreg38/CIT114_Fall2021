@@ -240,4 +240,15 @@ Data lakes built on object storage keep information in its native form, and incl
 
 #### Encrypting Storage
 
+One of the things IT professionals must think about is how can we protect data from being compromised both at rest and in transit. Encryption is a method securing data by taking data and making it unreadable without the right decryption information.
+
+To understand encryption, you must first understand that there are two types of text:
+  * Plain text is the original message or information before it has been encrypted. This text can be read by anyone as it is readable text.
+  * Cipher text is the encrypted version of the original plain text message after algorithm called a cipher has been applied to it. The encryption algorithm takes the plain text message and makes it so that it is no longer readable text.
+
+The Caesar Cipher is one of the most historically well-known ciphers this is known as a substitution cipher where one letter is substituted for another. In the case below, this is using a left shift of three characters where you take the original letter and shift it three letters to the left so, T becomes Q, H becomes E, E becomes B, and so on.
+
+Plaintext:  THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
+
 
