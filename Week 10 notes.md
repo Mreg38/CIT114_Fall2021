@@ -323,6 +323,8 @@ The LIKE keyword selects rows containing fields that match specified portions of
 
 Table four ways to specify wildcards in the SELECT statement in regular express format.
 
+|Symbol|Usage|
+|---|---|
 |%|Any string of zero or more characters|
 |_|Any single character|
 |[ ]|Any single character within the specified range (e.g., [a-f]) or set (e.g., [abcdef])|
