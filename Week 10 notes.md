@@ -336,11 +336,16 @@ You use the ORDER BY clause to sort the records in the resulting list. Use ASC t
 
 For example, with ASC:
 SELECT *
+
 FROM Employees
+
 ORDER BY HireDate ASC
+
 And with DESC:
 SELECT *
+
 FROM Books
+
 ORDER BY type, price DESC
 
 #### SELECT statement with GROUP BY clause
