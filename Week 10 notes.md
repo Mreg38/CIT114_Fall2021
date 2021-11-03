@@ -334,12 +334,16 @@ Table four ways to specify wildcards in the SELECT statement in regular express 
 
 You use the ORDER BY clause to sort the records in the resulting list. Use ASC to sort the results in ascending order and DESC to sort the results in descending order.
 
+------
+
 For example, with ASC:
 SELECT *
 
 FROM Employees
 
 ORDER BY HireDate ASC
+
+------
 
 And with DESC:
 SELECT *
@@ -348,33 +352,61 @@ FROM Books
 
 ORDER BY type, price DESC
 
+------
+
 #### SELECT statement with GROUP BY clause
 
 The GROUP BY clause is used to create one output row per each group and produces summary values for the selected columns, as shown below.
 
+------
+
 SELECT type
+
 FROM Books
+
 GROUP BY type
+
+------
 
 Here is an example using the above statement.
 
+------
+
 SELECT type AS ‘Type’, MIN(price) AS ‘Minimum Price’
+
 FROM Books
+
 WHERE royalty > 10
+
 GROUP BY type
+
+------
 
 If the SELECT statement includes a WHERE criterion where price is not null,
 
+------
+
 SELECT type, price
+
 FROM Books
+
 WHERE price is not null
+
+------
 
 then a statement with the GROUP BY clause would look like this:
 
+------
+
 SELECT type AS ‘Type’, MIN(price) AS ‘Minimum Price’
+
 FROM Books
+
 WHERE price is not null
+
 GROUP BY type
+
+------
 
 #### Using COUNT with GROUP BY
 
@@ -382,8 +414,12 @@ We can use COUNT to tally how many items are in a container. However, if we want
 
 The below SELECT statement illustrates how to count groups of data using the COUNT function with the GROUP BY clause.
 
+------
+
 SELECT COUNT(*)
+
 FROM Books
+
 GROUP BY type
 
 ------
@@ -400,8 +436,13 @@ The INSERT statement adds rows to a table. In addition,
 
 The syntax for the INSERT statement is:
 
+------
+
 INSERT [INTO] Table_name | view name [column_list]
+
 DEFAULT VALUES | values_list | select statement
+
+------
 
 When inserting rows with the INSERT statement, these rules apply:
   * Inserting an empty string (‘ ‘) into a varchar or text column inserts a single space.
@@ -418,28 +459,50 @@ When you specify values for only some of the columns in the column_list, one of 
 
 We can sometimes create a small temporary table from a large table. For this, we can insert rows with a SELECT statement. When using this command, there is no validation for uniqueness. Consequently, there may be many rows with the same pub_id in the example below.
 
-This example creates a smaller temporary Publishers table using the CREATE TABLE statement. Then the INSERT with a SELECT statement is used to add records to this temporary Publishers table from the publis table.
+This example creates a smaller temporary Publishers table using the CREATE TABLE statement. Then the INSERT with a SELECT statement is used to add records to this temporary Publishers table from the publid table.
+
+------
 
 CREATE TABLE dbo.tmpPublishers (
+
 PubID char (4) NOT NULL ,
+
 PubName varchar (40) NULL ,
+
 city varchar (20) NULL ,
+
 province char (2) NULL ,
+
 country varchar (30) NULL DEFAULT (‘Canada’)
+
 )
+
 INSERT tmpPublishers
+
 SELECT * FROM Publishers
+
+------
 
 In this example, we’re copying a subset of data.
 
+------
+
 INSERT tmpPublishers (pub_id, pub_name)
+
 SELECT PubID, PubName
+
 FROM Publishers
+
+------
 
 In this example, the publishers’ data are copied to the tmpPublishers table and the country column is set to Canada.
 
+------
+
 INSERT tmpPublishers (PubID, PubName, city, province, country)
+
 SELECT PubID, PubName, city, province, ‘Canada’
+
 FROM Publishers
 
 ------
@@ -450,23 +513,40 @@ The UPDATE statement changes data in existing rows either by adding new data or 
 
 This example uses the UPDATE statement to standardize the country field to be Canada for all records in the Publishers table.
 
+------
+
 UPDATE Publishers
+
 SET country = ‘Canada’
+
+------
 
 This example increases the royalty amount by 10% for those royalty amounts between 10 and 20.
 
+------
+
 UPDATE roysched
+
 SET royalty = royalty + (royalty * .10)
+
 WHERE royalty BETWEEN 10 and 20
+
+------
 
 #### Including subqueries in an UPDATE statement
 
 The employees from the Employees table who were hired by the publisher in 2010 are given a promotion to the highest job level for their job type. This is what the UPDATE statement would look like.
 
+------
+
 UPDATE Employees
+
 SET job_lvl =
+
 (SELECT max_lvl FROM jobs
+
 WHERE employee.job_id = jobs.job_id)
+
 WHERE DATEPART(year, employee.hire_date) = 2010
 
 ------
@@ -477,29 +557,50 @@ The DELETE statement removes rows from a record set. DELETE names the table or v
 
 The DELETE syntax looks like this.
 
+------
+
 DELETE [FROM] {table_name | view_name }
+
 [WHERE clause]
+
+------
 
 The rules for the DELETE statement are:
 1.	If you omit a WHERE clause, all rows in the table are removed (except for indexes, the table, constraints). 
 2.	DELETE cannot be used with a view that has a FROM clause naming more than one table. (Delete can affect only one base table at a time.)
 
 What follows are three different DELETE statements that can be used.
+
 1. Deleting all rows from a table.
 
+------
+
 DELETE
+
 FROM Discounts
+
+------
 
 2. Deleting selected rows:
 
+------
+
 DELETE
+
 FROM Sales
+
 WHERE stor_id = ‘6380’
+
+------
 
 3. Deleting rows based on a value in a subquery:
 
+------
+
 DELETE FROM Sales
+
 WHERE title_id IN
+
 (SELECT title_id FROM Books WHERE type = ‘mod_cook’)
 
 ------
@@ -519,18 +620,33 @@ An inner join connects two tables on a column with the same data type. Only the 
 
 #### Example #1
 
+------
+
 SELECT jobs.job_id, job_desc
+
 FROM jobs
+
 INNER JOIN Employees ON employee.job_id = jobs.job_id
+
 WHERE jobs.job_id < 7
+
+------
 
 #### Example #2
 
+------
+
 SELECT authors.au_fname, authors.au_lname, books.royalty, title
+
 FROM authorsINNER JOIN titleauthor ON authors.au_id=titleauthor.au_id
+
 INNER JOIN books ON titleauthor.title_id=books.title_id
+
 GROUP BY authors.au_lname, authors.au_fname, title, title.royalty
+
 ORDER BY authors.au_lname
+
+------
 
 #### Left outer join
 
@@ -538,15 +654,27 @@ A left outer join specifies that all left outer rows be returned. All rows from 
 
 This first example uses the new syntax for a left outer join.
 
+------
+
 SELECT publishers.pub_name, books.title
+
 FROM Publishers
+
 LEFT OUTER JOIN Books On publishers.pub_id = books.pub_id
+
+------
 
 This is an example of a left outer join using the old syntax.
 
+------
+
 SELECT publishers.pub_name, books.title
+
 FROM Publishers, Books
+
 WHERE publishers.pub_id *= books.pub_id
+
+------
 
 #### Right outer join
 
@@ -554,17 +682,31 @@ A right outer join includes, in its result set, all rows from the right table th
 
 Below is an example using the new syntax for a right outer join.
 
+------
+
 SELECT titleauthor.title_id, authors.au_lname, authors.au_fname
+
 FROM titleauthor
+
 RIGHT OUTER JOIN authors ON titleauthor.au_id = authors.au_id
+
 ORDERY BY au_lname
+
+------
 
 This second example show the old syntax used for a right outer join.
 
+------
+
 SELECT titleauthor.title_id, authors.au_lname, authors.au_fname
+
 FROM titleauthor, authors
+
 WHERE titleauthor.au_id =* authors.au_id
+
 ORDERY BY au_lname
+
+------
 
 #### Full outer join
 
@@ -572,10 +714,16 @@ A full outer join specifies that if a row from either table does not match the s
 
 Here is an example of a full outer join.
 
+------
+
 SELECT books.title, publishers.pub_name, publishers.province
+
 FROM Publishers
+
 FULL OUTER JOIN Books ON books.pub_id = publishers.pub_id
+
 WHERE (publishers.province <> “BC” and publishers.province <> “ON”)
+
 ORDER BY books.title_id
 
 ------
@@ -626,12 +774,154 @@ For example, you create an Amazon Simple Storage Service (Amazon S3) bucket and 
 
 ------
 
+#### Choosing the Right Database Solution
 
+Whether you are an experienced software engineer or a student doing a university project, at some point you will need to choose a DB for your project.
 
+If you’ve used DBs before you might be saying “I’ll just choose X, it’s the DB I know and worked with” and that’s completely fine if performance is not an important requirement for your system. Otherwise, choosing the wrong DB might come as an obstacle when the project grows and is sometimes painful to fix. Even if you are working on a mature project, that uses specific DB for a while, it’s important to know its limitations and identify when you should add another type of DB to your stack (it is very common to combine several DBs).
 
+A bonus reason for understanding the different DBs and their properties is that it’s quite a common question in job interviews!
 
+In this post we will review the 2 main types of databases:
+  * Relational Databases (SQL based).
+  * NoSQL Databases.
 
+------
 
+#### Relational DBs (SQL based)
 
+This DB consists of a collection of tables (like CSV tables), that are connected. Each row in a table represents a record.
 
+Why is it called relational? What are the ‘relations’ that exist in this DB?
+
+Let's say you have a table of students information, and a table of the course grades (course, grade, student id), every grade row relates to a student record.
+
+All relational DBs are queried with SQL-like languages, which are commonly used and inherently support join operations.
+
+They allow the indexing of columns for faster queries based on those columns.
+
+Because of its structured nature, the relational DB’s schema is decided before inserting data.
+
+Common relational databases: MySQL, PostgreSQL, Oracle, MS SQL Server
+
+------
+
+#### NoSQL DBs
+
+While in relational DBs everything is structured to rows and columns, in NoSQL DBs there is no common structured schema for all records. Most of the NoSQL databases contain JSON records, and different records can include different fields.
+
+This family of databases should actually be called “Not mainly SQL” — since many NoSQL DBs support querying using SQL, but using it is not the best practice for them.
+
+There are 4 main types of NoSQL databases:
+
+1. Document-oriented DBs
+
+The atomic unit of this DB is a document.
+
+Each document is a JSON, the schema can vary between different documents and contain different fields.
+
+Document DBs allow indexing of some fields in the document to allow faster queries based on those fields (this forces all the documents to have the field).
+
+When should I use it?
+
+Data analysis — Since different records are not dependent on one another (logic and structure-wise) this DB supports parallel computations.
+
+This allows you to perform big data analytics on our data easily.
+
+Common document-based databases: MongoDB, CouchDB, DocumentDB
+
+------
+
+2. Columnar DBs
+
+The atomic unit of this DB is a column in the table, meaning the data is stored column by column. It makes column-based queries very efficient, and since the data on each column is quite homogeneous, this allows better compression of the data.
+
+When should I use it?
+
+When you tend to query on a subset of columns in your data (doesn’t need to be the same subset each time!).
+Columnar DB performs such queries very fast since it only needs to read these specific columns (while row-based DB would have to read the entire data).
+
+  * This is often common in data science, where each column represents a feature. As a data scientist, I often train my models with subsets of the features and tend to check relations between features and scores (correlation, variance, significance).
+  * This is also common with logs — we often store a lot more fields in our logs database but uses only a few in each query.
+
+Common column DB database: Cassandra.
+
+------
+
+3. Key-value DBs
+
+The querying is only key-based — You ask for a key and get its value.
+
+Doesn’t support queries across different record values like ‘select all records where city == New York’
+
+A useful feature in this DB is the TTL field (time to live), this field can be set differently for each record and state when it should be deleted from the DB.
+
+Advantages — It is very fast.
+First because of the use of unique keys, and second because most of the key-values databases store the data in memory (RAM) which allows quick access.
+
+Disadvantages — You need to define unique keys that are good identifiers and built of the data you know in the time of the query.
+
+Often more expensive than other kinds of databases (since runs on memory).
+
+When should I use it?
+
+Mainly used for cache since it is very fast and doesn’t require complex querying, also the TTL feature comes very useful for caching.
+
+It can also be used for any other kind of data that requires fast querying and meets the key-value format.
+
+Common key-value databases: Redis, Memcached
+
+------
+
+4. Graph DBs
+
+Graph DBs contain nodes that represent entities and edges that represent relationships between entities.
+
+When should I use it?
+
+When your data is a graph like, like knowledge graphs and social networks.
+
+Common graph databases: Neo4j, InfiniteGraph
+
+------
+
+#### Relational vs. Document DB
+
+As you probably figured out by now, there is no right answer, no ‘One DB to rule them all’.
+The most common DBs for ‘regular’ use are Relational and Document DBs so we’ll compare them.
+
+Relational — advantages
+  * It has a simple structure that matches most kinds of data you normally have in a program.
+  * It uses SQL, which is commonly used and inherently supports JOIN operations.
+  * Allows fast data updating. All the DB is saved on one machine, and relations between records are used as pointers, this means you can update a record once and all its related records will update immediately.
+  * Relational DB also supports atomic transactions.
+What are atomic transactions: let’s say I want to transfer X dollars from Alice to Bob. I want to perform 3 actions: decrease Alice’s balance by X, increase Bob’s balance by X and document the transaction. I want to treat these actions as one atomic unit — all of the actions or none will occur.
+
+Relational — disadvantages
+
+  * Since each query is done on a table — the query execution time depends on the size of the table. This is a significant limitation that requires us to keep our tables relatively small and perform optimizations on our DB in order to scale.
+  * In relational DBs scaling is done by adding more computing power to the machine that holds your DB, this method is called ‘Vertical Scaling’.
+Why is it a disadvantage? since there is a limit for the computing power machines can provide and since adding resources to your machine can require some downtime.
+  * Relational does not support OOP based objects, even representing simple lists is very complicated.
+
+Document DB — advantages
+
+  * It allows you to keep objects with different structures.
+  * You can represent almost all data structures including OOP based objects, lists, and dictionaries using good old JSON.
+  * Although NoSQL is unschematized by nature, it often supports schema validation, meaning you can make a collection schematized, the schema won’t be as simple as a table, it will be a JSON schema with specific fields.
+  * Querying NoSQL is very fast, each record is independent and therefore the query time is independent of the DB’s size and supports parallelity.
+  * In NoSQL, scaling the DB is done by adding more machines and distributing your data between them, this method is called ‘Horizontal Scaling’. This allows us to automatically add resources to our DB when needed without causing any downtime.
+
+Document DB — disadvantages
+
+  * Updating the data is a slow process in Document DB since the data can be divided between machines and can be duplicated.
+  * Atomic transactions are not inherently supported. you can add it yourself in code by using verification and revert mechanism, but since the records are divided between machines it cannot be an atomic process and race conditions can occur.
+
+------
+
+#### Cheat Sheet:
+  * For cache — use a key-value DB.
+  * For graph-like data — use a graph DB.
+  * If you tend to query on subsets of columns /features — use column DB. 
+  * For all other use cases — Relational or Document DB.
 
