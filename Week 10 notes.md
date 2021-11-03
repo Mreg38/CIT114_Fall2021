@@ -330,5 +330,303 @@ Table four ways to specify wildcards in the SELECT statement in regular express 
 |[ ]|Any single character within the specified range (e.g., [a-f]) or set (e.g., [abcdef])|
 |[^]|Any single character not within the specified range (e.g., [^a – f]) or set (e.g., [^abcdef])|
 
+#### SELECT statement with ORDER BY clause
+
+You use the ORDER BY clause to sort the records in the resulting list. Use ASC to sort the results in ascending order and DESC to sort the results in descending order.
+
+For example, with ASC:
+SELECT *
+FROM Employees
+ORDER BY HireDate ASC
+And with DESC:
+SELECT *
+FROM Books
+ORDER BY type, price DESC
+
+#### SELECT statement with GROUP BY clause
+
+The GROUP BY clause is used to create one output row per each group and produces summary values for the selected columns, as shown below.
+
+SELECT type
+FROM Books
+GROUP BY type
+
+Here is an example using the above statement.
+
+SELECT type AS ‘Type’, MIN(price) AS ‘Minimum Price’
+FROM Books
+WHERE royalty > 10
+GROUP BY type
+
+If the SELECT statement includes a WHERE criterion where price is not null,
+
+SELECT type, price
+FROM Books
+WHERE price is not null
+
+then a statement with the GROUP BY clause would look like this:
+
+SELECT type AS ‘Type’, MIN(price) AS ‘Minimum Price’
+FROM Books
+WHERE price is not null
+GROUP BY type
+
+#### Using COUNT with GROUP BY
+
+We can use COUNT to tally how many items are in a container. However, if we want to count different items into separate groups, such as marbles of varying colours, then we would use the COUNT function with the GROUP BY command.
+
+The below SELECT statement illustrates how to count groups of data using the COUNT function with the GROUP BY clause.
+
+SELECT COUNT(*)
+FROM Books
+GROUP BY type
+
+------
+
+#### INSERT statement
+
+The INSERT statement adds rows to a table. In addition,
+  * INSERT specifies the table or view that data will be inserted into.
+  * Column_list lists columns that will be affected by the INSERT.
+  * If a column is omitted, each value must be provided.
+  * If you are including columns, they can be listed in any order.
+  * VALUES specifies the data that you want to insert into the table. VALUES is required.
+  * Columns with the IDENTITY property should not be explicitly listed in the column_list or values_clause.
+
+The syntax for the INSERT statement is:
+
+INSERT [INTO] Table_name | view name [column_list]
+DEFAULT VALUES | values_list | select statement
+
+When inserting rows with the INSERT statement, these rules apply:
+  * Inserting an empty string (‘ ‘) into a varchar or text column inserts a single space.
+  * All char columns are right-padded to the defined length.
+  * All trailing spaces are removed from data inserted into varchar columns, except in strings that contain only spaces. These strings are truncated to a single space.
+  * If an INSERT statement violates a constraint, default or rule, or if it is the wrong data type, the statement fails and SQL Server displays an error message.
+
+When you specify values for only some of the columns in the column_list, one of three things can happen to the columns that have no values:
+1.	A default value is entered if the column has a DEFAULT constraint, if a default is bound to the column, or if a default is bound to the underlying user-defined data type.
+2.	NULL is entered if the column allows NULLs and no default value exists for the column.
+3.	An error message is displayed and the row is rejected if the column is defined as NOT NULL and no default exists.
+
+#### Inserting rows with a SELECT statement
+
+We can sometimes create a small temporary table from a large table. For this, we can insert rows with a SELECT statement. When using this command, there is no validation for uniqueness. Consequently, there may be many rows with the same pub_id in the example below.
+
+This example creates a smaller temporary Publishers table using the CREATE TABLE statement. Then the INSERT with a SELECT statement is used to add records to this temporary Publishers table from the publis table.
+
+CREATE TABLE dbo.tmpPublishers (
+PubID char (4) NOT NULL ,
+PubName varchar (40) NULL ,
+city varchar (20) NULL ,
+province char (2) NULL ,
+country varchar (30) NULL DEFAULT (‘Canada’)
+)
+INSERT tmpPublishers
+SELECT * FROM Publishers
+
+In this example, we’re copying a subset of data.
+
+INSERT tmpPublishers (pub_id, pub_name)
+SELECT PubID, PubName
+FROM Publishers
+
+In this example, the publishers’ data are copied to the tmpPublishers table and the country column is set to Canada.
+
+INSERT tmpPublishers (PubID, PubName, city, province, country)
+SELECT PubID, PubName, city, province, ‘Canada’
+FROM Publishers
+
+------
+
+#### UPDATE statement
+
+The UPDATE statement changes data in existing rows either by adding new data or modifying existing data. 
+
+This example uses the UPDATE statement to standardize the country field to be Canada for all records in the Publishers table.
+
+UPDATE Publishers
+SET country = ‘Canada’
+
+This example increases the royalty amount by 10% for those royalty amounts between 10 and 20.
+
+UPDATE roysched
+SET royalty = royalty + (royalty * .10)
+WHERE royalty BETWEEN 10 and 20
+
+#### Including subqueries in an UPDATE statement
+
+The employees from the Employees table who were hired by the publisher in 2010 are given a promotion to the highest job level for their job type. This is what the UPDATE statement would look like.
+
+UPDATE Employees
+SET job_lvl =
+(SELECT max_lvl FROM jobs
+WHERE employee.job_id = jobs.job_id)
+WHERE DATEPART(year, employee.hire_date) = 2010
+
+------
+
+#### DELETE statement
+
+The DELETE statement removes rows from a record set. DELETE names the table or view that holds the rows that will be deleted and only one table or row may be listed at a time. WHERE is a standard WHERE clause that limits the deletion to select records.
+
+The DELETE syntax looks like this.
+
+DELETE [FROM] {table_name | view_name }
+[WHERE clause]
+
+The rules for the DELETE statement are:
+1.	If you omit a WHERE clause, all rows in the table are removed (except for indexes, the table, constraints). 
+2.	DELETE cannot be used with a view that has a FROM clause naming more than one table. (Delete can affect only one base table at a time.)
+
+What follows are three different DELETE statements that can be used.
+1. Deleting all rows from a table.
+
+DELETE
+FROM Discounts
+
+2. Deleting selected rows:
+
+DELETE
+FROM Sales
+WHERE stor_id = ‘6380’
+
+3. Deleting rows based on a value in a subquery:
+
+DELETE FROM Sales
+WHERE title_id IN
+(SELECT title_id FROM Books WHERE type = ‘mod_cook’)
+
+------
+
+#### Joining Tables
+
+Joining two or more tables is the process of comparing the data in specified columns and using the comparison results to form a new table from the rows that qualify. A join statement:
+  * Specifies a column from each table
+  * Compares the values in those columns row by row
+  * Combines rows with qualifying values into a new row
+
+Although the comparison is usually for equality – values that match exactly – other types of joins can also be specified. All the different joins such as inner, left (outer), right (outer), and cross join will be described below.
+
+#### Inner join
+
+An inner join connects two tables on a column with the same data type. Only the rows where the column values match are returned; unmatched rows are discarded.
+
+#### Example #1
+
+SELECT jobs.job_id, job_desc
+FROM jobs
+INNER JOIN Employees ON employee.job_id = jobs.job_id
+WHERE jobs.job_id < 7
+
+#### Example #2
+
+SELECT authors.au_fname, authors.au_lname, books.royalty, title
+FROM authorsINNER JOIN titleauthor ON authors.au_id=titleauthor.au_id
+INNER JOIN books ON titleauthor.title_id=books.title_id
+GROUP BY authors.au_lname, authors.au_fname, title, title.royalty
+ORDER BY authors.au_lname
+
+#### Left outer join
+
+A left outer join specifies that all left outer rows be returned. All rows from the left table that did not meet the condition specified are included in the results set, and output columns from the other table are set to NULL.
+
+This first example uses the new syntax for a left outer join.
+
+SELECT publishers.pub_name, books.title
+FROM Publishers
+LEFT OUTER JOIN Books On publishers.pub_id = books.pub_id
+
+This is an example of a left outer join using the old syntax.
+
+SELECT publishers.pub_name, books.title
+FROM Publishers, Books
+WHERE publishers.pub_id *= books.pub_id
+
+#### Right outer join
+
+A right outer join includes, in its result set, all rows from the right table that did not meet the condition specified. Output columns that correspond to the other table are set to NULL.
+
+Below is an example using the new syntax for a right outer join.
+
+SELECT titleauthor.title_id, authors.au_lname, authors.au_fname
+FROM titleauthor
+RIGHT OUTER JOIN authors ON titleauthor.au_id = authors.au_id
+ORDERY BY au_lname
+
+This second example show the old syntax used for a right outer join.
+
+SELECT titleauthor.title_id, authors.au_lname, authors.au_fname
+FROM titleauthor, authors
+WHERE titleauthor.au_id =* authors.au_id
+ORDERY BY au_lname
+
+#### Full outer join
+
+A full outer join specifies that if a row from either table does not match the selection criteria, the row is included in the result set, and its output columns that correspond to the other table are set to NULL. 
+
+Here is an example of a full outer join.
+
+SELECT books.title, publishers.pub_name, publishers.province
+FROM Publishers
+FULL OUTER JOIN Books ON books.pub_id = publishers.pub_id
+WHERE (publishers.province <> “BC” and publishers.province <> “ON”)
+ORDER BY books.title_id
+
+------
+
+#### Key Terms
+  * aggregate function: returns summary values
+  * ASC: ascending order
+  * conversion function: transforms one data type to another
+  * cross join: a product combining two tables
+  * date function: displays information about dates and times
+  * DELETE statement: removes rows from a record set
+  * DESC: descending order
+  * full outer join: specifies that if a row from either table does not match the selection criteria
+  * GROUP BY: used to create one output row per each group and produces summary values for the selected columns
+  * inner join: connects two tables on a column with the same data type
+  * INSERT statement: adds rows to a table
+  * left outer join: specifies that all left outer rows be returned
+  * mathematical function: performs operations on numeric data
+  * right outer join: includes all rows from the right table that did not meet the condition specified
+  * SELECT statement: used to query data in the database
+  * string function: performs operations on character strings, binary data or expressions
+  * system function: returns a special piece of information from the database
+  * text and image functions: performs operations on text and image data
+  * UPDATE statement: changes data in existing rows either by adding new data or modifying existing data
+  * wildcard: allows the user to match fields that contain certain letters.
+
+------
+
+#### Managed vs Unmanaged
+
+#### Unmanaged Services
+
+Scaling, fault tolerance, and availability are managed by you.
+
+Unmanaged services are typically provisioned in discrete portions as specified by the user. You must manage how the service responds to changes in load, errors, and situations where resources become unavailable.
+
+For example, if you create and launch a web server on an Amazon Elastic Compute Cloud (Amazon EC2) instance. Because Amazon EC2 is an unmanaged solution, that web server will not scale to handle increased traffic load or replace unhealthy instances with healthy ones unless you specify that it use a scaling solution, such as AWS Automatic Scaling.
+
+The benefit to using an unmanaged service is that you have more fine-tuned control over how your solution handles changes in load, errors, and situations where resources become unavailable.
+
+#### Managed Services
+
+Scaling, fault tolerance, and availability are typically built in to the service.
+
+Managed services require the user to configure the service, however, much of the the underlying patching, backups, ensuring availability, and more are managed by the service provider. You must configure how the service responds to changes in load, errors, and situations where resources become unavailable, and the service provider must respond accordingly
+
+For example, you create an Amazon Simple Storage Service (Amazon S3) bucket and then set permissions for it. However, managed services typically require less configuration. Say that you have a static website that you host in a cloud-based storage solution, such as Amazon S3. The static website does not have a web server. However, because Amazon S3 is a managed solution, features such as scaling, fault-tolerance, and availability would be handled automatically and internally by Amazon S3.
+
+------
+
+
+
+
+
+
+
+
 
 
