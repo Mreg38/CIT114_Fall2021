@@ -223,6 +223,110 @@ Terminology Key
 |Tuple|Row|Record|
 |Attribute|Column|Field|
 
+------
+
+#### Non-relational Databases
+
+In the year 1970’s when relational database came into picture, data schema to be worked upon were reasonably elemental and simple wherein the data items were to be arranged as a set of formally described tables with rows and columns. But with the need to store volumes and variety of data (unstructured) in recent years, non-relational database technologies have emerged to address the requirement that allow data to be grouped together more naturally and logically.
+
+Examples of non-relational databases include:
+  * Document-oriented
+  * Graph based
+  * Column based
+  * Key-value
+  * Hybrid
+
+One of the most popular ways of storing data is a document-oriented database, basically employed for storing, managing and retrieval of semi-structured data where each record and its associated data is considered of as a “document”. A document-oriented database is also termed as a document store or simple document, is one of the kind of NoSQL database.
+
+------
+
+#### What is NoSQL?
+
+NoSQL is an approach to databases that represents a shift away from traditional relational database management systems (RDBMS). To define NoSQL, it is helpful to start by describing SQL, which is a query language used by RDBMS. Relational databases rely on tables, columns, rows, or schemas to organize and retrieve data. In contrast, NoSQL databases do not rely on these structures and use more flexible data models. NoSQL can mean “not SQL” or “not only SQL.” As RDBMS have increasingly failed to meet the performance, scalability, and flexibility needs that next-generation, data-intensive applications require, NoSQL databases have been adopted by mainstream enterprises. NoSQL is particularly useful for storing unstructured data, which is growing far more rapidly than structured data and does not fit the relational schemas of RDBMS. Common types of unstructured data include: user and session data; chat, messaging, and log data; time series data such as IoT and device data; and large objects such as video and images.
+
+#### TYPES OF NOSQL DATABASES
+
+Several different varieties of NoSQL databases have been created to support specific needs and use cases. These fall into four main categories:
+  * Key-value data stores: Key-value NoSQL databases (Links to an external site.) emphasize simplicity and are very useful in accelerating an application to support high-speed read and write processing of non-transactional data. Stored values can be any type of binary object (text, video, JSON document, etc.) and are accessed via a key. The application has complete control over what is stored in the value, making this the most flexible NoSQL model. Data is partitioned and replicated across a cluster to get scalability and availability. For this reason, key value stores often do not support transactions. However, they are highly effective at scaling applications that deal with high-velocity, non-transactional data.
+  * Document stores: Document databases typically store self-describing JSON, XML, and BSON documents. They are similar to key-value stores, but in this case, a value is a single document that stores all data related to a specific key. Popular fields in the document can be indexed to provide fast retrieval without knowing the key. Each document can have the same or a different structure.
+  * Wide-column stores: Wide-column NoSQL databases store data in tables with rows and columns similar to RDBMS, but names and formats of columns can vary from row to row across the table. Wide-column databases group columns of related data together. A query can retrieve related data in a single operation because only the columns associated with the query are retrieved. In an RDBMS, the data would be in different rows stored in different places on disk, requiring multiple disk operations for retrieval.
+  * Graph stores: A graph database uses graph structures to store, map, and query relationships. They provide index-free adjacency, so that adjacent elements are linked together without using an index.
+
+Multi-modal databases leverage some combination of the four types described above and therefore can support a wider range of applications.
+
+#### BENEFITS OF NOSQL
+
+NoSQL databases offer enterprises important advantages over traditional RDBMS, including:
+  * Scalability: NoSQL databases use a horizontal scale-out methodology that makes it easy to add or reduce capacity quickly and non-disruptively with commodity hardware. This eliminates the tremendous cost and complexity of manual sharding that is necessary when attempting to scale RDBMS.
+  * Performance: By simply adding commodity resources, enterprises can increase performance with NoSQL databases. This enables organizations to continue to deliver reliably fast user experiences with a predictable return on investment for adding resources—again, without the overhead associated with manual sharding.
+  * High Availability: NoSQL databases are generally designed to ensure high availability and avoid the complexity that comes with a typical RDBMS architecture that relies on primary and secondary nodes. Some “distributed” NoSQL databases use a masterless architecture that automatically distributes data equally among multiple resources so that the application remains available for both read and write operations even when one node fails.
+  * Global Availability: By automatically replicating data across multiple servers, data centers, or cloud resources, distributed NoSQL databases can minimize latency and ensure a consistent application experience wherever users are located. An added benefit is a significantly reduced database management burden from manual RDBMS configuration, freeing operations teams to focus on other business priorities.
+  * Flexible Data Modeling: NoSQL offers the ability to implement flexible and fluid data models. Application developers can leverage the data types and query options that are the most natural fit to the specific application use case rather than those that fit the database schema. The result is a simpler interaction between the application and the database and faster, more agile development.
+
+------
+
+#### Query for Data
+
+Depending on what type of database you are using, will depend on how you retrieve the data in the database. Retrieval of data from a database is called a query.
+
+The most common language used in relational databases for queries is the Structured Query Language or SQL for short. SQL is a standard language for selecting, inserting, updating, and deleting data in a relational database. It can do more but the majority of the work in a system is done using SELECT, INSERT, UPDATE, and DELETE.
+
+------
+
+#### SQL Table Basics
+
+In a SQL table, you generally have a table that contains columns of fields, also known as columns, with records that contain all the columns in a table. Records contain all the assigned columns for each table, but have different information.
+
+Each column has a specific data type, examples of data type include:
+  * Bit –Integer data with either a 1 or 0 value
+  * Int –Integer (whole number) data from -2^31 (-2,147,483,648) through 2^31 – 1 (2,147,483,647)
+  * Decimal –Fixed precision and scale numeric data from -10^38 -1 through 10^38
+  * Timestamp –A database-wide unique number
+  * Uniqueidentifier –A globally unique identifier (GUID)
+  * Float –Floating precision number data from -1.79E + 308 through 1.79E + 308
+  * Real –Floating precision number data from -3.40E + 38 through 3.40E + 38
+  * Datetime –Date and time data from January 1, 1753, to December 31, 9999, with an accuracy of one-three-hundredths of a second, or 3.33 milliseconds
+  * Char –Fixed-length non-Unicode character data with a maximum length of 8,000 characters
+  * Varchar –Variable-length non-Unicode data with a maximum of 8,000 characters
+  * Text –Variable-length non-Unicode data with a maximum length of 2^31 – 1 (2,147,483,647) characters
+
+In addition to columns that contain data, you have columns that are used as keys. A key that is used to uniquely identify a record in the database are called primary keys. These keys are used to relate information between two or more tables with foreign keys used to relate against a primary key.
+
+A foreign key is an identical copy of a primary key that is inserted into another table for the purposes of relating information between two tables. Unlike primary keys, you can have many copies of the same key in a table if it is a foreign key. Only the primary key has to be unique.
+
+------
+
+#### SQL Query Commands
+
+The SQL data manipulation language (DML) is used to query and modify database data. In this chapter, we will describe how to use the SELECT, INSERT, UPDATE, and DELETE SQL DML command statements, defined below.
+  * SELECT – to query data in the database
+  * INSERT – to insert data into a table
+  * UPDATE – to update data in a table
+  * DELETE – to delete data from a table
+
+In the SQL DML statement:
+  * Each clause in a statement should begin on a new line.
+  * The beginning of each clause should line up with the beginning of other clauses.
+  * If a clause has several parts, they should appear on separate lines and be indented under the start of the clause to show the relationship.
+  * Upper case letters are used to represent reserved words.
+  * Lower case letters are used to represent user-defined words.
+
+------
+
+#### SELECT statement with WHERE criteria
+
+Sometimes you might want to focus on a portion of the Publishers table, such as only publishers that are in Vancouver. In this situation, you would use the SELECT statement with the WHERE criterion, i.e., WHERE city = ‘Vancouver’.
+
+#### Using wildcards in the LIKE clause
+
+The LIKE keyword selects rows containing fields that match specified portions of character strings. LIKE is used with char, varchar, text, datetime and smalldatetime data. A wildcard allows the user to match fields that contain certain letters. For example, the wildcard province = ‘N%’ would give all provinces that start with the letter ‘N’.
+
+Table four ways to specify wildcards in the SELECT statement in regular express format.
+
+|%|Any string of zero or more characters|
+|_|Any single character|
+|[ ]|Any single character within the specified range (e.g., [a-f]) or set (e.g., [abcdef])|
+|[^]|Any single character not within the specified range (e.g., [^a – f]) or set (e.g., [^abcdef])|
 
 
 
