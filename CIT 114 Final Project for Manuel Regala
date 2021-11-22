@@ -7,22 +7,39 @@ A URL to the index.html page within S3 bucket.
 Part 3: Knowledge Questions
 
 1. What are the advantages of cloud computing over on-premises?
-
+     - Lowers cost: Less need of IT staff, no hardware or physical infrastructure for hard ware so little to no maintanence cost, providers charge on a pay as 
+       you and per-user basis.
+     - More secure: Cloud services invest a lot in the protection and integirty of data. Less need for on-premises staff to need to keep up to date on security 
+       and encryption.
+     - Accessing data anytime: Being able to work away from the office when needed or just the abliity to keep up to date.
+     
 2. Given setup instructions above, give examples of three different businesses that might begin with this setup.
      Example: An online car sales service may use EC2 to power it's website, a VPC to allow its employees to connect, and the RDS to store its inventory of vehicles.
 
+
 3. If we wanted to keep a close eye on how much the services were costing, which AWS service would we make use of?
+
 
 4. We need to choose a support plan for the system we set up. What are four different support plans offered by AWS?
 
+
 5. How many hours of service does the free-tier of EC2 provide during a billing cycle?
+
 
 6. What is the minimum size subnet you can have in an Amazon VPC?
 
+
 7. What is the maximum size IP address range you can have in an Amazon VPC?
+
 
 8. Which Elastic Compute Cloud (Amazon EC2) feature would ensure our instances will not share a physical host with instances from any other AWS Customer?
 
+
 9. Let's say our storage requirement allows for a delayed retrieval of data (ie. medical records from ex-patients). Which S3 feature should we choose?
 
+
 10. List and briefly describe the four basic database commands.
+     SELECT: To query data in the database
+     INSERT: To insert data into a table
+     UPDATE: To updata data in a table
+     DELETE: To delete data from a table
