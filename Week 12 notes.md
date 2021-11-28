@@ -9,20 +9,20 @@
    * Metrics - Each metric is a variable within an AWS. Each monitored variable produces a data set that is collected over a time period resulting in a graph defined by data points. The data points represent the metric data received from the variable being monitored at an exact point in time based on the range of times selected. For example, with EC2 instances, you can monitor the metric CPU usage. Over the last hour, which is shown on the x-axis, the data points represent the data collected over the last hour in 5-minute increments, defined as the period of time. The y-axis shows the percentage of CPU utilization.
    * Statistics - Each metric that you select for analysis collects data based on a defined time period.
    Graphed data will be categorized statistically using some of the following terms:
-      - Minimum - The lowest value seen during the specified time period
-      - Maximum - The highest value seen during the specified time period
-      - Sum - All values are added together based on a specific time period
-      - SampleCount - The number of data points over a time period
-      - Average - Calculated from Sum divided by SampleCount based on the time period
-   * Dimensions
-   * Units of measurement
-   * Timestamp
-   * Time Range (Period)
-   * Alarms
-      - OK
-      - ALARM
-      - INSUFFICIENT DATA
-   * Events
+      - Minimum - The lowest value seen during the specified time period.
+      - Maximum - The highest value seen during the specified time period.
+      - Sum - All values are added together based on a specific time period.
+      - SampleCount - The number of data points over a time period.
+      - Average - Calculated from Sum divided by SampleCount based on the time period.
+   * Dimensions - A dimension describes the metric and what data it stores. Multiple dimensions can be multiple instances assigned to the metric CPU utilization.
+   * Units of measurement - Statistics are defined by bytes, seconds, count, or percentage.
+   * Timestamp - Each metric is stamped with a timestamp that references the exact time when data was received. Each timestamp includes the date, hours, minutes, and seconds based on the current time in UTC format.
+   * Time Range (Period) - The length of time data is collected based on a metric calculated on the defined statistical value. Periods of time can be set from 1 minute up to 15 months. The number of periods define the number of data points that are presented on the graph.
+   * Alarms - An alarm starts an action based on the state of the metric’s data over the defined time. Alarms can be notifications using SNS topics, an EC2 action, or an auto scaling action. Each of the CloudWatch metric’s data output can also be analyzed against a custom baseline of defined measurement; if the data is below a defined threshold, all is well. However, once the metric’s results exceed the baseline or exceed the baseline for a defined time period, CloudWatch alarms can fire, notifying you that there’s potentially an issue. Even better, CloudWatch can alert another AWS service that there’s a problem, and the problem can be fixed—automatically in some cases. Once enabled, every CloudWatch alarm has three possible states:
+      - OK - This means that the associated metric is still okay; the data that has been collected and evaluated by CloudWatch still fits within the defined alarm threshold. For example, you may have defined the CPU utilization at 60%. CloudWatch’s analysis of the metric’s data points over a defined evaluation period indicates that CPU utilization is currently at 52%; therefore, everything’s still okay.
+      - ALARM - Everything’s not okay; the metric’s data indicates that the established baseline of acceptable CPU utilization has been breached.
+      - INSUFFICIENT DATA - Everything might still be okay; there’s just not enough data yet to make a definitive analysis.
+   * Events - CloudWatch provides near real-time stream of system events for most AWS services based on a defined pattern, such as API calls indicating Root account usage within the AWS account or any IAM API calls. The stream can be stored in a CloudTrail log group and tracked by a metric filter. The target that is notified when the event rule fires can be several AWS services, including an SNS topic, a Lambda function, or an SQS queue. Terra Firma can use events to track any issues with user authentication to AWS.
 
 ------
 
