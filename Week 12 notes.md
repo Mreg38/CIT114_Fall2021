@@ -49,8 +49,8 @@ Options:
 Application + Network Load Balancing
 
   *	Distributes incoming traffic across multiple EC2 instances
-  *	Listener  Checks for connection requests from clients, and forwards requests to a target group
-  *	Target Group  Where the requests go
+  *	Listener --> Checks for connection requests from clients, and forwards requests to a target group
+  *	Target Group --> Where the requests go
   *	DIFFERENCE between ALB/NLB:
-    -	NLB  Distributes traffic based on network variables, ie. IP addresses and destination ports.
-    -	ALB  Distributes requests based on multiple variables, INCLUDING network variables; ex. behavior of the application.
+    -	NLB --> Distributes traffic based on network variables, ie. IP addresses and destination ports.
+    -	ALB --> Distributes requests based on multiple variables, INCLUDING network variables; ex. behavior of the application.
