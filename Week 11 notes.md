@@ -100,3 +100,36 @@ How it Works
 4.	Performance efficiency
 5.	Cost optimization
 3.	You can 1) get videos and documentation 2) generate a report that summarizes your workload review, & 3) see the results of reviews in a single dashboard.
+
+------
+
+#### AWS Trusted Advisor
+
+AWS Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices. Trusted Advisor checks help optimize your AWS infrastructure, increase security and performance, reduce your overall costs, and monitor service limits. Whether establishing new workflows, developing applications, or as part of ongoing improvement, take advantage of the recommendations provided by Trusted Advisor on a regular basis to help keep your solutions provisioned optimally.
+
+AWS Trusted Advisor analyzes your AWS environment and provides best practice recommendations in five categories, which include:
+   * Cost Optimization
+   * Performance
+   * Security
+   * Fault Tolerance
+   * Service Limits
+
+There are two types of trusted advisor options:
+   * Core checks and Recommendations come with all accounts.
+   * And full Trusted Advisor for Business and Enterprise support offerings.
+
+AWS Trusted Advisor is not focused on just one service and it is not just a security tool. An AWS Trusted Advisor will tell you how the infrastructure is performing, when security groups have been left open to the world, whether or not you are using fault tolerance, if you are at risk with all everything deployed in an Availability Zone, or if you have resources deployed that you are not using, but are still being charged for.
+
+AWS Basic Support and AWS Developer Support customers get access to 6 security checks (S3 Bucket Permissions, Security Groups - Specific Ports Unrestricted, IAM Use, MFA on Root Account, EBS Public Snapshots, RDS Public Snapshots) and 50 service limit checks. AWS Business Support and AWS Enterprise Support customers get access to all 115 Trusted Advisor checks (14 cost optimization, 17 security, 24 fault tolerance, 10 performance, and 50 service limits) and recommendations. For a complete list of checks and descriptions, explore Trusted Advisor Best Practices.
+
+Access AWS Trusted Advisor from the Management Tools section of the console. The Trusted Advisor provides real-time guidance to help you provision your resources following AWS best practices and to advise you on cost optimization, performance, security, and fault tolerance.
+
+AWS Support Technology
+
+This provides Technology & Tools to Monitor, Manage, and Optimize Your AWS Environment.
+
+There are three main tools to utilize:
+   * AWS Personal Health Dashboard
+   * AWS Trusted Advisor
+   * AWS Health API
+
