@@ -54,3 +54,9 @@ Application + Network Load Balancing
   *	DIFFERENCE between ALB/NLB:
     -	NLB --> Distributes traffic based on network variables, ie. IP addresses and destination ports.
     -	ALB --> Distributes requests based on multiple variables, INCLUDING network variables; ex. behavior of the application.
+
+Auto Scaling
+  *	EC2 auto scaling --> Allows us to launch or terminate instances controlled by CloudWatch alarms. Metrics include auto-scale group metrics such as the minimum and maximum group size and the in-service, pending, standby, and total instances.
+  *	AWS auto scaling --> Supports services outside of EC2, including database services.
+
+------
