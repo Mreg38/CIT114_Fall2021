@@ -127,3 +127,20 @@ The following list details some of the AWS services that are embedded with Cloud
    * Trusted Advisor—metrics include color-codes: green (good), red (there’s issues to check), and yellow (there’s warnings to consider).
    * VPC—Metrics include NAT and transit gateways.
 
+------
+
+Top 10 Big-Picture Discussion Points: Scale, Availability, and Monitoring Decisions
+
+To have your application work effectively with scale, it must be properly designed to work in a horizontal scaling cluster. This means it can’t have any local dependencies; all depended micro-services in services must be hosted externally to the Web server or application server. No data must be stored on the instance—just the operating system, application code, middleware, and other generic components that are installed on every other instance in the cluster. This also means that a lift and shift approach from on-premise to the cloud probably isn’t going to work because the odds are close to 100% that there will be dependencies in that application that will have to be stripped out.
+
+It’s time to discuss what you have and where you need to go regarding your applications that are moving to the cloud.
+1.	Do you have golden images for your Web and application servers?
+2.	Can you replace existing third-party load balancers with ELB services?
+3.	Are your applications hosted in public subnets?
+4.	Should you be tracking CloudTrail APIs using CloudWatch log groups and metric filters?
+5.	Can CloudWatch help monitor your on-premise servers with the installation of the CloudWatch agent?
+6.	Can launch configurations help you plan your auto scaling deployments?
+7.	Are billing alarms enabled to manage your developer’s project costs?
+8.	Can Lambda functions be created to help automate solutions with CloudWatch alerts?
+9.	Will step scaling policies help improve application performance?
+10.	Will step scaling policies help you save even more money?
