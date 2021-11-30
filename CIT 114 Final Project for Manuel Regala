@@ -1,7 +1,7 @@
 CIT 114 Final Project for Manuel Regala
 ---------------------------------------
 
-A URL to the index.html page within S3 bucket.
+A URL to the index.html page within S3 bucket. (Doesn't work on Firefox, but does on Chrome and Internet Explorer)
 http://manuel.regala.cit114.finalproject.s3-website-us-east-1.amazonaws.com/
 
 Knowledge Questions
