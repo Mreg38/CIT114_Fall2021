@@ -2,7 +2,7 @@
 
 ## These notes will be following the topics for the AWS Cloud Practitioner Exam
 
-### Cloud Concepts Overview
+### 1. Cloud Concepts Overview
 
 Concepts and Terminology
 
@@ -16,7 +16,7 @@ Software as a Service (SaaS)
 
 ------
 
-### Cloud Economics, Billing & Support
+### 2. Cloud Economics, Billing & Support
 
 AWS Pricing
 
@@ -28,7 +28,7 @@ Total Cost of Ownership
 
 ------
 
-### Cloud Global Infrastructure
+### 3. Cloud Global Infrastructure
 
 Computing w/AWS
 
@@ -42,7 +42,7 @@ AWS Foundational Services
 
 ------
 
-### Cloud Security
+### 4. Cloud Security
 
 Intro to AWS SErcurity
 
@@ -56,7 +56,7 @@ AWS Services for Cloud Security (6.12 thru 6.15)
 
 ------
 
-### Networking & Content Delivery
+### 5. Networking & Content Delivery
 
 Introduction to Networking (7.01 thru 7.06)
 
@@ -70,7 +70,7 @@ AWS Networking Services (7.22, 7.23)
 
 ------
 
-### Compute
+### 6. Compute
 
 Available Operatoing Systems at AWS
 
@@ -86,7 +86,7 @@ PaaS (inc. AWS Elastic Beanstalk)
 
 ------
 
-### Storage
+### 7. Storage
 
 AWS Storage Services
 
@@ -100,7 +100,7 @@ EFS
 
 ------
 
-### Databases
+### 8. Databases
 
 AWS Databases
 
@@ -114,7 +114,7 @@ AWS Aurora
 
 ------
 
-### Cloud Architecture
+### 9. Cloud Architecture
 
 Document: AWS Well Architected Framework
 
@@ -127,7 +127,7 @@ AWS Trusted Advisor
 
 ------
 
-### Automatic Scaling & Monitoring
+### 10. Automatic Scaling & Monitoring
 
 AWS CloudWatch
 
