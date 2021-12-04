@@ -516,13 +516,93 @@ To link hypertext to the Internet, we need:
 
 We access the web using web browsers.
 
+URI (Uniform Resource Identifier) - it’s like an address providing a unique global identifier to a resource on the Web. Uniform Resource Locator (URL) is the most commonly used form of a URI.
+
+The URL consists mainly of two parts:
+1.	The protocol used in the transfer, e.g., HTTP.
+2.	The domain name.
+
 ## AWS VPC (7.07 thru 7.11)
+
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.
+
+This enables you to provision logically isolated sections of the AWS Cloud where you can launch AWS resources in your virtual network. You have control over your virtual networking resources including:
+  * Selection of IP address ranges
+  * Creation of Subnets
+  * Configuration of route tables and network gateways
 
 ## VPC Networking (7.12 thru 7.19)
 
+Internet gateway - is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet. An internet gateway serves two purposes: to provide a target in your VPC route tables for internet-routable traffic, and to perform network address translation (NAT) for instances that have been assigned public IPv4 addresses. An internet gateway supports IPv4 and IPv6 traffic. It does not cause availability risks or bandwidth constraints on your network traffic.
+
+Network Address Translation (NAT) device can be used to enable instances in a private subnet to connect to the internet (for example, for software updates) or other AWS services, but prevent the internet from initiating connections with the instances. A NAT device forwards traffic from the instances in the private subnet to the internet or other AWS services, and then sends the response back to the instances. When traffic goes to the internet, the source IPv4 address is replaced with the NAT device’s address and similarly, when the response traffic goes to those instances, the NAT device translates the address back to those instances’ private IPv4 addresses.
+
+Network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances. To create a NAT gateway, you must specify the public subnet in which the NAT gateway should reside. You must also specify an Elastic IP address (Links to an external site.) to associate with the NAT gateway when you create it. The Elastic IP address cannot be changed after you associate it with the NAT Gateway. After you've created a NAT gateway, you must update the route table associated with one or more of your private subnets to point internet-bound traffic to the NAT gateway.
+
+You can use a network address translation (NAT) instance in a public subnet in your VPC to enable instances in the private subnet to initiate outbound IPv4 traffic to the internet or other AWS services, but prevent the instances from receiving inbound traffic initiated by someone on the internet. NAT is not supported for IPv6 traffic—use an egress-only internet gateway instead.
+
+VPC sharing allows multiple AWS accounts to create their application resources, such as Amazon EC2 instances, Amazon Relational Database Service (RDS) databases, Amazon Redshift clusters, and AWS Lambda functions, into shared, centrally-managed Amazon Virtual Private Clouds (VPCs). In this model, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that belong to the same organization from AWS Organizations. After a subnet is shared, the participants can view, create, modify, and delete their application resources in the subnets shared with them. Participants cannot view, modify, or delete resources that belong to other participants or the VPC owner.
+
+A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately. Instances in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.
+
+VPN stands for Virtual Private Network. This technology allows a user to connect one remote private network to a seperate remote private network through a secure virtual tunnel over the public internet. Many companies use this technology to connect seperate locations in order to grant employees the ability to access company resources anywhere in the world.
+
+AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection, you can create virtual interfaces directly to public AWS services (for example, to Amazon S3) or to Amazon VPC, bypassing internet service providers in your network path. This private connection can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections. 
+
+A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
+
+Endpoints are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between instances in your VPC and services without imposing availability risks or bandwidth constraints on your network traffic.
+
+There are three types of VPC endpoints:
+  * Endpoint service - Your own application in your VPC. Other AWS principals can create a connection from their VPC to your endpoint service 
+  * Gateway endpoint - A gateway endpoint (Links to an external site.) is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. 
+  * Interface endpoint - An interface endpoint (Links to an external site.) is an elastic network interface with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
+
+A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. AWS Transit Gateway connects VPCs and on-premises networks through a central hub. This simplifies your network and puts an end to complex peering relationships. It acts as a cloud router – each new connection is only made once.
+
 ## VPC Security (7.20, 7.21)
 
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. When you launch an instance in a VPC, you can assign up to five security groups to the instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet in your VPC can be assigned to a different set of security groups.
+
+Security group basics
+
+The following are the basic characteristics of security groups for your VPC:
+  * There are quotas on the number of security groups that you can create per VPC, the number of rules that you can add to each security group, and the number of security groups that you can associate with a network interface
+  * You can specify allow rules, but not deny rules.
+  * You can specify separate rules for inbound and outbound traffic.
+  * When you create a security group, it has no inbound rules. Therefore, no inbound traffic originating from another host to your instance is allowed until you add inbound rules to the security group.
+  * By default, a security group includes an outbound rule that allows all outbound traffic. You can remove the rule and add outbound rules that allow specific outbound traffic only. If your security group has no outbound rules, no outbound traffic originating from your instance is allowed.
+  * Security groups are stateful — if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules. Responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.
+  * Instances associated with a security group can't talk to each other unless you add rules allowing the traffic (exception: the default security group has these rules by default).
+  * Security groups are associated with network interfaces. After you launch an instance, you can change the security groups that are associated with the instance, which changes the security groups associated with the primary network interface (eth0). You can also specify or change the security groups associated with any other network interface. By default, when you create a network interface, it's associated with the default security group for the VPC, unless you specify a different security group.
+  * When you create a security group, you must provide it with a name and a description. The following rules apply: 
+    - Names and descriptions can be up to 255 characters in length.
+    - Names and descriptions are limited to the following characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*.
+    - A security group name cannot start with sg- as these indicate a default security group.
+    - A security group name must be unique within the VPC.
+  * A security group can only be used in the VPC that you specify when you create the security group.
+
+Default Security Groups
+
+Your VPC automatically comes with a default security group. If you don't specify a different security group when you launch the instance, we associate the default security group with your instance. 
+
+Inbound
+|Destination|Protocol|Port range|Description|
+|---|---|---|---|
+|The security group ID (sg-xxxxxxxx)|All|All|Allow inbound traffic from network interfaces (and their associated instances) that are assigned to the same security group.|
+
+Outbound
+|Destination|Protocol|Port range|Description|
+|---|---|---|---|
+|0.0.0.0/0|All|All|Allow all outbound IPv4 traffic.|
+|::/0|All|All|Allow all outbound IPv6 traffic. This rule is added by default if you create a VPC with an IPv6 CIDR block or if you associate an IPv6 CIDR block with your existing VPC.|
+
+
+
+
 ## AWS Networking Services (7.22, 7.23)
+
+
 
 ------
 
