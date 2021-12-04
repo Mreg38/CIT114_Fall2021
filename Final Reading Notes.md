@@ -762,17 +762,110 @@ Efficiently manage the application lifecycle: PaaS provides all of the capabilit
 
 ------
 
-### 7. Storage
+### 7. Storage (Week 9 - 9.01 to 9.20)
+
+Storage is basically a technology that allows a user to retain digital data onto a medium. It is one of the core components of a computer and in cloud computing, something that you need to understand the differences.
+
+Volatile vs Non-Volatile
+
+In a computer, there are two types of storage: Volatile and Non-Volatile.
+
+Volatile memory is a type of storage whose contents are erased when the system's power is turned off or interrupted. For example, RAM is volatile. When you are working on a document, it is kept in RAM, and if the computer loses power, your work will be lost. For this reason, you should save your document to a file on a non-volatile storage medium, such as your hard drive.
+
+NV or Non-volatile memory is a term used to describe any memory or storage that is saved regardless of the power to the computer is on or off. It is also called persistent storage or permanent storage. An example of non-volatile memory and storage is a computer hard drive, flash memory, and ROM. If data is stored on a hard drive, it will remain on that drive regardless if the power is interrupted, which is why it is the best place to store your data and documents. Non-volatile memory also stores your computer's time and system settings even when the power is off.
+
+Local Storage Types
+
+In computing, there is many forms of storage. Temporary storage, such as RAM, allows a computer to temporarily store information while the computer is in use, however when power is removed, the information stored in temporary storage is lost. Permanent storage is where you keep your operating system, applications, and other data files that you use on a computer system. The information will be saved even if there is no power to the system.
+
+Read Only Memory (RAM) - RAM is temporary storage that allows data and programs to be stored in memory in order the operating system to use them. After the operating system has booted up, each program you open, such as the browser you're using to view this page, is loaded into memory while it is running. If too many programs are open, the computer will swap the data in the memory between the RAM and the hard disk drive.
+
+Hard drive - can be used to store any data, including pictures, music, videos, text documents, and any files created or downloaded. Also, hard drives store files for the operating system and software programs that run on the computer. The two main types of hard drive are HDD (hard disk drive) and SSD (solid state drive).
+
+Optical Drive - uses lasers and lights as its method of reading and writing data. The three standards of optical media are CD (compact disk), DVD (digital versatile disk or digital video disk), and Blu-ray. All standards use the same size disc, but the data is read differently for each.
+
+Flash Drive - also referred to as a USB flash drive, data stick, pen drive, memory unit, keychain drive, and thumb drive, a jump drive is a portable storage device. It is often the size of a human thumb (hence the name) and connects to a computer via a USB port. Flash drives are an easy way to store and transfer information between computers and range in sizes from 2 GB to 1 TB.
+
+Unlike a standard hard drive, the flash drive has no movable parts; it contains only an integrated circuit memory chip that is used to store data. Flash drives usually have plastic or aluminum casings surrounding the memory chip.
 
 ## AWS Storage Services
 
+Storage is basically a technology that allows a user to retain digital data onto a medium. It is one of the core components of a computer and in cloud computing, something that you need to understand the differences
+
 ## S3
+
+Amazon Simple Storage Service (Amazon S3) - is a fully managed object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data for a range of use cases, such as websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. Amazon S3 provides easy-to-use management features so you can organize your data and configure finely-tuned access controls to meet your specific business, organizational, and compliance requirements. Amazon S3 is designed for 99.999999999% (11 9's) of durability, and stores data for millions of applications for companies all around the world.
+
+Amazon S3 Features
+
+Amazon S3 has various features you can use to organize and manage your data in ways that support specific use cases, enable cost efficiencies, enforce security, and meet compliance requirements. Data is stored as objects within resources called buckets, and a single object can be up to 5 terabytes in size. S3 features include capabilities to append metadata tags to objects, move and store data across the S3 Storage Classes, configure and enforce data access controls, secure data against unauthorized users, run big data analytics, and monitor data at the object and bucket levels. Objects can be accessed through S3 Access Points or directly through the bucket hostname.
+
+When you create a bucket in Amazon S3, it is associated with a specific AWS Region. When you store data in the bucket, it is redundantly stored across multiple AWS facilities within your selected Region. Amazon S3 is designed to durably store your data, even if there is concurrent data loss in two AWS facilities.
+Amazon S3 automatically manages the storage behind your bucket while your data grows. You can get started immediately, and your data storage will grow with your application needs. Amazon S3 also scales to handle a high volume of requests. You do not need to provision the storage or throughput, and you are billed only for what you use.
 
 ## Glacier
 
+Amazon S3 Glacier - is a secure, durable, and extremely low-cost storage service for data archiving and long-term backup. It is designed to deliver 99.999999999% durability, and provides comprehensive security and compliance capabilities that can help meet even the most stringent regulatory requirements. Amazon S3 Glacier provides query-in-place functionality, allowing you to run powerful analytics directly on your archive data at rest. You can store data for as little as $0.004 per gigabyte per month, a significant savings compared to on-premises solutions. To keep costs low yet suitable for varying retrieval needs, Amazon S3 Glacier provides three options for access to archives, from a few minutes to several hours
+
+Glacier Features & Terms
+
+Amazon S3 Glacier is a data archiving service that is designed for security, durability, and an extremely low cost.
+  * Amazon S3 Glacier is designed to provide 11 9s of durability for objects.
+  * It supports the encryption of data in transit and at rest through Secure Sockets Layer (SSL) or Transport Layer Security (TLS).
+  * The Vault Lock feature enforces compliance through a policy.
+
+When you use Amazon S3 Glacier to archive data, you can store your data at an extremely low cost (even in comparison to Amazon S3), but you cannot retrieve your data immediately when you want it. Data that is stored in Amazon S3 Glacier can take several hours to retrieve, which is why it works well for archiving.
+
+There are three key Amazon S3 Glacier terms you should be familiar with:
+  * Archive – Any object (such as a photo, video, file, or document) that you store in Amazon S3 Glacier. It is the base unit of storage in Amazon S3 Glacier. Each archive has its own unique ID and it can also have a description.
+  * Vault – A container for storing archives. When you create a vault, you specify the vault name and the Region where you want to locate the vault.
+  * Vault access policy – Determine who can and cannot access the data that is stored in the vault, and what operations users can and cannot perform. One vault access permissions policy can be created for each vault to manage access permissions for that vault. You can also use a vault lock policy to make sure that a vault cannot be altered. Each vault can have one vault access policy and one vault lock policy that are attached to it.
+
+Amazon S3 Glacier provides three options for access to archives—expedited, standard, and bulk—retrieval times range from a few minutes to several hours.
+  * Expedited retrievals are typically made available within 1–5 minutes (highest cost).
+  * Standard retrievals typically complete within 3–5 hours (less time than expedited, more time than bulk).
+  * Bulk retrievals typically complete within 5–12 hours (lowest cost).
+
+You might compare these options to choosing the cost for shipping a package by using the most economical method for your needs
+
 ## EBS
 
+Amazon Elastic Block Store (Amazon EBS) - provides persistent block storage volumes for use with Amazon EC2 instances in the AWS Cloud. Each Amazon EBS volume is automatically replicated within its Availability Zone to protect you from component failure, offering high availability and durability. Amazon EBS volumes offer the consistent and low-latency performance needed to run your workloads. With Amazon EBS, you can scale your usage up or down within minutes—all while paying a low price for only what you provision.
+
+Amazon EBS allows you to create storage volumes and attach them to Amazon EC2 instances. Once attached, you can create a file system on top of these volumes, run a database, or use them in any other way you would use block storage. Amazon EBS volumes are placed in a specific Availability Zone where they are automatically replicated to protect you from the failure of a single component. All EBS volume types offer durablesnapshot capabilities to S3 and are designed for 99.999% availability.
+
+EBS Features
+
+Snapshots
+
+Amazon EBS provides the ability to save point-in-time snapshots of your volumes to Amazon S3. Amazon EBS Snapshots are stored incrementally: only the blocks that have changed after your last snapshot are saved, and you are billed only for the changed blocks. If you have a device with 100 GB of data but only 5 GB has changed after your last snapshot, a subsequent snapshot consumes only 5 additional GB and you are billed only for the additional 5 GB of snapshot storage, even though both the earlier and later snapshots appear complete.
+
+Encryption
+
+Amazon EBS encryption offers seamless encryption of EBS data volumes, boot volumes and snapshots, eliminating the need to build and manage a secure key management infrastructure. EBS encryption enables data at rest security by encrypting your data volumes, boot volumes and snapshots using Amazon-managed keys or keys you create and manage using the AWS Key Management Service (KMS). In addition, the encryption occurs on the servers that host EC2 instances, providing encryption of data as it moves between EC2 instances and EBS data and boot volumes.
+
+Elasticity
+
+Elastic Volumes is a feature that allows you to easily adapt your volumes as the needs of your applications change. Elastic Volumes allows you to dynamically increase capacity, tune performance, and change the type of any new or existing current generation volume with no downtime or performance impact. Easily right-size your deployment and adapt to performance changes.
+
 ## EFS
+
+Amazon Elastic File System (Amazon EFS) - provides a simple, scalable, elastic file system for Linux-based workloads for use with AWS Cloud services and on-premises resources. It is built to scale on demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files, so your applications have the storage they need – when they need it. It is designed to provide massively parallel shared access to thousands of Amazon EC2 instances, enabling your applications to achieve high levels of aggregate throughput and IOPS with consistent low latencies. Amazon EFS is a fully managed service that requires no changes to your existing applications and tools, providing access through a standard file system interface for seamless integration. Amazon EFS is a regional service storing data within and across multiple Availability Zones (AZs) for high availability and durability. You can access your file systems across AZs and regions and share files between thousands of Amazon EC2 instances and on-premises servers via AWS Direct Connect or AWS VPN.
+
+Amazon EFS is well suited to support a broad spectrum of use cases from highly parallelized, scale-out workloads that require the highest possible throughput to single-threaded, latency-sensitive workloads. Use cases such as lift-and-shift enterprise applications, big data analytics, web serving and content management, application development and testing, media and entertainment workflows, database backups, and container storage.
+
+Amazon EFS Features
+
+Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully managed, elastic NFS file system. It is built to scale on demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files, eliminating the need to provision and manage capacity to accommodate growth.
+
+Features Include:
+  * File storage in the AWS Cloud
+  * Works well for big data and analytics, media processing workflows, content management, web serving, and home directories
+  * Petabyte-scale, low-latency file system
+  * Shared Storage
+  * Elastic Capacity
+  * Supports Network File System (NFS) versions 4.0 and 4.1 (NFSv4)
+  * Compatible with all Linux-based AMIs for Amazon EC2
 
 ------
 
