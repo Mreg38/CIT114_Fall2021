@@ -342,17 +342,71 @@ Second, this infrastructure is fault tolerant, which means it has built-in compo
 
 AWS Global Infrastructure
 
+The AWS Global Cloud Infrastructure is the most secure, extensive, and reliable cloud platform, offering over 200 fully featured services from data centers globally. Whether you need to deploy your application workloads across the globe in a single click, or you want to build and deploy specific applications closer to your end-users with single-digit millisecond latency, AWS provides you the cloud infrastructure where and when you need it.
+
+With millions of active customers and tens of thousands of partners globally, AWS has the largest and most dynamic ecosystem. Customers across virtually every industry and of every size, including start-ups, enterprises, and public sector organizations, are running every imaginable use case on AWS.
+
+The AWS Cloud spans 81 Availability Zones within 25 geographic regions around the world, with announced plans for 27 more Availability Zones and 9 more AWS Regions in Australia, Canada, India, Indonesia, Israel, New Zealand, Spain, Switzerland, and United Arab Emirates (UAE). 
+
 Regions and Availability Zones
+
+AWS has the concept of a Region, which is a physical location around the world where we cluster data centers. We call each group of logical data centers an Availability Zone. Each AWS Region consists of multiple, isolated, and physically separate AZs within a geographic area. Unlike other cloud providers, who often define a region as a single data center, the multiple AZ design of every AWS Region offers advantages for customers. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AWS customers focused on high availability can design their applications to run in multiple AZs to achieve even greater fault-tolerance. AWS infrastructure Regions meet the highest levels of security, compliance, and data protection.
+
+An Availability Zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity in an AWS Region. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All AZs in an AWS Region are interconnected with high-bandwidth, low-latency networking, over fully redundant, dedicated metro fiber providing high-throughput, low-latency networking between AZs. All traffic between AZs is encrypted. The network performance is sufficient to accomplish synchronous replication between AZs. AZs make partitioning applications for high availability easy. If an application is partitioned across AZs, companies are better isolated and protected from issues such as power outages, lightning strikes, tornadoes, earthquakes, and more. AZs are physically separated by a meaningful distance, many kilometers, from any other AZ, although all are within 100 km (60 miles) of each other.
 
 AWS Foundational Services
 
+Compute
+
+Compute services help you make the most of your data. They support research and big data processing. AWS compute services cover virtual machines, containers, serverless computing, and more.
+
+For example, Munich Leukemia Laboratory uses AWS for genome sequencing (Links to an external site.); using Amazon Elastic Compute Cloud (Amazon EC2), they were able to process sequencing runs in 30-40 minutes, versus 10-12 hours before the cloud.
+
+Storage
+
+AWS storage solutions provide reliable, scalable, and secure storage for backup, disaster recovery, and business continuity. 
+
+For example, the Smithsonian Institution shared over 2.8 million images stored in Amazon Simple Storage Service (Amazon S3) (Links to an external site.) for public analysis and use.
+
+Databases
+
+WS databases are built for different data models and use cases and offer speed, reliability, availability, and security.
+
+For example, the Pokemon Company migrated to AWS managed database services (Links to an external site.) in order to free up time and resources while improving game play.
+
+Networking
+
+AWS networking and content delivery are designed to ensure that AWS has the networking capabilities required to run any workload in the cloud with security, availability, performance, global coverage, and manageability.
+
 ------
 
-### 4. Cloud Security
+### 4. Cloud Security (Week 6 6.01 to 6.16)
 
 ## Intro to AWS SErcurity
 
+The AWS infrastructure has been architected to be one of the most flexible and secure cloud computing environments available today. It is designed to provide an extremely scalable, highly reliable platform that enables customers to deploy applications and data quickly and securely.
+
+This infrastructure is built and managed not only according to security best practices and standards, but also with the unique needs of the cloud in mind. AWS uses redundant and layered controls, continuous validation and testing, and a substantial amount of automation to ensure that the underlying infrastructure is monitored and protected 24x7. AWS ensures that these controls are replicated in every new data center or service.
+
+All AWS customers benefit from a data center and network architecture built to satisfy the requirements of our most security-sensitive customers. This means that you get a resilient infrastructure, designed for high security, without the capital outlay and operational overhead of a traditional data center.
+
+AWS operates under a shared security responsibility model, where AWS is responsible for the security of the underlying cloud infrastructure and you are responsible for securing workloads you deploy in AWS (Figure 1). This gives you the flexibility and agility you need to implement the most applicable security controls for your business functions in the AWS environment. You can tightly restrict access to environments that process sensitive data, or deploy less stringent controls for information you want to make public.
+
 ## AWS Shared Security Model
+
+Security and Compliance is a shared responsibility between AWS and the customer. This shared model can help relieve the customer’s operational burden as AWS operates, manages and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches), other associated application software as well as the configuration of the AWS provided security group firewall. Customers should carefully consider the services they choose as their responsibilities vary depending on the services used, the integration of those services into their IT environment, and applicable laws and regulations. The nature of this shared responsibility also provides the flexibility and customer control that permits the deployment. As shown in the chart below, this differentiation of responsibility is commonly referred to as Security “of” the Cloud versus Security “in” the Cloud.
+
+AWS is responsible for protecting the infrastructure that runs all of the services offered in the AWS Cloud. This infrastructure is composed of the hardware, software, networking, and facilities that run AWS Cloud services. This includes:
+  * Physical security of data centers with controlled, need-based access; located in nondescript facilities, with 24/7 security guards; two-factor authentication; access logging and review; video surveillance; and disk degaussing and destruction.
+  * Hardware infrastructure, such as servers, storage devices, and other appliances that AWS relies on.
+  * Software infrastructure, which hosts operating systems, service applications, and virtualization software.
+  * Network infrastructure, such as routers, switches, load balancers, firewalls, and cabling. AWS also continuously monitors the network at external boundaries, secures access points, and provides redundant infrastructure with intrusion detection.
+
+While the cloud infrastructure is secured and maintained by AWS, customers are responsible for security of everything they put in the cloud.
+
+The customer is responsible for what is implemented by using AWS services and for the applications that are connected to AWS. The security steps that you must take depend on the services that you use and the complexity of your system. Customer responsibilities include selecting and securing any instance operating systems, securing the applications that are launched on AWS resources, security group configurations, firewall configurations, network configurations, and secure account management.
+
+The selection made by the customer determines the amount of configuration work the customer must perform as part of their security responsibilities. 
 
 ## AWS Sercurity Best Practices
 
