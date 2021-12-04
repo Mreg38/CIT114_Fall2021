@@ -1129,11 +1129,13 @@ How it Works
 
 ------
 
-### 10. Automatic Scaling & Monitoring (Week 12)
+### 10. Automatic Scaling & Monitoring (Week 12/Chapter 5 via O'Reilly: Planning for Scale & Resiliency)
 
 Planning for Scale and Resiliency
 
 Scaling is the secret sauce for all public cloud providers: everybody has this feature, and everybody uses this feature. Every application that you like to use on your phone or tablet is controlled by some elements of scale. If your application is slow, perhaps it’s because there are too many users currently accessing the application. If your application has decent performance, the odds are that the application is being carefully monitored, and resources are being added or removed based on demand.
+
+
 
 ## AWS CloudWatch
 
@@ -1141,9 +1143,35 @@ CloudWatch is a monitoring service embedded in the AWS cloud operating system. M
 
 Only once an AWS service has been ordered and begins operation is there any data flow, and subsequently, CloudWatch metric data records published to the service’s CloudWatch dashboard.
 
+CloudWatch Terminology:
+  * Namespace — Each AWS service stores its CloudWatch metrics and associated data in its own container. At this writing, there are more than 74 AWS services that use CloudWatch metrics.
+  * Metrics — Each metric is a variable within an AWS. Each monitored variable produces a data set that is collected over a time period resulting in a graph defined by data points. The data points represent the metric data received from the variable being monitored at an exact point in time based on the range of times selected.
+  * Statistics — Each metric that you select for analysis collects data based on a defined time period. Graphed data will be categorized statistically using some of the following terms: 
+    - Minimum — The lowest value seen during the specified time period
+    - Maximum — The highest value seen during the specified time period
+    - Sum — All values are added together based on a specific time period
+    - SampleCount — The number of data points over a time period
+    - Average — Calculated from Sum divided by SampleCount based on the time period
+  * Dimensions — A dimension describes the metric and what data it stores. Multiple dimensions can be multiple instances assigned to the metric CPU utilization.
+  * Units of measurement — Statistics are defined by bytes, seconds, count, or percentage
+  * Timestamp — Each metric is stamped with a timestamp that references the exact time when data was received. Each timestamp includes the date, hours, minutes, and seconds based on the current time in UTC format.
+  * Time Range (Period) — The length of time data is collected based on a metric calculated on the defined statistical value. Periods of time can be set from 1 minute up to 15 months. The number of periods define the number of data points that are presented on the graph.
+  * Alarms - An alarm starts an action based on the state of the metric’s data over the defined time. Alarms can be notifications using SNS topics, an EC2 action, or an auto scaling action. Each of the CloudWatch metric’s data output can also be analyzed against a custom baseline of defined measurement; if the data is below a defined threshold, all is well. However, once the metric’s results exceed the baseline or exceed the baseline for a defined time period, CloudWatch alarms can fire, notifying you that there’s potentially an issue. Even better, CloudWatch can alert another AWS service that there’s a problem, and the problem can be fixed—automatically in some cases. Once enabled, every CloudWatch alarm has three possible states:
+    - OK — This means that the associated metric is still okay; the data that has been collected and evaluated by CloudWatch still fits within the defined alarm threshold. For example, you may have defined the CPU utilization at 60%. CloudWatch’s analysis of the metric’s data points over a defined evaluation period indicates that CPU utilization is currently at 52%; therefore, everything’s still okay.
+    - ALARM — Everything’s not okay; the metric’s data indicates that the established baseline of acceptable CPU utilization has been breached.
+    - INSUFFICIENT DATA — Everything might still be okay; there’s just not enough data yet to make a definitive analysis.
+  * Events — CloudWatch provides near real-time stream of system events for most AWS services based on a defined pattern, such as API calls indicating Root account usage within the AWS account or any IAM API calls. The stream can be stored in a CloudTrail log group and tracked by a metric filter.
+
 Monitoring
 
-Basic monitoring provided by CloudWatch is free of charge and, depending on the AWS service, a select number of metrics are enabled. Metrics report to CloudWatch on a variety of intervals. There is no default among all the services that are supported. 
+Basic monitoring provided by CloudWatch is free of charge and, depending on the AWS service, a select number of metrics are enabled. Metrics report to CloudWatch on a variety of intervals. There is no default among all the services that are supported.
+
+types of things you can monitor include the following:
+   * Performance-based monitoring — Monitoring your application’s compute speed (database, application, or Web server) over time allows you to develop your own initial baseline of operation and what you deem to be an acceptable level of performance. For example, monitoring an application server over a longer time period—for multiple weeks or months—provides valuable data insights as to when the application server gets busy, when there are quiet times, and whether it is busier at the end of the month or at certain times of day. The same criteria can apply to a Web server or a database server. EC2 instances, ECS containers, and RDS instances have CloudWatch metrics; in fact, all AWS services have some integration with CloudWatch.
+   * Resources to Monitor — The initial components to monitor with regard to compute performance are the same ones we have always monitored: CPU, memory, storage, and networking.
+   * CPU and RAM utilization — EC2 instances have the CloudWatch agent installed, which collects many system metrics from EC2 instances. On EC2 instances running Windows Server, all counters in Performance Monitor can be collected by the CloudWatch agent. Linux instances collect system information using metrics for CPU, disk, memory, and networking.
+   * Available disk space—Hard disks with more than 70% disk space used are typically on the edge of causing problems due to lack of available free space. EBS volumes have disk performance and disk read and write operation metrics, and the CloudWatch agent can report on total disk space, used space, percentage of total disk space, and many other metrics. We can also quickly scale our EBS drives at AWS.
+   * IOPS — CloudWatch has metrics for EBS volumes, as shown in Figure 5-6. In addition, the overall read and write performance of EBS volumes can be monitored and increased if necessary by raising input/output per second (IOPS) performance to 64,000 IOPS.
 
 Logging
 
@@ -1162,7 +1190,7 @@ Like any monitoring service, the back-end engine of CloudWatch receives and stor
 
 Allows us to launch or terminate instances controlled by CloudWatch alarms. Metrics include auto-scale group metrics such as the minimum and maximum group size and the in-service, pending, standby, and total instances.
 
-In a nutshell, EC2 Auto Scaling makes sure that the compute power required by your application is always available. EC2 instances are grouped together in what is called an Auto Scaling group (ASG). Once you define the minimum number of instances for each ASG, auto scaling ensures that the minimum defined instance number is always available. You can also define a maximum number of instances in the ASG; auto scaling manages the maximum number as well. Perhaps you want to maintain a desired capacity of compute instances; that’s also an available option. Desired capacity was defining the number of EC2 instances that are started when auto scaling is first launched. If you defined a desired capacity of 2 instances, then 2 instances will be maintained by Auto Scale. The desired compute capacity can also be scaled out or in based on CloudWatch alarm triggers, which can order a change in the number of instances plus or minus. If a desired capacity value is entered, the desired capacity is maintained.
+Basically, EC2 Auto Scaling makes sure that the compute power required by your application is always available. EC2 instances are grouped together in what is called an Auto Scaling group (ASG). Once you define the minimum number of instances for each ASG, auto scaling ensures that the minimum defined instance number is always available. You can also define a maximum number of instances in the ASG; auto scaling manages the maximum number as well. Perhaps you want to maintain a desired capacity of compute instances; that’s also an available option. Desired capacity was defining the number of EC2 instances that are started when auto scaling is first launched. If you defined a desired capacity of 2 instances, then 2 instances will be maintained by Auto Scale. The desired compute capacity can also be scaled out or in based on CloudWatch alarm triggers, which can order a change in the number of instances plus or minus. If a desired capacity value is entered, the desired capacity is maintained.
 
 Besides the EC2 auto scaling benefit of maintaining the right amount of compute capacity, there are other benefits to consider:
   * Cost management—EC2 auto scaling helps to save money; if your application has just the right amount of capacity—not too much and not too little—then you’re not wasting compute power that you’re not utilizing. Automating your capacity saves you a lot of money.
@@ -1173,4 +1201,38 @@ EC2 Auto Scaling Components
 
 EC2 auto scaling works with three main components: a launch template, also called a launch configuration; ASGs; and a defined scaling policy.
 
-## Chapter 5 via O'Reilly: Planning for Scale & Resiliency
+Launch Configuration
+
+The launch configuration is a template used by the ASG to launch EC2 instances. Creating a launch configuration is like the steps you would take when manually launching an EC2 instance from the management console. The launch configuration is prestaging the EC2 that will be built by the ASG. Each launch configuration matches up against one ASG at a time. The template includes numerous system components, including the instance ID of the AMI, the instance type to build, the key pair for authentication, desired security groups, and a block storage device. Launch configurations have been superseded by the launch template, which has many additional settings that can be used by an ASG when deploying instances.
+
+Launch Templates
+
+A launch template is similar to a launch configuration, with the added feature of versioning. A default launch template can be created as a source template; then other versions of the template can be created and saved. AWS recommends that you use launch templates rather than launch configurations and specify specific tags or additional core information that your company wants to embed in each launch configuration, such as AZs and subnets.
+
+Auto Scaling Groups (ASGs)
+
+An Auto Scaling group (ASG) is built from a collection of EC2 instances that have been generated from the associated launch configuration or launch template. Each ASG launches instances following the parameters of the launch template to meet the defined scaling policy. There is some overlap between some of the settings that can be defined in an ASG and a launch configuration template. Network settings, including AZs, and subnets can also be defined in an ASG.
+
+Scaling policies can also be attached to ASGs to help dynamically increase or decrease the number of EC2 instances. You can also choose to manually override the defined settings of an ASG and scale the number of instances up or down as necessary.
+
+Scaling Options for Auto Scaling Groups
+
+  * Manual scaling — You can make manual changes to your ASGs at any time by changing the maximum, minimum, or desired state values to start capacity changes.
+  * Maintain current instance levels — Set the desired capacity and health checks to determine the health and automatically replace any instances that are determined to be unhealthy by the auto scaling health check or the load-balancing health check, whichever is selected.
+  * Target tracking — Increase and decrease the ASG based on a metric to maintain a target value across all instances.
+
+Amazon recommends that metrics used for target tracking should be set for a 1-minute frequency to ensure a faster response time. Detailed monitoring must be enabled to utilize 1-minute intervals.
+
+Scale based on a schedule — Scaling can also be defined by time and date values, which instructs auto scaling to scale up or down at a specific time. The start time, minimum, maximum, and desired sizes can be set for recurring actions. The issue with scheduled scaling is that there is still compute waste. It’s much better to enable scaling on-demand, and it’s not hard to set up.
+
+Scale on demand policy — Demand scaling allows users custom metrics that will determine the scaling out and in of your defined fleet of EC2 instances. Multiple policies can be attached to an ASG that can both control the scaling out and in. Multiple scaling policies can provide scaling control. For example, a scaling policy might react to the CloudWatch metric Network Utilization and scale out when network traffic is greater than (>) a certain percentage. Or a scaling policy could measure the depth of messages in an SQS queue and scale out when the number of messages is over a certain value.
+
+Both simple scaling and step scaling support the following parameters for scaling instances:
+  * ChangeInCapacity—Increase or decrease the capacity of the ASG by the defined number of instances.
+  * ExactCapacity—This value defines the capacity of the ASG to the defined number. For example, if the current capacity is four instances and an adjustment to the ASG is three instances, the capacity is set to seven instances.
+  * PercentChangeInCapacity—This changes to the capacity of the ASG by either a positive or a negative percentage value.
+  * Step Autoscaling Policy—Using steps is the most advanced option because it allows you to have multiple policies for scaling out and in. Step scaling allows you to define a lower and upper boundary for the metric being used and to define the amount by which to scale in or scale out the instances, as shown in Figure 5-32, with incremental steps in or out.
+    - A first instance is added when CPU utilization is between 40% and 50%.
+    - The next step adds two instances when CPU utilization is between 50% and 70%.
+    - In the third step, three instances are added when CPU utilization is between 70% and 90%.
+    - When CPU utilization is greater than 90%, add a further four instances.
