@@ -1120,11 +1120,11 @@ AWS WA Tool helps you throughout the product lifecycle by:
 How it Works
 1.	Identify the workload to document. Then answer a series of questions about your architecture
 2.	Review your answers against the five pillars established by the Well-Architected Framework that are visually depicted via the icons in the column; 
-   1)	Operational excellence
-   2)	Security
-   3)	Reliability
-   4)	Performance efficiency
-   5)	Cost optimization
+   - Operational excellence
+   -	Security
+   -	Reliability
+   -	Performance efficiency
+   -	Cost optimization
 3.	You can 1) get videos and documentation 2) generate a report that summarizes your workload review, & 3) see the results of reviews in a single dashboard.
 
 
