@@ -54,6 +54,7 @@ Basic hardware components of a modern personal computer, include
   * Peripherals
 
 Business Drivers:
+
 Capacity Planning - The process of determining and fulfilling future demands of an organization's IT resources, products, and services.
 Different capacity planning strategies exist:
   * Lead Strategy - adding capacity to an IT resource in anticipation of demand
@@ -156,14 +157,22 @@ The previous examples are free services for personal use. For organizational use
 
 Advantages of SaaS
 
-Gain access to sophisticated applications: To provide SaaS apps to users, you don’t need to purchase, install, update, or maintain any hardware, middleware, or software. SaaS makes even sophisticated enterprise applications, such as ERP and CRM, affordable for organizations that lack the resources to buy, deploy, and manage the required infrastructure and software themselves.
+Gain access to sophisticated applications:
 
-Pay only for what you use: You also save money because the SaaS service automatically scales up and down according to the level of usage.
+To provide SaaS apps to users, you don’t need to purchase, install, update, or maintain any hardware, middleware, or software. SaaS makes even sophisticated enterprise applications, such as ERP and CRM, affordable for organizations that lack the resources to buy, deploy, and manage the required infrastructure and software themselves.
+
+Pay only for what you use:
+
+You also save money because the SaaS service automatically scales up and down according to the level of usage.
 Use free client software. Users can run most SaaS apps directly from their web browser without needing to download and install any software, although some apps require plugins. This means that you don’t need to purchase and install special software for your users.
 
-Mobilize your workforce easily: SaaS makes it easy to “mobilize” your workforce because users can access SaaS apps and data from any Internet-connected computer or mobile device. You don’t need to worry about developing apps to run on different types of computers and devices because the service provider has already done so. In addition, you don’t need to bring special expertise onboard to manage the security issues inherent in mobile computing. A carefully chosen service provider will ensure the security of your data, regardless of the type of device consuming it.
+Mobilize your workforce easily:
 
-Access app data from anywhere: With data stored in the cloud, users can access their information from any Internet-connected computer or mobile device. And when app data is stored in the cloud, no data is lost if a user’s computer or device fails.
+SaaS makes it easy to “mobilize” your workforce because users can access SaaS apps and data from any Internet-connected computer or mobile device. You don’t need to worry about developing apps to run on different types of computers and devices because the service provider has already done so. In addition, you don’t need to bring special expertise onboard to manage the security issues inherent in mobile computing. A carefully chosen service provider will ensure the security of your data, regardless of the type of device consuming it.
+
+Access app data from anywhere:
+
+With data stored in the cloud, users can access their information from any Internet-connected computer or mobile device. And when app data is stored in the cloud, no data is lost if a user’s computer or device fails.
 
 ------
 
@@ -171,9 +180,78 @@ Access app data from anywhere: With data stored in the cloud, users can access t
 
 ## AWS Pricing
 
+AWS offers pay-as-you-go (on demand), reservation-based, and bulk-use (pay less when you use more) payment models; this enables us to obtain the best return on your investment for each specific use case. AWS services do not have complex dependencies or licensing requirements, so you can get exactly what you need to build innovative, costeffective solutions using the latest technology. 
+
+How do you pay for AWS?
+
+Pay-as-you-go:
+
+AWS pricing is similar to how you pay for utilities like water and electricity. You only pay for the services you consume, and once you stop using them, there are no additional costs or termination fees.
+
+Save when you reserve:
+
+For certain services like Amazon EC2 and Amazon RDS, you can invest in reserved capacity. With Reserved Instances, you can save up to 75% over equivalent on-demand capacity. When you buy Reserved Instances, the larger the upfront payment, the greater the discount. 
+
+Pay less by using more:
+
+With AWS, you can get volume based discounts and realize important savings as your usage increases. For services such as S3 and data transfer OUT from EC2, pricing is tiered, meaning the more you use, the less you pay per GB. In addition, data transfer IN is always free of charge. As a result, as your AWS usage needs increase, you benefit from the economies of scale that allow you to increase adoption and keep costs under control.
+
+Key Principles of Pricing
+
+1. There are three fundamental drivers of cost with AWS:
+  * Compute
+  * Storage
+  * Outbound data transfer
+
+2. Start early with cost optimization:
+
+Adopting cloud services is not just a technical evolution. It also requires changes to how organizations operate. As you move from IT being treated as a capital investment that happens periodically to a world where pricing is closely tied to efficient use of resources, it pays to understand what drives cloud pricing so you can build a strategy for optimizing it.
+
+3. Maximize the power of flexibility:
+
+AWS services are priced independently and transparently, so you can choose and pay for exactly what you need and no more. No minimum commitments or long-term contracts are required unless you choose to save money through a reservation model. By paying for services on an as-needed basis, you can redirect your focus to innovation and invention, reducing procurement complexity and enabling your business to be fully elastic.
+
+4. Use the right pricing model for the job:
+
+AWS offers several pricing models depending on product. These include:
+  * On Demand means you pay for compute or database capacity with no long-term commitments or upfront payments.
+  * Dedicated Instances (available with Amazon Elastic Compute Cloud. (Amazon EC2)) run in a virtual private cloud (VPC) on hardware that’s dedicated to a single customer.
+  * Spot Instances are an Amazon EC2 pricing mechanism that lets you purchase spare computing capacity with no upfront commitment at discounted hourly rates.
+  * Reservations provide you with the ability to receive a greater discount, up to 75 percent, by paying for capacity ahead of time. More detail is provided in the section, “Optimizing costs with reservations.” Reservation options include: 
+    - Amazon EC2 Reserved Instances
+    - Amazon DynamoDB Reserved Capacity
+    - Amazon ElastiCache Reserved Nodes
+    - Amazon Relational Database Service Reserved Instances
+    - Amazon Redshift Reserved Nodes
+
+Free Tier + Undrstanding the Free Tier
+
+|Resource|Description|
+|---|---|
+|AWS Credits|$25 in credits for your normal AWS account, if requested|
+|AWS Educate|$100 in credits for a starter account and access to classrooms with additional credits|
+|AWS Training|Access to AWS Technical Essentials Training Course and free access to labs|
+|Content|1) Ability to select personalized learning pathway with 30+ hours of content per path. 2) Earn digital badges that showcase cloud skills. 3) Free access to AWS content for homework, labs, or self-study|
+|Collaboration|1) Student Portal access. 2) Student Portfolio to store developed projects in one place. 3) Access to the AWS Job Board and job postings.|
+
+
+SErvices with No Charge
+
 
 
 ## Total Cost of Ownership
+
+
+
+IT Infrastructure
+
+
+
+What is the Total Cost of Ownership?
+
+
+
+How is Total Cost of Ownership Calculated?
 
 
 
