@@ -869,17 +869,189 @@ Features Include:
 
 ------
 
-### 8. Databases
+### 8. Databases (Week 10 - 10.01 to 10.12)
+
+A database is a shared collection of related data used to support the activities of a particular organization. A database can be viewed as a repository of data that is defined once and then accessed by various users.
+
+A database has the following properties:
+  * It is a representation of some aspect of the real world or a collection of data elements (facts) representing real-world information.
+  * A database is logical, coherent and internally consistent.
+  * A database is designed, built and populated with data for a specific purpose.
+  * Each data item is stored in a field.
+  * A combination of fields makes up a table. For example, each field in an employee table contains data about an individual employee.
+
+The SQL data manipulation language (DML) is used to query and modify database data. SQL DML command statements, defined below.
+  * SELECT – to query data in the database
+  * INSERT – to insert data into a table
+  * UPDATE – to update data in a table
+  * DELETE – to delete data from a table
+
+Relational DBs (SQL based)
+
+This DB consists of a collection of tables (like CSV tables), that are connected. Each row in a table represents a record.
+
+Why is it called relational? What are the ‘relations’ that exist in this DB?
+
+Let ’s say you have a table of students information, and a table of the course grades (course, grade, student id), every grade row relates to a student record.
+
+All relational DBs are queried with SQL-like languages, which are commonly used and inherently support join operations. They allow the indexing of columns for faster queries based on those columns. Because of its structured nature, the relational DB’s schema is decided before inserting data.
+
+Common relational databases: MySQL, PostgreSQL, Oracle, MS SQL Server
+
+NoSQL DBs
+
+While in relational DBs everything is structured to rows and columns, in NoSQL DBs there is no common structured schema for all records. Most of the NoSQL databases contain JSON records, and different records can include different fields.
+
+This family of databases should actually be called “Not mainly SQL” — since many NoSQL DBs support querying using SQL, but using it is not the best practice for them.
+
+There are 4 main types of NoSQL databases:
+1. Document-oriented DBs
+
+The atomic unit of this DB is a document.
+
+Each document is a JSON, the schema can vary between different documents and contain different fields.
+
+Document DBs allow indexing of some fields in the document to allow faster queries based on those fields (this forces all the documents to have the field).
+
+When should I use it?
+Data analysis — Since different records are not dependent on one another (logic and structure-wise) this DB supports parallel computations.
+This allows you to perform big data analytics on our data easily.
+Common document-based databases: MongoDB, CouchDB, DocumentDB.
+
+2. Columnar DBs
+
+The atomic unit of this DB is a column in the table, meaning the data is stored column by column. It makes column-based queries very efficient, and since the data on each column is quite homogeneous, this allows better compression of the data.
+
+When should I use it?
+
+When you tend to query on a subset of columns in your data (doesn’t need to be the same subset each time!).
+
+Columnar DB performs such queries very fast since it only needs to read these specific columns (while row-based DB would have to read the entire data).
+  * This is often common in data science, where each column represents a feature. As a data scientist, I often train my models with subsets of the features and tend to check relations between features and scores (correlation, variance, significance).
+  * This is also common with logs — we often store a lot more fields in our logs database but uses only a few in each query.
+
+Common column DB database: Cassandra.
+
+3. Key-value DBs
+
+The querying is only key-based — You ask for a key and get its value.
+
+Doesn’t support queries across different record values like ‘select all records where city == New York’
+
+A useful feature in this DB is the TTL field (time to live), this field can be set differently for each record and state when it should be deleted from the DB.
+
+Advantages — It is very fast.
+
+First because of the use of unique keys, and second because most of the key-values databases store the data in memory (RAM) which allows quick access.
+Disadvantages — You need to define unique keys that are good identifiers and built of the data you know in the time of the query.
+Often more expensive than other kinds of databases (since runs on memory).
+
+When should I use it?
+
+Mainly used for cache since it is very fast and doesn’t require complex querying, also the TTL feature comes very useful for caching. It can also be used for any other kind of data that requires fast querying and meets the key-value format.
+
+Common key-value databases: Redis, Memcached
+
+4. Graph DBs
+
+Graph DBs contain nodes that represent entities and edges that represent relationships between entities.
+
+When should I use it?
+
+When your data is a graph like, like knowledge graphs and social networks.
+
+Common graph databases: Neo4j, InfiniteGraph
 
 ## AWS Databases
 
 ## AWS Relational Database Services
 
+Amazon RDS is a managed relational database service that provides you six familiar database engines to choose from, including Amazon Aurora , MySQL , MariaDB , Oracle , Microsoft SQL Server , and PostgreSQL . This means that the code, applications, and tools you already use today with your existing databases can be used with Amazon RDS. Amazon RDS handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair.
+
+Amazon RDS makes it easy to use replication to enhance availability and reliability for production workloads. Using the Multi-AZ (Links to an external site.) deployment option, you can run mission-critical workloads with high availability and built-in automated fail-over from your primary database to a synchronously replicated secondary database. Using Read Replicas, you can scale out beyond the capacity of a single database deployment for read-heavy database workloads.
+
+As with all Amazon Web Services, there are no up-front investments required, and you pay only for the resources you use.
+
+When to Choose Amazon RDS
+
+Use Amazon RDS when your application requires:
+  * Complex transactions or complex queries
+  * A medium to high query or write rate – up to 30,000 IOPS (15,000 reads + 15,000 writes)
+  * No more than a single worker node or shard
+  * High durability
+
+Do not use Amazon RDS when your application requires:
+  * Massive read/write rates (for example 150,000 writes per second)
+  * Sharding due to high data size or throughput demands
+  * Simple GET or PUT requests and queries that a NoSQL database can handle
+  * Or, relational database management system (RDBMS) customization
+
+For circumstances when you should not use Amazon RDS, consider either using a NoSQL database solution (such as DynamoDB) or running your relational database engine on Amazon EC2 instances instead of Amazon RDS (which will provide you with more options for customizing your database).
+
 ## AWS Dynamo DB
+
+Amazon DynamoDB is a fully managed key-value and document NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don't have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
+
+Amazon manages all the underlying data infrastructure for this service and redundantly stores data across multiple facilities in a native US Region as part of the fault-tolerant architecture. With DynamoDB, you can create tables and items. You can add items to a table. The system automatically partitions your data and has table storage to meet workload requirements. There is no practical limit on the number of items that you can store in a table. For instance, some customers have production tables that contain billions of items.
+
+As your application becomes more popular and as users continue to interact with it, your storage can grow with your application's needs. All the data in DynamoDB is stored on solid state drives (SSDs) and its simple query language enables consistent low-latency query performance. In addition to scaling storage, DynamoDB also enables you to provision the amount of read or write throughput that you need for your table. As the number of application users grows, DynamoDB tables can be scaled to handle the increased numbers of read/write requests with manual provisioning. Alternatively, you can enable automatic scaling so that DynamoDB monitors the load on the table and automatically increases or decreases the provisioned throughput.
+
+Some additional key features include global tables that enable you to automatically replicate across your choice of AWS Regions, encryption at rest, and item Time-to-Live (TTL)
+
+Core Components
+
+Tables, Items, and Attributes
+
+Key Features:
+  * NoSQL database tables
+  * Virtually unlimited storage
+  * Items can have differing attributes
+  * Low-latency queries
+  * Scalable read/write throughput
+
+The following are the basic DynamoDB components:
+  * Tables – Similar to other database systems, DynamoDB stores data in tables. A table is a collection of data. For example, see the example table called People that you could use to store personal contact information about friends, family, or anyone else of interest. You could also have a Cars table to store information about vehicles that people drive.
+  * Items – Each table contains zero or more items. An item is a group of attributes that is uniquely identifiable among all of the other items. In a People table, each item represents a person. For a Cars table, each item represents one vehicle. Items in DynamoDB are similar in many ways to rows, records, or tuples in other database systems. In DynamoDB, there is no limit to the number of items you can store in a table.
+  * Attributes – Each item is composed of one or more attributes. An attribute is a fundamental data element, something that does not need to be broken down any further. For example, an item in a People table contains attributes called PersonID, LastName, FirstName, and so on. For a Department table, an item might have attributes such as DepartmentID, Name, Manager, and so on. Attributes in DynamoDB are similar in many ways to fields or columns in other database systems.
+
+Primary Key
+
+When you create a table, in addition to the table name, you must specify the primary key of the table. The primary key uniquely identifies each item in the table, so that no two items can have the same key.
+  * Partition key – A simple primary key, composed of one attribute known as the partition key.
+  * Partition key and sort key – Referred to as a composite primary key, this type of key is composed of two attributes. The first attribute is the partition key, and the second attribute is the sort key.
+
+Secondary Indexes
+
+You can create one or more secondary indexes on a table. A secondary index lets you query the data in the table using an alternate key, in addition to queries against the primary key. DynamoDB doesn't require that you use indexes, but they give your applications more flexibility when querying your data. After you create a secondary index on a table, you can read data from the index in much the same way as you do from the table.
+DynamoDB supports two kinds of indexes:
+  * Global secondary index – An index with a partition key and sort key that can be different from those on the table.
+  * Local secondary index – An index that has the same partition key as the table, but a different sort key.
 
 ## AWS Redshift
 
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can start with just a few hundred gigabytes of data and scale to a petabyte or more. This enables you to use your data to acquire new insights and analytics for your business and customers.
+
+Redshift is integrated with data lakes which are usually a single store of all enterprise data including raw copies of source system data and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. It offers up to 3x faster performance than any other data warehouse, and costs up to 75% less than any other cloud data warehouse.
+
+It simple and cost-effective to analyze all your data by using standard SQL and your existing business intelligence (BI) tools. It enables you to run complex analytic queries against petabytes of structured data by using sophisticated query optimization, columnar storage on high-performance local disks, and massively parallel query execution. Most results come back in seconds
+
+How does it work?
+
+An Amazon Redshift cluster consists of nodes. Each cluster has a leader node and one or more compute nodes. The leader node receives queries from client applications, parses the queries, and develops query execution plans. The leader node then coordinates the parallel execution of these plans with the compute nodes and aggregates the intermediate results from these nodes. It then finally returns the results back to the client applications.
+Compute nodes execute the query execution plans and transmit data among themselves to serve these queries. The intermediate results are sent to the leader node for aggregation before being sent back to the client applications.
+
+Automation & Scaling
+  * It is straightforward to automate most of the common administrative tasks to manage, monitor, and scale your Amazon Redshift cluster—which enables you to focus on your data and your business.
+  * Scalability is intrinsic in Amazon Redshift. Your cluster can be scaled up and down as your needs change with a few clicks in the console.
+  * Security is the highest priority for AWS. With Amazon Redshift, security is built in, and it is designed to provide strong encryption of your data both at rest and in transit.
+
 ## AWS Aurora
+
+Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud, that combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases. Using Amazon Aurora can reduce your database costs while improving the reliability and availability of the database. As a fully managed service, Aurora is designed to automate time-consuming tasks like provisioning, patching, backup, recovery, failure detection, and repair.
+
+Amazon Aurora is designed to be highly available: it stores multiple copies of your data across multiple Availability Zones with continuous backups to Amazon S3. Amazon Aurora can use up to 15 read replicas can be used to reduce the possibility of losing your data. Additionally, Amazon Aurora is designed for instant crash recovery if your primary database becomes unhealthy.
+
+After a database crash, Amazon Aurora does not need to replay the redo log from the last database checkpoint. Instead, it performs this on every read operation. This reduces the restart time after a database crash to less than 60 seconds in most cases.
 
 ------
 
