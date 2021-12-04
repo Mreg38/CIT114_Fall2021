@@ -2,7 +2,7 @@
 
 ## These notes will be following the topics for the AWS Cloud Practitioner Exam
 
-### 1. Cloud Concepts Overview
+### 1. Cloud Concepts Overview (Mix of first few weeks)
 
 ## Concepts and Terminology
 
@@ -71,7 +71,7 @@ Organizational Agility - Businesses need the ability to adapt and evolve to succ
 
 ------
 
-## Goals and Benefits
+## Goals and Benefits (Week 2 - 2.1 - 2.17)
 
 Reduced Investments and Proportional Costs
 
@@ -93,7 +93,7 @@ The availability and reliability of IT resources are directly associated with ta
 
 ------
 
-## Risks and Challenges
+## Risks and Challenges (Week 2 - 2.1 to 2.17)
 
 Increased Security Vulnerabilities
 
@@ -117,7 +117,7 @@ Another potential legal issue pertains to the accessibility and disclosure of da
 
 Most regulatory frameworks recognize that cloud consumer organizations are ultimately responsible for the security, integrity, and storage of their own data, even when it is held by an external cloud provider.
 
-## AWS Perspective
+## AWS Perspective (Week 2 - 2.1 to 2.17)
 
 1. Trade capital expense for variable expense
 
@@ -143,7 +143,7 @@ Focus on projects that differentiate your business, not the infrastructure. Clou
 
 Easily deploy your application in multiple regions around the world with just a few clicks. This means you can provide a lower latency and better experience for your customers simply and at minimal cost.
 
-## Software as a Service (SaaS)
+## Software as a Service (SaaS) (Week 2 - 2.1 to 2.17)
 
 Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365).
 
@@ -176,7 +176,7 @@ With data stored in the cloud, users can access their information from any Inter
 
 ------
 
-### 2. Cloud Economics, Billing & Support
+### 2. Cloud Economics, Billing & Support (Week 4 - 4.1 to 4.26)
 
 ## AWS Pricing
 
@@ -226,6 +226,8 @@ AWS offers several pricing models depending on product. These include:
 
 Free Tier + Undrstanding the Free Tier
 
+For Rio Hondo:
+
 |Resource|Description|
 |---|---|
 |AWS Credits|$25 in credits for your normal AWS account, if requested|
@@ -234,34 +236,109 @@ Free Tier + Undrstanding the Free Tier
 |Content|1) Ability to select personalized learning pathway with 30+ hours of content per path. 2) Earn digital badges that showcase cloud skills. 3) Free access to AWS content for homework, labs, or self-study|
 |Collaboration|1) Student Portal access. 2) Student Portfolio to store developed projects in one place. 3) Access to the AWS Job Board and job postings.|
 
+Otherwise:
 
-SErvices with No Charge
+You can test-drive some AWS services free of charge, within certain usage limits. AWS calls this the AWS Free Tier. The free tier is designed to give you hands-on experience with a range of AWS services at no charge. When you create an AWS account, you are automatically signed up for the free tier for 12 months. Your free tier eligibility expires at the end of the 12-month period. When your free tier expires, AWS starts charging the regular rates for any AWS services and resources that you are using. 
 
+1) 12 Months Free – These tier offers include 12 months free usage following your initial sign-up date to AWS. When your 12 month free usage term expires, or if your application use exceeds the tiers, you simply pay standard, pay-as-you-go service rates.
+2) Always Free – These free tier offers do not expire and are available to all AWS customers.
+3) Trials – These offers are short term free trials starting from date you activate a particular service. Once the trial period expires, you simply pay standard, pay-as-you-go service rates.
 
+Services with No Charge
 
-## Total Cost of Ownership
+  * Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.
+  * AWS Identity and Access Management (IAM) controls your users’ access to AWS services and resources.
+  * Consolidated Billing is a billing feature in AWS Organizations to consolidate payment for multiple AWS accounts or multiple Amazon Internet Services Private Limited (AISPL) accounts*. Consolidated billing provides: 
+    - One bill for multiple accounts
+    - The ability to easily track each account’s charges
+    - The opportunity to decrease charges as a result of volume pricing discounts from combined usage.
+    - And you can consolidate all of your accounts using Consolidated Billing and get tiered benefits.
+  * AWS Elastic Beanstalk is an even easier way for you to quickly deploy and manage applications in the AWS Cloud.
+  * AWS CloudFormation gives developers and systems administrators an easy way to create a collection of related AWS resources and provision them in an orderly and predictable fashion.
+  * Automatic Scaling automatically adds or removes resources according to conditions you define. The resources you are using increase seamlessly during demand spikes to maintain performance and decrease automatically during demand lulls to minimize costs.
+  * AWS OpsWorks is an application management service that makes it easy to deploy and operate applications of all shapes and sizes.
 
-
+## Total Cost of Ownership (Week 4 - 4.1 to 4.26)
 
 IT Infrastructure
 
+Information technology (IT) infrastructure are the components required to operate and manage enterprise IT environments. IT infrastructure can be deployed within a cloud computing system, or within an organization's own facilities.
 
+These components include hardware, software, networking components, an operating system (OS), and data storage, all of which are used to deliver IT services and solutions. IT infrastructure products are available as downloadable software applications that run on top of existing IT resources—like software-defined storage—or as online solutions offered by service providers—like Infrastructure-as-a-Service (IaaS).
+
+Components:
+
+Hardware - includes servers, datacenters, personal computers, routers, switches, and other equipment. The facilities that house, cool, and power a datacenter could also be included as part of the infrastructure.
+
+Software - refers to the applications used by the business, such as web servers, content management systems, and the OS—like Linux (Links to an external site.)®. The OS is responsible for managing system resources and hardware, and makes the connections between all of your software and the physical resources that do the work.
+
+Network - interconnected network components enable network operations, management, and communication between internal and external systems. The network consists of internet connectivity, network enablement, firewalls and security, as well as hardware like routers, switches, and cables.
+
+Types of IT infrastructure:
+
+Traditional infrastructure - With a traditional infrastructure, the components—like datacenters, data storage, and other equipment—are all managed and owned by the business within their own facilities. Traditional infrastructure is often thought of as expensive to run and requires large amounts of hardware, like servers, as well as power and physical space.
+
+Cloud infrastructure - describes the components and resources needed for cloud computing. You can create a private cloud by building it yourself using resources dedicated solely to you. Or you can use a public cloud by renting cloud infrastructure from a cloud provider like Alibaba, Amazon, Google, IBM, or Microsoft. And by incorporating some degree of workload portability, orchestration, and management across multiple clouds you can create a hybrid cloud
 
 What is the Total Cost of Ownership?
 
+Total cost of ownership, or TCO, is a formula that assesses direct and indirect costs and benefits related to the purchase of any IT component. The goal is a final figure that will reflect the true purchase price, all things considered.
 
+TCO models are domain-dependent, then defining your own model will be part of the process. The best approach is to consider a list of attributes for the model, and then the degree to which these properties are relevant to your problem domain or enterprise. This will provide you with the ability to understand what benefits of cloud computing are most relevant to your business, and thus gain a true idea of the TCO.
+
+These properties include, but are not limited to:
+  * Existing infrastructure in place. Those 10 million dollars you spent on a new data center, and servers to fill it, can’t be recovered. Leveraging cloud as a replacement for existing infrastructure means you have to factor the cost of sidelining the existing assets.
+  * Existing skills and humans. In moving to cloud-based platforms, there are new skills and talent required that are likely different from the skills and talent you have in place. How much will this part of the transition cost?
+  * Moreover, what’s the difference in costs from pre-cloud to post-cloud? Cost of migration to cloud platforms. The amount of money it will take to move some applications and data to cloud-based platforms, including redoing aspects of the applications to better support cloud.
+  * Cost of cloud services when in operations. This includes the fees paid to the cloud provider, in the case of using public clouds, over a duration of time and should include a changing operational load.
+  * Value of agility (including time-to-market). Or, the value that the company places on the ability to shift or align quickly to the changing needs of the business. This should be considered around points of value delivered, such as the ability to quickly stand up cloud-based systems in support of a strategic acquisition, or to quickly scale up to higher storage capabilities in support of expanding R&D to new and emerging product lines.
+  * Value of avoiding future capital expenditures. The hardware and software budgets of the past get a complete makeover, with most traditional purchases being greatly reduced or eliminated altogether. This gets to the whole opex versus capex type of value.
+  * Cost of risk around compliance issues. If you’re in the healthcare or finance verticals, you’re already aware of the issues around compliance with rules and regulations. When moving to cloud, you could be adding or removing risk of non-compliance. These have costs to consider, and thus should be baked into the TCO calculation.
 
 How is Total Cost of Ownership Calculated?
 
+TCO is a financial estimate that helps enterprise managers determine both direct and indirect costs of a product or system, such as AWS. This management accounting concept can be used to understand the big, long-term picture of exactly how much AWS will cost (or more accurately, save) your organization. Considerations for TCO extend beyond just the initial purchase price or implementation costs and account for the full cost of an asset over its life, which aren’t always reflected in upfront pricing.
 
+Components of Total Cost for Technology
+  * Hardware acquisition
+  * Software acquisition
+  * Infrastructure
+  * Downtime
+  * Installation
+  * Maintenance
+  * Training
+  * Support
+  * Space
+  * Electricity
 
 ------
 
-### 3. Cloud Global Infrastructure
+### 3. Cloud Global Infrastructure (Week 15 15.01 to 15.12)
 
 Computing w/AWS
 
+Using cloud for things such as data back up or recovery, email, virtual desktops, software development & testing, customer facing web applications to make a business more agile, reduce cost, instantly scale and deploy globally in minutes.
+
 AWS Global Infrastructure Terminology
+
+AWS Regions - are separate geographic areas that AWS uses to house its infrastructure. These are distributed around the world so that customers can choose a region closest to them in order to host their cloud infrastructure there. The closer your region is to you, the better, so that you can reduce network latency as much as possible for your end-users. You want to be near the data centers for fast service.
+
+Best practices for choosing AWS Regions
+
+In general, try to follow these best practices when you choose a region, to help ensure top performance and resilience:
+  * Proximity: Choose a region closest to your location and your customers’ location to optimize network latency.
+  * Services: Try and think about what are your most needed services. Usually, the newest services start on a few main regions then pop up in other regions later.
+  * Cost: Certain regions will cost more than others, so use built-in AWS calculators to do rough cost estimates to inform your choices.
+  * Service Level Agreement (SLA): Just as with cost, your SLA details will vary by region, so be sure to be aware of what your needs are and if they’re being met.
+  * Compliance: You may need to meet regulatory compliance needs such as GDPR by hosting your deployment in a specific — or multiple regions.
+
+AWS Availability Zone (AZ) - is the logical building block that makes up an AWS Region. There are currently 76 AZs, which are isolated locations— data centers — within a region. Each region has multiple AZs and when you design your infrastructure to have backups of data in other AZs you are building a very efficient model of resiliency, i.e. a core concept of cloud computing.
+
+AWS Infrastructure Features:
+
+First, AWS Infrastructure is elastic and scalable. This means resources can dynamically adjust to increases or decreases in capacity requirements. It can also rapidly adjust to accommodate growth.
+
+Second, this infrastructure is fault tolerant, which means it has built-in component redundancy which enables it to continue operations despite a failed component.
 
 AWS Global Infrastructure
 
@@ -311,7 +388,7 @@ AWS Foundational Services
 
 ## Serverless (inc. AWS Lambda)
 
-## PaaS (inc. AWS Elastic Beanstalk)
+## PaaS (inc. AWS Elastic Beanstalk) (Week 2 - 2.1 to 2.17)
 
 Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. You purchase the resources you need from a cloud service provider on a pay-as-you-go basis and access them over a secure Internet connection.
 
