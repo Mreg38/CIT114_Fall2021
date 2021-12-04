@@ -7,9 +7,11 @@
 Concepts and Terminology
 
 Cloud - refers to a distinct IT environment that is designed for the purpose of remotely provisioning scalable and measured IT resources. The term originated as a metaphor for the Internet which is, in essence, a network of networks providing remote access to a set of decentralized IT resources.
+
 IT resource - is a physical or virtual IT-related artifact that can be either software based, such as a virtual server or a custom software program, or hardware-based, such as a physical server or a network device.
+
 On-Premise - is another way of stating "on the premises of a controlled IT environment that is not cloud-based." This term is used to qualify an IT resource as an alternative to "cloud-based." An IT resource that is on-premise cannot be cloud-based, and vice-versa.
-  Key Points:
+Key Points:
   *	An on-premise IT resource can access and interact with a cloud-based IT resource.
   *	An on-premise IT resource can be moved to a cloud, thereby changing it to a cloud-based IT resource.
   *	Redundant deployments of an IT resource can exist in both on-premise and cloud based environments.
