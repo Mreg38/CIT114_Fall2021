@@ -1228,10 +1228,10 @@ Scale based on a schedule — Scaling can also be defined by time and date value
 Scale on demand policy — Demand scaling allows users custom metrics that will determine the scaling out and in of your defined fleet of EC2 instances. Multiple policies can be attached to an ASG that can both control the scaling out and in. Multiple scaling policies can provide scaling control. For example, a scaling policy might react to the CloudWatch metric Network Utilization and scale out when network traffic is greater than (>) a certain percentage. Or a scaling policy could measure the depth of messages in an SQS queue and scale out when the number of messages is over a certain value.
 
 Both simple scaling and step scaling support the following parameters for scaling instances:
-  * ChangeInCapacity—Increase or decrease the capacity of the ASG by the defined number of instances.
-  * ExactCapacity—This value defines the capacity of the ASG to the defined number. For example, if the current capacity is four instances and an adjustment to the ASG is three instances, the capacity is set to seven instances.
-  * PercentChangeInCapacity—This changes to the capacity of the ASG by either a positive or a negative percentage value.
-  * Step Autoscaling Policy—Using steps is the most advanced option because it allows you to have multiple policies for scaling out and in. Step scaling allows you to define a lower and upper boundary for the metric being used and to define the amount by which to scale in or scale out the instances, as shown in Figure 5-32, with incremental steps in or out.
+  * ChangeInCapacity — Increase or decrease the capacity of the ASG by the defined number of instances.
+  * ExactCapacity — This value defines the capacity of the ASG to the defined number. For example, if the current capacity is four instances and an adjustment to the ASG is three instances, the capacity is set to seven instances.
+  * PercentChangeInCapacity — This changes to the capacity of the ASG by either a positive or a negative percentage value.
+  * Step Autoscaling Policy — Using steps is the most advanced option because it allows you to have multiple policies for scaling out and in. Step scaling allows you to define a lower and upper boundary for the metric being used and to define the amount by which to scale in or scale out the instances, as shown in Figure 5-32, with incremental steps in or out.
     - A first instance is added when CPU utilization is between 40% and 50%.
     - The next step adds two instances when CPU utilization is between 50% and 70%.
     - In the third step, three instances are added when CPU utilization is between 70% and 90%.
