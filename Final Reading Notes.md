@@ -597,28 +597,136 @@ Outbound
 |0.0.0.0/0|All|All|Allow all outbound IPv4 traffic.|
 |::/0|All|All|Allow all outbound IPv6 traffic. This rule is added by default if you create a VPC with an IPv6 CIDR block or if you associate an IPv6 CIDR block with your existing VPC.|
 
+You can change the rules for the default security group, but you cannot delete it.
 
+Custom Security Groups
 
+When you create a custom security group, you can specify allow rules, but not deny rules. All rules are evaluated before the decision to allow traffic. The kind of rules that you add can depend on the purpose of the security group.
+
+The following table describes example rules for a security group that's associated with web servers. The web servers can receive HTTP and HTTPS traffic from all IPv4 and IPv6 addresses, and can send SQL or MySQL traffic to a database server.
+
+Inbound
+|Destination|Protocol|Port range|Description|
+|---|---|---|---|
+|0.0.0.0/0|TCP|80|Allow inbound HTTP access from all IPv4 addresses|
+|::/0|TCP|80|Allow inbound HTTP access from all IPv6 addresses|
+|0.0.0.0/0|TCP|443|Allow inbound HTTPS access from all IPv4 addresses|
+|::/0|TCP|443|Allow inbound HTTPS access from all IPv6 addresses|
+|Your network's public IPv4 address range|TCP|22|Allow inbound SSH access to Linux instances from IPv4 IP addresses in your network (over the internet gateway)|
+|Your network's public IPv4 address range|TCP|3389|Allow inbound RDP access to Windows instances from IPv4 IP addresses in your network (over the internet gateway)|
+
+Outbound
+|Destination|Protocol|Port range|Description|
+|---|---|---|---|
+|The ID of the security group for your Microsoft SQL Server database servers|TCP|1433|Allow outbound Microsoft SQL Server access to instances in the specified security group|
+|The ID of the security group for your MySQL database servers|TCP|3306|Allow outbound MySQL access to instances in the specified security group|
+
+A network access control list (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC.
+
+Network ACL basics
+
+The following are the basic things that you need to know about network ACLs:
+  * Your VPC automatically comes with a modifiable default network ACL. By default, it allows all inbound and outbound IPv4 traffic and, if applicable, IPv6 traffic.
+  * You can create a custom network ACL and associate it with a subnet. By default, each custom network ACL denies all inbound and outbound traffic until you add rules.
+  * Each subnet in your VPC must be associated with a network ACL. If you don't explicitly associate a subnet with a network ACL, the subnet is automatically associated with the default network ACL.
+  * You can associate a network ACL with multiple subnets. However, a subnet can be associated with only one network ACL at a time. When you associate a network ACL with a subnet, the previous association is removed.
+  * A network ACL contains a numbered list of rules. We evaluate the rules in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL. The highest number that you can use for a rule is 32766. We recommend that you start by creating rules in increments (for example, increments of 10 or 100) so that you can insert new rules where you need to later on.
+  * A network ACL has separate inbound and outbound rules, and each rule can either allow or deny traffic.
+  * Network ACLs are stateless, which means that responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa).
 
 ## AWS Networking Services (7.22, 7.23)
 
+Amazon Route 53
 
+DNS, or the Domain Name System, translates human readable domain names (for example, www.amazon.com) to machine readable IP addresses (for example, 192.0.2.44).
+
+All computers on the Internet, from your smart phone or laptop to the servers that serve content for massive retail websites, find and communicate with one another by using numbers. These numbers are known as IP addresses. When you open a web browser and go to a website, you don't have to remember and enter a long number. Instead, you can enter a domain name like example.com and still end up in the right place.
+
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It is designed to give developers and businesses an extremely reliable and cost effective way to route end users to Internet applications by translating names like www.example.com into the numeric IP addresses like 192.0.2.1 that computers use to connect to each other.
+
+Amazon Route 53 enables you to improve the availability of your applications that run on AWS by:
+  * Configuring backup and failover scenarios for your own applications.
+  * Enabling highly available multi-Region architectures on AWS.
+  * Creating health checks to monitor the health and performance of your web applications, web servers, and other resources.
+  * Each health check that you create can monitor one of the following—the health of a specified resource, such as a web server; the status of other health checks; and the status of an Amazon CloudWatch alarm.
+
+Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment. CloudFront is integrated with AWS – both physical locations that are directly connected to the AWS global infrastructure, as well as other AWS services. CloudFront works seamlessly with services including AWS Shield for DDoS mitigation, Amazon S3, Elastic Load Balancing or Amazon EC2 as origins for your applications, and Lambda@Edge to run custom code closer to customers’ users and to customize the user experience. Lastly, if you use AWS origins such as Amazon S3, Amazon EC2 or Elastic Load Balancing, you don’t pay for any data transferred between these services and CloudFront.
 
 ------
 
-### 6. Compute
+### 6. Compute (Week 2, 8, 15)
 
-## Available Operatoing Systems at AWS
+## Available Operating Systems at AWS
 
 ## AWS Compute Services + Choosing the Right Service
 
+Cloud providers offers a wide variety of compute services allowing you to develop, deploy, run, and scale your applications and workloads in the cloud. Some of the AWS Compute services include:
+  * Amazon Elastic Compute Cloud (Amazon EC2) provides resizable virtual machines.
+  * Amazon EC2 Auto Scaling supports application availability by allowing you to define conditions that will automatically launch or terminate EC2 instances.
+  * Amazon Elastic Container Registry (Amazon ECR) is used to store and retrieve Docker images.
+  * Amazon Elastic Container Service (Amazon ECS) is a container orchestration service that supports Docker.
+  * Amazon Elastic Kubernetes Service (Amazon EKS) enables you to run managed Kubernetes on AWS.
+  * Amazon Lightsail provides a simple-to-use service for building an application or website.
+  * AWS Batch provides a tool for running batch jobs at any scale
+  * AWS Elastic Beanstalk provides a simple way to run and manage web applications.
+  * AWS Fargate provides a way to run containers that reduce the need for you to manage servers or clusters.
+  * AWS Lambda is a serverless compute solution. You pay only for the compute time that you use.
+  * AWS Serverless Application Repository provides a way to discover, deploy, and publish serverless applications.
+  * AWS Outposts provides a way to run select AWS services in your on-premises data center.
+  * VMware Cloud on AWS enables you to provision a hybrid cloud without custom hardware.
+
+Selecting compute resources that meet your requirements, performance needs, and provide great efficiency of cost and effort will enable you to accomplish more with the same number of resources. When evaluating compute options, be aware of your requirements for workload performance and cost requirements and use this to make informed decisions.
+
+In AWS, compute is available in three forms: instances, containers, and functions:
+  * Instances are virtualized servers, allowing you to change their capabilities with a button or an API call. Because resource decisions in the cloud aren’t ﬁxed, you can experiment with different server types. At AWS, these virtual server instances come in different families and sizes, and they offer a wide variety of capabilities, includ- ing solid-state drives (SSDs) and graphics processing units (GPUs).
+  * Containers are a method of operating system virtualization that allow you to run an application and its dependencies in resource-isolated processes. AWS Fargate is serverless compute for containers or Amazon EC2 can be used if you need control over the installation, configuration, and management of your compute environment. You can also choose from multiple container orchestration platforms: Amazon Elastic Container Service (ECS) or Amazon Elastic Kubernetes Service (EKS).
+  * Functions abstract the execution environment from the code you want to execute. For example, AWS Lambda allows you to execute code without running an instance.
+
+Best Practices for Selecting Compute Resources:
+  * Evaluate the available compute options: Understand the performance characteristics of the compute-related options available to you. Know how instances, containers, and functions work, and what advantages, or disadvantages, they bring to your workload.
+  * Understand the available compute configuration options: Understand how various options complement your workload, and which configuration options are best for your system. Examples of these options include instance family, sizes, features (GPU, I/O), function sizes, container instances, and single versus multi-tenancy.
+  * Collect compute-related metrics: One of the best ways to understand how your compute systems are performing is to record and track the true utilization of various resources. This data can be used to make more accurate determinations about resource requirements.
+  * Determine the required configuration by right-sizing: Analyze the various performance characteristics of your workload and how these characteristics relate to memory, network, and CPU usage. Use this data to choose resources that best match your workload's profile. For example, a memory-intensive workload, such as a database, could be served best by the r-family of instances. However, a bursting workload can benefit more from an elastic container system.
+  * Use the available elasticity of resources: The cloud provides the flexibility to expand or reduce your resources dynamically through a variety of mechanisms to meet changes in demand. Combined with compute-related metrics, a workload can automatically respond to changes and utilize the optimal set of resources to achieve its goal.
+  * Re-evaluate compute needs based on metrics: Use system-level metrics to identify the behavior and requirements of your workload over time. Evaluate your workload's needs by comparing the available resources with these requirements and make changes to your compute environment to best match your workload's profile. For example, over time a system might be observed to be more memory-intensive than initially thought, so moving to a different instance family or size could improve both performance and efficiency.
+
+The optimal compute service will depend on your use case. In addition to understanding the above, you should ask questions based on aspects of the project:
+  * What is your application design?
+  * What are your usage patterns? Consistent usage, infrequent usage?
+  * Which configuration settings will you need to manage?
+
 ## Virtual Machines (inc. EC2)
+
+Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.  Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
+
+This allows you to build Infrastructure as a Service (IaaS) applications for instance-based virtual machines. You can provision virtual machines and manage them as you choose. This method of compute is a familiar concepts with IT professionals.
+
+  * Amazon Elastic Compute Cloud (Amazon EC2) provides resizable compute capacity as virtual machines in the cloud.
+  * Amazon EC2 Auto Scaling enables you to automatically add or remove EC2 instances according to conditions that you define.
 
 ## Containers (inc. Docker & Kubernetes)
 
+Amazon Web Services has many different container services including Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, AWS Fargate, and Amazon Elastic Container Registry. These services are instance-based and enable you to run multiple workloads on a single operating system (OS). Containers spin up more quickly than virtual machines, thus offering responsiveness. Container-based solutions continue to grow in popularity.
+
+  * Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-performance container orchestration service that supports Docker containers.
+  * Amazon Elastic Container Registry (Amazon ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
+  * Amazon Elastic Kubernetes Service (Amazon EKS) makes it easy to deploy, manage, and scale containerized applications that use Kubernetes on AWS.
+  * AWS Fargate is a compute engine for Amazon ECS that allows you to run containers without having to manage servers or clusters.
+
 ## Serverless (inc. AWS Lambda)
 
-## PaaS (inc. AWS Elastic Beanstalk) (Week 2 - 2.1 to 2.17)
+AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume—there is no charge when your code is not running.
+Serverless is a category of compute where you write and deploy code, but do not manage the underlying infrastructure.It is a function based environment that is low cost where deployed code can be triggered on a schedule or events. This is a newer concept for many IT professionals but is easy to learn and use.
+
+  * AWS Lambda enables you to run code without provisioning or managing servers. You pay only for the compute time that you consume. There is no charge when your code is not running.
+
+## PaaS (inc. AWS Elastic Beanstalk) (Week 2 - 2.1 to 2.17 and Week 8 - 8.01 to 8.19)
+
+As a category, platform as a service allows a company to focus on building code and applications rather than manage infrastructure. AWS Elastic Beanstalk provides a platform as a service (PaaS). It facilitates the quick deployment of applications that you create by providing all the application services that you need. AWS manages the OS, the application server, and the other infrastructure components so that you can focus on developing your application code.
+
+  * AWS Elastic Beanstalk is a service for deploying and scaling web applications and services on familiar servers such as Apache and Microsoft Internet Information Services (IIS).
+
+For IT professionals, it is a fast and easy service to get started, however, you loose the ability to control the underlying infrastructure.
 
 Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. You purchase the resources you need from a cloud service provider on a pay-as-you-go basis and access them over a secure Internet connection.
 
