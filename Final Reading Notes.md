@@ -382,7 +382,7 @@ AWS networking and content delivery are designed to ensure that AWS has the netw
 
 ### 4. Cloud Security (Week 6 6.01 to 6.16)
 
-## Intro to AWS SErcurity
+## Intro to AWS Security
 
 The AWS infrastructure has been architected to be one of the most flexible and secure cloud computing environments available today. It is designed to provide an extremely scalable, highly reliable platform that enables customers to deploy applications and data quickly and securely.
 
@@ -408,17 +408,113 @@ The customer is responsible for what is implemented by using AWS services and fo
 
 The selection made by the customer determines the amount of configuration work the customer must perform as part of their security responsibilities. 
 
-## AWS Sercurity Best Practices
+## AWS Security Best Practices
+
+  * Know the AWS Shared Responsibility Model
+  * Understanding the AWS Secure Global Infrastructure
+    - Sharing Security Responsibility for AWS Services
+    - Using the Trusted Advisor Tool
+  * Manage AWS Accounts, IAM Users, Groups, and Roles
+    - Strategies for Using Multiple AWS Accounts
+    - Managing IAM Users
+    - Managing IAM Groups
+    - Managing AWS Credentials
 
 ## AWS IAM (6.06 thru 6.09)
 
+AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources for your users. You use IAM to control who can use your AWS resources (authentication) and what resources they can use and in what ways (authorization).
+
+When you first create an AWS account, you begin with a single sign-in identity that has complete access to all AWS services and resources in the account. This identity is called the AWS account root user and is accessed by signing in with the email address and password that you used to create the account.
+
+Authorization is the process of determining what permissions a user, service or application should be granted. After a user has been authenticated, they must be authorized to access AWS services.
+
+By default, IAM users do not have permissions to access any resources or data in an AWS account. Instead, you must explicitly grant permissions to a user, group, or role by creating a policy.
+
+To assign permission to a user, group or role, you must create an IAM policy (or find an existing policy in the account). There are no default permissions. All actions in the account are denied to the user by default (implicit deny) unless those actions are explicitly allowed. Any actions that you do not explicitly allow are denied. Any actions that you explicitly deny are always denied.
+
+The principle of least privilege is an important concept in computer security. It promotes that you grant only the minimal user privileges needed to the user, based on the needs of your users. When you create IAM policies, it is a best practice to follow this security advice of granting least privilege. Determine what users need to be able to do and then craft policies for them that let the users perform only those tasks. Start with a minimum set of permissions and grant additional permissions as necessary. Doing so is more secure than starting with permissions that are too broad and then later trying to lock down the permissions granted.
+
 ## AWS Services for Cloud Security (6.12 thru 6.15)
+
+  * AWS Service Catalog - allows organizations to create and manage catalogs of IT services that are approved for use on AWS. These IT services can include everything from virtual machine images, servers, software, and databases to complete multi-tier application architectures.
+  * AWS Web Application Firewall (WAF) - helps protect your web applications or APIs against common web exploits that may affect availability, compromise security, or consume excessive resources. This differs from AWS Shield in that it operates on application layer (Layer 7) of the OSI model and protects against attacks such as SQL injection or cross-site scripting.
+  * Amazon Macie - is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. It can help you proactively identify and protect personally identifiable information (PII) and know when it moves.
+  * Amazon Inspector - is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices. It can help you validate you are adhering to standards.
+  * Amazon GuardDuty - is an intelligent threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads.
 
 ------
 
-### 5. Networking & Content Delivery
+### 5. Networking & Content Delivery (Week 7 - 7.01 to 7.23)
 
 ## Introduction to Networking (7.01 thru 7.06)
+
+In the broadest terms, people often view the Internet as a cloud. You put your data in one place, and it comes out the place you want it to on the other side, with what happens in between obscured in the fog.
+
+In reality the internet is tens of thousands kilometres of fiber optic cable, hundreds of thousands to millions of kilometres of copper wire, and hardware and software connecting them all together in a redundant, fast, and self-sufficient network. But not to worry, it’s not that bad: you only have to worry about a very small portion of the network, you can let someone else worry about the rest.
+
+Computer Network - It is the interconnection of multiple devices, generally termed as Hosts connected using multiple paths for the purpose of sending/receiving data or media. There are also multiple devices or mediums which helps in the communication between two different devices which are known as Network devices. Ex: Router, Switch, Hub, Bridge.
+
+OSI (Open Systems Interconnection) - It is a reference model that specifies standards for communications protocols and also the functionalities of each layer.
+
+The OSI Model layers are as follows: (Anagram: All People Seem To Need Data Processing)
+
+  * Layer 7 - Application - The application layer is the OSI layer closest to the end user, which means both the OSI application layer and the user interact directly with the software application.
+  * Layer 6 - Presentation - The presentation layer establishes context between application-layer entities, in which the application-layer entities may use different syntax and semantics if the presentation service provides a mapping between them.
+  * Layer 5 - Session - The session layer controls the dialogues (connections) between computers. It establishes, manages and terminates the connections between the local and remote application.
+  * Layer 4 - Transport - The transport layer provides the functional and procedural means of transferring variable-length data sequences from a source to a destination host, while maintaining the quality of service functions.
+  * Layer 3 - Network - The network layer provides the functional and procedural means of transferring variable length data sequences (called packets) from one node to another connected in "different networks".
+  * Layer 2 - Data Link - The data link layer provides node-to-node data transfer—a link between two directly connected nodes
+  * Layer 1 - Physical - Responsible for the transmission and reception of unstructured raw data between a device and a physical transmission medium.
+
+Protocol - is the set of rules or algorithms which define the way how two entities can communicate across the network and there exists different protocol defined at each layer of OSI model. Few of such protocols are TCP, IP, UDP, ARP, DHCP, FTP and so on.
+
+Unique Identifiers of Network
+
+Host name - Each device in the network is associated with a unique device name
+
+IP Address (Internet Protocol address) - Also, know as Logical Address, is the network address of the system across the network. To identify each device in the world-wide-web, Internet Assigned Numbers Authority (IANA) assigns IPv4 (Version 4) address as a unique identifier for each device on the Internet. However there is also an IPv6 (Version 6) scheme available that has more addresses available.
+
+Classless Inter-Domain Routing (CIDR) - A common method to describe networks is Classless Inter-Domain Routing (CIDR). The CIDR address is expressed as follows:
+  * An IP address (which is the first address of the network)
+  * Next, a slash character (/)
+  * Finally, a number that tells you how many bits of the routing prefix must be fixed or allocated for the network identifier
+
+MAC Address (Media Access Control address) - Also known as physical address, is the unique identifier of each host and is associated with the NIC (Network Interface Card). MAC address is assigned to the NIC at the time of manufacturing.
+
+Port - can be referred to as a logical channel through which data can be sent/received to an application. Any host may have multiple applications running, and each of this application is identified using the port number on which they are running on.
+
+Port number is a 16-bit integer, hence we have 216 ports available which are categorized as shown below:
+  * Well known Ports 0–1023
+  * Registered Ports 1024–49151
+  * Ephemeral Ports 49152–65535
+
+Number of ports: 65,536
+
+Range: 0–65535
+
+Socket - The unique combination of IP address and Port number together.
+
+DNS Server (Domain Name System) - basically a server which translates web addresses or URL (ex: www.google.com) into their corresponding IP addresses. We don’t have to remember all the IP addresses of each and every website.
+
+ARP (Address Resolution Protocol) - It is used to convert the IP address to its corresponding Physical Address (i.e. MAC Address). ARP is used by the Data Link Layer to identify the MAC address of the Receiver’s machine.
+
+RARP (Reverse Address Resolution Protocol) - provides the IP address of the device given a physical address as input. But RARP has become obsolete since the time DHCP has come into the picture.
+
+Internet - it is a global network of smaller networks interconnected using communication protocols that are standardized. The Internet standards describe a framework known as the Internet protocol suite. This model divides methods into a layered system of protocols.
+
+These layers are as follows:
+1.	Application layer (highest) — concerned with the data(URL, type, etc), where HTTP, HTTPS, etc comes in.
+2.	Transport layer — responsible for end-to-end communication over a network.
+3.	Network layer — provides a data route.
+
+World Wide Web - is a subset of the internet. It’s a system of Internet servers that support specially formatted documents. The documents are formatted in a markup language called HTML(that supports links, multimedia, etc). These documents are interlinked using hypertext links and are accessible via the Internet.
+
+To link hypertext to the Internet, we need:
+1.	The markup language, i.e., HTML.
+2.	The transfer protocol, e.g., HTTP.
+3.	Uniform Resource Locator (URL), the address of the resource.
+
+We access the web using web browsers.
 
 ## AWS VPC (7.07 thru 7.11)
 
