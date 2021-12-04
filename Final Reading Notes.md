@@ -1127,13 +1127,50 @@ How it Works
    -	Cost optimization
 3.	You can 1) get videos and documentation 2) generate a report that summarizes your workload review, & 3) see the results of reviews in a single dashboard.
 
-
 ------
 
-### 10. Automatic Scaling & Monitoring
+### 10. Automatic Scaling & Monitoring (Week 12)
+
+Planning for Scale and Resiliency
+
+Scaling is the secret sauce for all public cloud providers: everybody has this feature, and everybody uses this feature. Every application that you like to use on your phone or tablet is controlled by some elements of scale. If your application is slow, perhaps it’s because there are too many users currently accessing the application. If your application has decent performance, the odds are that the application is being carefully monitored, and resources are being added or removed based on demand.
 
 ## AWS CloudWatch
 
+CloudWatch is a monitoring service embedded in the AWS cloud operating system. Many AWS services use CloudWatch to collect metrics that you can use to analyze how your service is currently operating. After ordering specific AWS services, metrics are enabled and available for evaluating the performance and operation of most AWS services.
+
+Only once an AWS service has been ordered and begins operation is there any data flow, and subsequently, CloudWatch metric data records published to the service’s CloudWatch dashboard.
+
+Monitoring
+
+Basic monitoring provided by CloudWatch is free of charge and, depending on the AWS service, a select number of metrics are enabled. Metrics report to CloudWatch on a variety of intervals. There is no default among all the services that are supported. 
+
+Logging
+
+CloudWatch also has a logging service that allows you to send your log data from your Linux and Windows instances to CloudWatch log groups. This enables you to further analyze and search your log data for any specific patterns, such as errors or system issues, that you want to analyze further.
+
+Collected data stored in a CloudWatch log can be analyzed further by selecting one of the following options:
+  * Export log data to Amazon S3—Log information on a defined date range can be exported to a Simple Storage Service (S3) bucket for analysis by any third-party monitoring application.
+  * Stream log data to AWS Lambda—When a log event matches a specific filter, Lambda can swing into action and carry out its defined task. Amazon warns you that streaming log data might cost you; it recommends creating a budget that alerts you when you are close to exceeding your defined budget.
+  * Stream to an Amazon ElastiSearch Cluster—Do this and visualize your data using the open source data virtualization tool Kibana.
+
+Collecting Data with the CloudWatch Agent
+
+Like any monitoring service, the back-end engine of CloudWatch receives and stores metrics or log data from a CloudWatch agent installed on the EC2 instance, or, optionally on Linux or Windows Server 2016 or later server images that are located on-premise. 
+
 ## Amazon EC2 AutoScaling
+
+Allows us to launch or terminate instances controlled by CloudWatch alarms. Metrics include auto-scale group metrics such as the minimum and maximum group size and the in-service, pending, standby, and total instances.
+
+In a nutshell, EC2 Auto Scaling makes sure that the compute power required by your application is always available. EC2 instances are grouped together in what is called an Auto Scaling group (ASG). Once you define the minimum number of instances for each ASG, auto scaling ensures that the minimum defined instance number is always available. You can also define a maximum number of instances in the ASG; auto scaling manages the maximum number as well. Perhaps you want to maintain a desired capacity of compute instances; that’s also an available option. Desired capacity was defining the number of EC2 instances that are started when auto scaling is first launched. If you defined a desired capacity of 2 instances, then 2 instances will be maintained by Auto Scale. The desired compute capacity can also be scaled out or in based on CloudWatch alarm triggers, which can order a change in the number of instances plus or minus. If a desired capacity value is entered, the desired capacity is maintained.
+
+Besides the EC2 auto scaling benefit of maintaining the right amount of compute capacity, there are other benefits to consider:
+  * Cost management—EC2 auto scaling helps to save money; if your application has just the right amount of capacity—not too much and not too little—then you’re not wasting compute power that you’re not utilizing. Automating your capacity saves you a lot of money.
+  * Fault tolerance—EC2 auto scaling integrates with AWS load balancing services (ELB) and AZs. Auto scaling makes the load balancer’s job easier because the resources available in each AZ can be scaled up and down based on demand.
+  * Health checks—EC2 auto scaling can detect when instances are unhealthy. You may remember that the load-balancing service could also do health checks on targets in target groups. Auto scaling can not only detect unhealthy instances but remove and replace the instance that’s unhealthy with a new instance.
+
+EC2 Auto Scaling Components
+
+EC2 auto scaling works with three main components: a launch template, also called a launch configuration; ASGs; and a defined scaling policy.
 
 ## Chapter 5 via O'Reilly: Planning for Scale & Resiliency
